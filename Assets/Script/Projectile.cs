@@ -7,6 +7,9 @@ public class Projectile : MonoBehaviour
 {
     public Rigidbody Bullet_rb;
     public float destroyTime;
+
+    public TrailRenderer trail;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +57,8 @@ public class Projectile : MonoBehaviour
         transform.rotation = rotation;
 
         Debug.Log("=: " + pos + rotation + " ~~ "+transform.position  +transform.rotation);
+
+        trail.enabled = true;
 
         
         float range =0.0f;

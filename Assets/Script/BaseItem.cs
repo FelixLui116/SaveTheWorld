@@ -14,6 +14,8 @@ public class BaseItem : MonoBehaviour
     [SerializeField] protected float pickUpRange = 1;
     private bool isCollision = false;
     protected BoxCollider boxCollider;
+    [SerializeField] protected GameObject ItemObj; 
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider>();
@@ -53,7 +55,7 @@ public class BaseItem : MonoBehaviour
     {
         // gameObject.SetActive(false);
         yield return new WaitForSeconds(seconds);
-        Destroy(gameObject);
+        Destroy(ItemObj);
     }
 
     public void AudioPlayer(){ 

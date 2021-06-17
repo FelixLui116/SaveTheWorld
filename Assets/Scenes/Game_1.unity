@@ -5083,6 +5083,7 @@ GameObject:
   - component: {fileID: 1077845872}
   - component: {fileID: 1077845874}
   - component: {fileID: 1077845873}
+  - component: {fileID: 1077845875}
   m_Layer: 0
   m_Name: AmmoBox
   m_TagString: Ammo
@@ -5217,6 +5218,25 @@ MonoBehaviour:
   pickUpRange: 1
   ammoTpye: 0
   AmmoNum: 0
+--- !u!95 &1077845875
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077845871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ae2821dd377043ddb4ade9d5b04418e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1095147636
 GameObject:
   m_ObjectHideFlags: 0
@@ -7594,6 +7614,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1608324352}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1630397117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8535651046868645836, guid: 98033711bdb31de40962a28375c35ea5,
+    type: 3}
+  m_PrefabInstance: {fileID: 18509135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1630397123
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630397117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ae2821dd377043ddb4ade9d5b04418e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1630928591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9670,6 +9715,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1969586568}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2015323335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1490024841198276204, guid: 6a0f01df6fd749b4ead8025d94c107a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 9150332962952697681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2015323336 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6117185132319757565, guid: 6a0f01df6fd749b4ead8025d94c107a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 9150332962952697681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2015323337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015323335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd92df18c95cee41800efa94e0c29d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio_Collision: {fileID: 2015323336}
+  pickUpRange: 1
+  CoinNum: 10
 --- !u!1 &2027172692
 GameObject:
   m_ObjectHideFlags: 0
