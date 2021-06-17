@@ -7,6 +7,7 @@ public class AmmoBox : BaseItem
     // Start is called before the first frame update
     public enum AmmoTpye { Blue, green, yollow, red }
     public AmmoTpye ammoTpye;
+    // public GameObject thisObject;
     [Range(0, 1000)] public int AmmoNum = 0;
 
     void Start()
@@ -16,7 +17,7 @@ public class AmmoBox : BaseItem
                 ammoTpye == AmmoTpye.yollow ? 2 :
                 ammoTpye == AmmoTpye.red    ? 3 : 0;
 
-        audio_Collision.clip = ResourcesAudio.Instance.Ammo_Audio[i];
+        // audio_Collision.clip = ResourcesAudio.Instance.Ammo_Audio[i];
     }
     // protected override void OnCollisionEnter(Collision other){
     //     Debug.Log(" in AmmoBox Collistion " + other.gameObject.name);

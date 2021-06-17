@@ -6,15 +6,18 @@ public class BaseItem : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float DestroyTime = 0.1f;
+    protected float DestroyTime = 0.1f;
 
     public AudioSource audio_Collision;
+    
     // public BaseCharacter baseCharacter;
-
+    [SerializeField] protected float pickUpRange = 1;
     private bool isCollision = false;
-
+    protected BoxCollider boxCollider;
     void Start()
     {
+        boxCollider = GetComponent<BoxCollider>();
+        boxCollider.size = new Vector3(pickUpRange,pickUpRange,pickUpRange );
     }
 
     // Update is called once per frame
@@ -37,9 +40,18 @@ public class BaseItem : MonoBehaviour
         // }
     // }
 
-    IEnumerator DestroyTimer(float seconds)
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log(" in OnTriggerEnter " + other.gameObject.name);
+        AudioPlayer(); 
+        DestroyItem();
+    }
+
+    public void DestroyItem(){ 
+        StartCoroutine( DestroyTimer(DestroyTime) );
+    }
+    private IEnumerator DestroyTimer(float seconds)
     {
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
     }

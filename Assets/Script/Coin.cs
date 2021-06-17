@@ -8,6 +8,7 @@ public class Coin : BaseItem
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("=== " + DestroyTime);
         audio_Collision.clip = ResourcesAudio.Instance.coin;
     }
 
@@ -23,7 +24,8 @@ public class Coin : BaseItem
 
     // private void OnTriggerEnter(Collider other) {
     //     Debug.Log(" in Coin OnTriggerEnter " + other.gameObject.name);
-    //     DestroyTimer(DestroyTime);
+    //     AudioPlayer(); 
+    //     DestroyItem();
     // }
 
     // Update is called once per frame

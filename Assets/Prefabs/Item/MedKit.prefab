@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3464e0452b16e94e85f65e8b5f3fb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyTime: 0
   audio_Collision: {fileID: 373472133119490095}
   HealingNum: 10
 --- !u!82 &373472133119490095
@@ -119,7 +118,8 @@ AudioSource:
   m_GameObject: {fileID: 8535651046868645836}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2914026840848328381, guid: 33ea07f53077a45a182322a061ae8b82,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 188c555a8c7af49029c176caba893f25, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
