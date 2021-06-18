@@ -14,7 +14,8 @@ public class BaseItem : MonoBehaviour
     [SerializeField] protected float pickUpRange = 1;
     private bool isCollision = false;
     protected BoxCollider boxCollider;
-    [SerializeField] protected GameObject ItemObj; 
+    [SerializeField] protected GameObject ItemObj;
+    [SerializeField] protected GameObject DestroyObj; 
 
     void Start()
     {
@@ -53,9 +54,9 @@ public class BaseItem : MonoBehaviour
     }
     private IEnumerator DestroyTimer(float seconds)
     {
-        // gameObject.SetActive(false);
+        ItemObj.SetActive(false);
         yield return new WaitForSeconds(seconds);
-        Destroy(ItemObj);
+        Destroy(DestroyObj);
     }
 
     public void AudioPlayer(){ 

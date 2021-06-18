@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
         transform.position = pos;
         transform.rotation = rotation;
 
-        Debug.Log("=: " + pos + rotation + " ~~ "+transform.position  +transform.rotation);
+        // Debug.Log("=: " + pos + rotation + " ~~ "+transform.position  +transform.rotation);
 
         trail.enabled = true;
 
@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
 
         Quaternion _rotation = Quaternion.Euler(0, (transform.localRotation.eulerAngles.y + range), 0);// addRange <-->  (0, range, 0)
         Vector3 direction = _rotation * Vector3.forward;
-        Debug.Log("direction: " + direction);
+        // Debug.Log("direction: " + direction);
         Bullet_rb.AddForce(direction * bulletSpeed * 100);  // 100 may not need 40* 100 is OK
         
         StartCoroutine(DestroyTimer(bulletDestory) );

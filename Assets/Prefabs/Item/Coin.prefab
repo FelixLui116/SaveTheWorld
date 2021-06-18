@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 579828723357258897}
   - component: {fileID: 6117185132319757565}
   - component: {fileID: 8120148496782815327}
+  - component: {fileID: 501889835515393960}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -149,6 +150,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &501889835515393960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490024841198276204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd92df18c95cee41800efa94e0c29d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio_Collision: {fileID: 6117185132319757565}
+  pickUpRange: 1
+  ItemObj: {fileID: 1956792964280972666}
+  DestroyObj: {fileID: 1490024841198276204}
+  CoinNum: 10
 --- !u!1 &1956792964280972666
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +179,6 @@ GameObject:
   - component: {fileID: 2871341849132726038}
   - component: {fileID: 6681060440916011003}
   - component: {fileID: 5832591020982286318}
-  - component: {fileID: 1968163220012069171}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -243,19 +260,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1968163220012069171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956792964280972666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd92df18c95cee41800efa94e0c29d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audio_Collision: {fileID: 6117185132319757565}
-  pickUpRange: 1
-  ItemObj: {fileID: 1490024841198276204}
-  CoinNum: 10

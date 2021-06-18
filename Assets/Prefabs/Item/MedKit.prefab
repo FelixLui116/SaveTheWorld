@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6267802080160728465}
   - component: {fileID: 373472133119490095}
   - component: {fileID: 6244146949157170857}
+  - component: {fileID: 1958356198407508864}
   m_Layer: 0
   m_Name: MedKit
   m_TagString: Health
@@ -149,6 +150,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1958356198407508864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535651046868645836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3464e0452b16e94e85f65e8b5f3fb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio_Collision: {fileID: 373472133119490095}
+  pickUpRange: 1
+  ItemObj: {fileID: 8857712480292455330}
+  DestroyObj: {fileID: 8535651046868645836}
+  HealingNum: 10
 --- !u!1 &8857712480292455330
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +179,6 @@ GameObject:
   - component: {fileID: 8369224292370236755}
   - component: {fileID: 8305631843709361124}
   - component: {fileID: 4624019688153641699}
-  - component: {fileID: 9011299377997345504}
   m_Layer: 0
   m_Name: Item
   m_TagString: Health
@@ -243,19 +260,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9011299377997345504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8857712480292455330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3464e0452b16e94e85f65e8b5f3fb63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audio_Collision: {fileID: 373472133119490095}
-  pickUpRange: 1
-  ItemObj: {fileID: 8535651046868645836}
-  HealingNum: 10

@@ -16,6 +16,8 @@ public class BaseCharacter : MonoBehaviour
     public BaseGun baseGun;
     public GameObject holdGunPos;
 
+    private bool pressing_Shoot = false;
+
     public CharacterController characterController;
 
     // public LevelController levelController;  
@@ -35,11 +37,31 @@ public class BaseCharacter : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+       PressShoot();
+        //  if (Input.GetKeyDown("space"))      // Test Function
+        // {
+        //     // print("space key was pressed");
+           
+        // } 
+  
+    }
+
+    private void PressShoot(){
         if (Input.GetKeyDown("space"))      // Test Function
         {
+            pressing_Shoot = true;
+        }
+        else if (Input.GetKeyUp("space"))      // Test Function
+        {
+            pressing_Shoot = false;
+        }
+        if(pressing_Shoot){
             print("space key was pressed");
-            if(baseGun != null ){
-                baseGun.shooting_func();
+            if(baseGun != null ){ 
+                if (baseGun.CanFire_get)
+                {
+                    baseGun.shooting_func();
+                }
             }
         }
     }

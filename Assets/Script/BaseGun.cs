@@ -40,6 +40,12 @@ public class BaseGun : MonoBehaviour
     public Image WeaponImg;
     public Image WeaponImg_Disable;
 
+    public bool CanFire_get
+    {
+        get => CanFire;
+        set => CanFire = value;
+    }
+
     
     public void shooting_func(){
         if(CanFire){
