@@ -43,11 +43,11 @@ public class BaseItem : MonoBehaviour
         // }
     // }
 
-    private void OnTriggerEnter(Collider other) {
-        Debug.Log(" in OnTriggerEnter " + other.gameObject.name);
-        AudioPlayer(); 
-        DestroyItem();
-    }
+    // private void OnTriggerEnter(Collider other) {
+    //     Debug.Log(" in OnTriggerEnter " + other.gameObject.name);
+    //     AudioPlayer(); 
+    //     DestroyItem();
+    // }
 
     public void DestroyItem(){ 
         StartCoroutine( DestroyTimer(DestroyTime) );

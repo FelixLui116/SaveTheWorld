@@ -15,7 +15,7 @@ public class BaseGun : MonoBehaviour
     public GameObject FireFlash;
     public String Holder = "";      // put player / enemy   player Comtroller  using tag or string
     public AmmoTpye AmmoColor;
-    public bool isPlayGun = false;
+    // public bool isPlayGun = false;
 
     // public Text ShootingType; 
 
@@ -31,7 +31,7 @@ public class BaseGun : MonoBehaviour
     public int TotalAmmo = 0;   // gun can have totalAmmo
     public int CurrentAmmo  = 0;
     public float ReloadWeapon_time = 0;
-    public bool isPick = false;
+    public bool isPickup = false;
 
     public int Ammo  = 100;   // 00/XXX
 
@@ -135,9 +135,14 @@ public class BaseGun : MonoBehaviour
                 Ammo += _ammoNum;
             }
         }
-       
-
     }
+
+    // private void OnTriggerEnter(Collider other) {
+    //     if (!isPickup && other.gameObject.tag == "Player")
+    //     {
+
+    //     }   
+    // }
 
     public void Test_Func(){
         // float bulletRange = 5f;

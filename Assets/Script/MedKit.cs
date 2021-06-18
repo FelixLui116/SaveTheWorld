@@ -20,6 +20,11 @@ public class MedKit : BaseItem
     //     // baseCharacter.current_health += HealingNum;
     // }
 
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log(" in Coin OnTriggerEnter " + other.gameObject.name);
+        AudioPlayer(); 
+        DestroyItem();
+    }
     // Update is called once per frame
     void Update()
     {

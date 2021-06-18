@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Ammo
   - Bullet
+  - Weapon
   layers:
   - Default
   - TransparentFX
