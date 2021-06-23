@@ -57,8 +57,8 @@ MonoBehaviour:
   Holder: Player
   AmmoColor: 0
   WeaponDamage: 10
-  FireRate: 2
-  BulletSpeed: 40
+  FireRate: 4
+  BulletSpeed: 100
   BulletRange: 5
   BulletDestory: 0.5
   TotalAmmo: 28
