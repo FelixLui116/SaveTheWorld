@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4225874058314448475}
   - component: {fileID: 1845190760121851918}
-  - component: {fileID: 7693130540629530911}
+  - component: {fileID: 4486088077759979496}
   - component: {fileID: 4366321559428582652}
   m_Layer: 0
   m_Name: Enemy_01
@@ -52,7 +52,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7693130540629530911
+--- !u!114 &4486088077759979496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,16 +61,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7673408752332839699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ad53247a42f57a4d8dae45f849d0875, type: 3}
+  m_Script: {fileID: 11500000, guid: 61280c3e94c8d492dbcab1fd02474b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   current_health: 0
   health_max: 10
-  _name: Enemey
+  _name: Enemy
   baseGun: {fileID: 0}
   holdGunPos: {fileID: 0}
   characterController: {fileID: 1845190760121851918}
   putGunPos: {fileID: 0}
+  moveMaxRange: 10
 --- !u!135 &4366321559428582652
 SphereCollider:
   m_ObjectHideFlags: 0

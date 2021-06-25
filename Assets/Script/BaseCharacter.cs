@@ -89,7 +89,48 @@ public class BaseCharacter : MonoBehaviour
             baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();}
     }
     
-    
+    protected IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
+        // Vector3 forward = transform.TransformDirection(Vector3.forward);
+        // // characterController.Move(forward * Speed);
+        
+        //  for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        // {
+        //     characterController.Move(forward * Speed);
+        //     yield return null;
+        // }
+
+        /// /////
+        // var cc = GetComponent<CharacterController>();
+        for (var t = 0f; t < 1; t += Time.deltaTime / MovingTime)      //for (var t = 0f; t < 1; t += Time.deltaTime)
+        {
+            var offset = target - transform.position;
+            //Get the difference.
+            if(offset.magnitude > .1f) {    // .1f
+                offset = offset.normalized * Speed;
+                // offset = offset.normalized;
+                characterController.Move(offset * Time.deltaTime);
+            }else{
+                Debug.Log(" break ");
+                yield break;
+            } 
+                Debug.Log(" yield return null; ");
+            yield return null;
+        }
+    }
+
+        // thisObj.transform.Rotate( 0 , RotateRange *Time.deltaTime , 0 );
+        // t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
+    protected IEnumerator Rotate_func(Vector3 byAngles, float inTime)
+     {
+        var fromAngle = transform.rotation;
+        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        {
+            transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+            yield return null;
+        }
+    }
+
     // pick Gun is working
     // public void  OnControllerColliderHit(ControllerColliderHit hit){
     //     if (hit.gameObject.tag == "Weapon"){
