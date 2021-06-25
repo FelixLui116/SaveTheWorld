@@ -24,7 +24,7 @@ public class EnemyCharacterController : BaseCharacter
         Debug.Log("Enemy MoveMaxRange x = " + pos.x  +" || z: " + pos.z);
         
         // Base_Behaviour();
-        // RandomMovment();
+        // RandomMovement();
         MovingForward();
         // StartCoroutine( Move_func( new Vector3(0,0,0) ,  MoveSpeed ) );
         StartCoroutine(Rotate_func(Vector3.down * 180, 5f) ); //down: Vector3(0, -1, 0).
@@ -71,7 +71,7 @@ public class EnemyCharacterController : BaseCharacter
         
     }
 
-    public void RandomMovment ( ){
+    public void RandomMovement ( ){
         Vector3 targetPosition = new Vector3();
         targetPosition = pos;
 
