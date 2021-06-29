@@ -8713,6 +8713,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1780303579}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1780303583 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7823042624405600494, guid: 6d4935883e79be446b3630c632093273,
+    type: 3}
+  m_PrefabInstance: {fileID: 1780303579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1780397069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8794,7 +8800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800506859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.4, y: 1.567, z: 13.4}
+  m_LocalPosition: {x: 13.4, y: 0, z: 13.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 495318716}
@@ -10631,6 +10637,11 @@ PrefabInstance:
       propertyPath: Path.Array.data[2]
       value: 
       objectReference: {fileID: 297369983}
+    - target: {fileID: 4486088077759979496, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
+        type: 3}
+      propertyPath: targetPlayer
+      value: 
+      objectReference: {fileID: 1780303583}
     - target: {fileID: 7673408752332839699, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
         type: 3}
       propertyPath: m_Name

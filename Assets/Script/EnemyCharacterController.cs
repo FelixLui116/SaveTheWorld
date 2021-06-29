@@ -14,16 +14,35 @@ public class EnemyCharacterController : BaseCharacter
     // [SerializeField] private float Forward = 10f;
     // protected bool IsMoving = false;
     protected bool IsGettarget = false;
-     [SerializeField] private MovePath movePath;
+    public Transform targetPlayer;
+    [SerializeField]protected  float DetectRange = 10f;
+    [SerializeField] private MovePath movePath;
 
     void Start()
     {
+
     }
 
     void Update()
     {
         
     }
+    
+    private void FixedUpdate() {
+        if (targetPlayer != null)
+        {
+            DetectTarget();
+        }
+    }
 
+    private void DetectTarget(){
+        Vector3 targetPlayer_V3  = new Vector3(targetPlayer.position.x ,targetPlayer.position.y , targetPlayer.position.z );
+        Vector3 thisObj_V3 = new Vector3( transform.position.x ,transform.position.y , transform.position.z);
 
+        if(Vector3.Distance(thisObj_V3, targetPlayer_V3) < DetectRange)
+        {
+            //Do something
+            Debug.Log(" DetectTarget: " + targetPlayer.gameObject.name);
+        }
+    } 
 }
