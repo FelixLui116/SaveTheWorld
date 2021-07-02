@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MovePath : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class MovePath : MonoBehaviour
         // StartCoroutine( Move_func(path_V3 , MoveSpeed ) );
 
 
-        StartCoroutine( PathGo() ); 
+        // StartCoroutine( PathGo() ); 
     }
 
     // Update is called once per frame
@@ -39,10 +40,16 @@ public class MovePath : MonoBehaviour
     {
         
     }
-    
-    private void StopCoroutines() => StopAllCoroutines();
 
-    private IEnumerator PathGo(){
+    public void Base_moveToTarget( Transform targetPos  , bool Rotate = false, bool MoveTo = false){
+        Debug.Log("-Base_moveToTarget");
+        StartCoroutine(  Rotate_func( targetPos ) );
+
+    }
+    
+    public void StopCoroutines() => StopAllCoroutines();
+
+    public IEnumerator PathGo(){
         // Debug.Log(" Path.Position: "+  Path[0].position);
         
         if ( Path.Length != 0)
@@ -63,7 +70,7 @@ public class MovePath : MonoBehaviour
         }
     }
 
-    protected IEnumerator Rotate_func(Transform byAngles )
+    private IEnumerator Rotate_func(Transform byAngles )
     {
         for (var t = 0f; t < 1; t += Time.deltaTime / RotateSpeed)
         {
@@ -79,7 +86,7 @@ public class MovePath : MonoBehaviour
         Debug.Log(" path_V3:" + path_V3); 
         yield return Move_func(path_V3 , MoveSpeed );
     }
-    protected IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
+    private IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
         
         target.y = thisObj_V3.y;
         /// /////

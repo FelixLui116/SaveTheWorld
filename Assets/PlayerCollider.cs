@@ -24,16 +24,15 @@ public class PlayerCollider : MonoBehaviour
             Coin_trigger(other.transform.parent.gameObject);
         } 
         if(other.gameObject.tag == "Health"){
-
+            Health_trigger(other.transform.parent.gameObject);
         } 
         if(other.gameObject.tag == "Ammo"){
-
+            Ammo_trigger(other.transform.parent.gameObject);
         } 
 
         /// 
 
         if(other.gameObject.tag == "Weapon"){
-
             baseCharacter.WeaponGet(other.gameObject);
         } 
         // if(other.gameObject.tag == "Bullet"){
@@ -47,12 +46,26 @@ public class PlayerCollider : MonoBehaviour
     private void Coin_trigger(GameObject obj ){
         
         Coin coin_obj = obj.GetComponent<Coin>();
-
+        
         // AudioPlayer(); 
         // DestroyItem();
         Debug.Log(" Yes Get Coin: " + coin_obj.CoinNum);
+        baseCharacter.Coin += coin_obj.CoinNum;
     }
 
+    private void Health_trigger(GameObject obj ){
+        
+        MedKit MedKit_obj = obj.GetComponent<MedKit>();
+        Debug.Log(" Yes Get Health_: " +MedKit_obj );
+
+        baseCharacter.Current_health += MedKit_obj.HealingNum;
+    }
+    private void Ammo_trigger(GameObject obj ){
+        
+        AmmoBox Ammo_obj = obj.GetComponent<AmmoBox>();
+        Debug.Log(" Yes Get Ammo: " +Ammo_obj.ammoTpye + " ||Num: "+Ammo_obj.AmmoNum);
+        // baseCharacter.baseGun.AddAmmoTpye(Ammo_obj.ammoTpye, Ammo_obj.AmmoNum ); // Ammo_obj.AmmoNum;
+    }
 
     private void OnCollisionEnter(Collision other) {
         

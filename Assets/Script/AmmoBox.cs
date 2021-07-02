@@ -15,11 +15,8 @@ public class AmmoBox : BaseItem
                 ammoTpye == AmmoTpye.green  ? 1 :
                 ammoTpye == AmmoTpye.yollow ? 2 :
                 ammoTpye == AmmoTpye.red    ? 3 : 0;
-
+        
         // audio_Collision.clip = ResourcesAudio.Instance.Ammo_Audio[i];
-
-
-
     }
     // protected override void OnCollisionEnter(Collision other){
     //     Debug.Log(" in AmmoBox Collistion " + other.gameObject.name);

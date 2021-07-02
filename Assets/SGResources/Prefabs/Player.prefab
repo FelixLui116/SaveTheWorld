@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7823042624405600494}
-  - component: {fileID: 227475019191759200}
+  - component: {fileID: 8003121395244212146}
   - component: {fileID: 1788315427571248073}
   m_Layer: 0
   m_Name: Player
@@ -125,7 +125,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &227475019191759200
+--- !u!114 &8003121395244212146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,11 +134,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7823042624405600497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ad53247a42f57a4d8dae45f849d0875, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c3ac4115b27b4e638e58bcb13f7cbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_health: 0
-  health_max: 0
+  current_health: 10
+  health_max: 100
   _name: 
   baseGun: {fileID: 0}
   holdGunPos: {fileID: 1094179075481322616}
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f3f28e31c624e4fb1bdb011806c89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCharacter: {fileID: 227475019191759200}
+  baseCharacter: {fileID: 8003121395244212146}
 --- !u!54 &3880788641876416576
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class MedKit : BaseItem
 {
     // Start is called before the first frame update
 
-    [Range(0f, 1000f)] public float HealingNum = 0f;
+    [Range(0, 1000)] public int HealingNum = 0;
     void Start()
     {
         audio_Collision.clip = ResourcesAudio.Instance.medkit;

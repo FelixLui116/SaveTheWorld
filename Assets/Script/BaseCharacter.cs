@@ -10,7 +10,7 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected int health_max;
     [SerializeField] protected string _name;
     protected GameObject coin_Obj;
-    protected int _coin;
+    protected int _coin = 0;
     protected GameObject [] weapon;
 
     public BaseGun baseGun;
@@ -21,7 +21,21 @@ public class BaseCharacter : MonoBehaviour
     public CharacterController characterController;
     [SerializeField] protected Transform putGunPos;
     // public LevelController levelController;  
-    
+    public int Current_health
+    {
+        get => current_health;
+        set { current_health = value; }
+    }
+    public int Health_max
+    {
+        get => health_max;
+        set { health_max = value; }
+    }
+    public int Coin
+    {
+        get => _coin;
+        set { _coin = value; }
+    }
     private void Awake() {
         // levelController = GameObject.Find("levelController").GetComponent<LevelController>();
     }
@@ -37,7 +51,7 @@ public class BaseCharacter : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-       PressShoot();
+    //    PressShoot();
         //  if (Input.GetKeyDown("space"))      // Test Function
         // {
         //     // print("space key was pressed");
@@ -46,7 +60,7 @@ public class BaseCharacter : MonoBehaviour
   
     }
 
-    private void PressShoot(){
+    protected void PressShoot(){
         if (Input.GetKeyDown("space"))      // Test Function
         {
             pressing_Shoot = true;

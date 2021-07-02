@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2436467182151924438}
   m_Layer: 0
   m_Name: Item
-  m_TagString: Health
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   ItemObj: {fileID: 2436467182151924436}
   DestroyObj: {fileID: 2436467182190934231}
   ammoTpye: 0
-  AmmoNum: 0
+  AmmoNum: 100
 --- !u!82 &2436467182190934217
 AudioSource:
   m_ObjectHideFlags: 0

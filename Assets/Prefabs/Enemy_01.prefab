@@ -73,6 +73,8 @@ MonoBehaviour:
   holdGunPos: {fileID: 0}
   characterController: {fileID: 1845190760121851918}
   putGunPos: {fileID: 0}
+  targetPlayer: {fileID: 0}
+  DetectRange: 10
   movePath: {fileID: 4235110599463979560}
 --- !u!114 &4235110599463979560
 MonoBehaviour:
@@ -87,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
-  RotateSpeed: 5
+  RotateSpeed: 10
   waiting: 2
   Forward: 10
   IsloopPath: 1
