@@ -32,6 +32,7 @@ public class BaseGun : MonoBehaviour
     public int CurrentAmmo  = 0;
     public float ReloadWeapon_time = 0;
     public bool isPickup = false;
+    public bool BulletLimit = true;
 
     public int Ammo  = 100;   // 00/XXX
 
@@ -75,7 +76,52 @@ public class BaseGun : MonoBehaviour
         if(Raloading){
             // do nothing , waiting reload end 
         }else{
+            
+            int canCloneBullet;
+            if (BulletLimit){
+
+                Debug.Log("Ammo: "+ Ammo + "TotalAmmo: "+ TotalAmmo);
+                canCloneBullet = (Ammo - TotalAmmo);
+                if (Ammo < TotalAmmo){
+                    canCloneBullet = Ammo;
+                }
+            }else{
+                canCloneBullet = TotalAmmo;
+            }
+            Debug.Log("canCloneBullet: "+ canCloneBullet);
+
             Raloading = true;
+            //use pool system
+            if (canCloneBullet > 0)
+            {
+                for (int i = 0; i < canCloneBullet; i++)
+                {
+                    PoolSystem.Instance.SpawnToPool(Bullet );
+                //     var bullet = Instantiate(Bullet, Shooting_point[0].transform.position, Shooting_point[0].transform.rotation); //Bullet , transform.position = firePoint
+                }
+                yield return new WaitForSeconds(60 / (ReloadWeapon_time  * 60));
+                Raloading = false;
+
+                CurrentAmmo = canCloneBullet; 
+                if (Ammo > TotalAmmo && BulletLimit){ 
+                    Ammo -= TotalAmmo;
+                }else{
+                    Ammo = 0;
+                }
+            }
+           
+        
+        }
+        
+        // if (Ammo == 0){
+        //     Debug.Log(" i need Ammo !!!");
+        // }else{
+        //     Ammo -= TotalAmmo;
+        // }
+        // CurrentAmmo = TotalAmmo;   
+
+        /*
+        Raloading = true;
             //use pool system
             for (int i = 0; i < TotalAmmo; i++)
             {
@@ -86,14 +132,7 @@ public class BaseGun : MonoBehaviour
             Raloading = false;
             
             CurrentAmmo = TotalAmmo;  
-        }
-        
-        // if (Ammo == 0){
-        //     Debug.Log(" i need Ammo !!!");
-        // }else{
-        //     Ammo -= TotalAmmo;
-        // }
-        // CurrentAmmo = TotalAmmo;   
+        */
     }
 
     // Start is called before the first frame update

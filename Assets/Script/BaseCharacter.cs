@@ -36,6 +36,11 @@ public class BaseCharacter : MonoBehaviour
         get => _coin;
         set { _coin = value; }
     }
+    public bool Pressing_Shoot
+    {
+        get => pressing_Shoot;
+        set { pressing_Shoot = value; }
+    }
     private void Awake() {
         // levelController = GameObject.Find("levelController").GetComponent<LevelController>();
     }
@@ -60,17 +65,18 @@ public class BaseCharacter : MonoBehaviour
   
     }
 
-    protected void PressShoot(){
-        if (Input.GetKeyDown("space"))      // Test Function
-        {
-            pressing_Shoot = true;
-        }
-        else if (Input.GetKeyUp("space"))      // Test Function
-        {
-            pressing_Shoot = false;
-        }
+    public void PressShoot(){
+        // if (Input.GetKeyDown("space"))      // Test Function
+        // {
+        //     pressing_Shoot = true;
+        // }
+        // else if (Input.GetKeyUp("space"))      // Test Function
+        // {
+        //     pressing_Shoot = false;
+        // }
+
         if(pressing_Shoot){
-            print("space key was pressed");
+            // print("space key was pressed");
             if(baseGun != null ){ 
                 if (baseGun.CanFire_get)
                 {

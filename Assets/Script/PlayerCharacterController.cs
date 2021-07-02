@@ -19,7 +19,7 @@ public class PlayerCharacterController : BaseCharacter
     // Update is called once per frame
     void Update()
     {
-        PressShoot();
+        // PressShoot();
         // if (Input.GetKeyDown("space"))      // Test Function
         // {
         //     print("space key was pressed");
@@ -28,4 +28,6 @@ public class PlayerCharacterController : BaseCharacter
         //     }
         // }
     }
+
+    
 }

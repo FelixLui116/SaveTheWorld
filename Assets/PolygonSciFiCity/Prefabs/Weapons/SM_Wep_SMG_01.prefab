@@ -65,7 +65,8 @@ MonoBehaviour:
   CurrentAmmo: 0
   ReloadWeapon_time: 2
   isPickup: 0
-  Ammo: 100
+  BulletLimit: 0
+  Ammo: 50
   Crosshair: {fileID: 0}
   WeaponImg: {fileID: 0}
   WeaponImg_Disable: {fileID: 0}
