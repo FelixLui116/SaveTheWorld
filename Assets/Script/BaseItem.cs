@@ -6,7 +6,7 @@ public class BaseItem : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    protected float DestroyTime = 0.1f;
+    protected float DestroyTime = 1f;
 
     public AudioSource audio_Collision;
     

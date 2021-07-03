@@ -15,6 +15,7 @@ public class BaseGun : MonoBehaviour
     public GameObject FireFlash;
     public String Holder = "";      // put player / enemy   player Comtroller  using tag or string
     public AmmoTpye AmmoColor;
+    public AudioSource GunSound;
     // public bool isPlayGun = false;
 
     // public Text ShootingType; 
@@ -53,7 +54,9 @@ public class BaseGun : MonoBehaviour
             if(CurrentAmmo > 0){
                 Debug.Log("=== shootingBullet!!! ");
                 CurrentAmmo--; 
-
+                if(GunSound != null){
+                    GunSound.Play();
+                }
                 shootingBullet(BulletSpeed , BulletRange, BulletDestory ,CurrentAmmo);
             }
             else{

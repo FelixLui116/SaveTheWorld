@@ -32,7 +32,7 @@ public class UIContrller : MonoBehaviour
 
             if (ShootBtn.PressDown_GET){    //PressDown
 
-            Debug.Log(" Is pressing ");
+            // Debug.Log(" Is pressing ");
                 playerCharacterController.Pressing_Shoot = true;
                 playerCharacterController.PressShoot();
             }
