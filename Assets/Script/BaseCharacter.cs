@@ -11,12 +11,16 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected string _name;
     protected GameObject coin_Obj;
     protected int _coin = 0;
-    protected GameObject [] weapon;
+    protected List<GameObject> weaponList = new List<GameObject>();
 
     public BaseGun baseGun;
     public GameObject holdGunPos;
+    public GameObject SecGunPositon;
 
     private bool pressing_Shoot = false;
+    
+    protected int HoldWeaponCount = 0 , MaxHoldWeapon = 2;
+    protected int currentWeapon = 0;
 
     public CharacterController characterController;
     [SerializeField] protected Transform putGunPos;
@@ -101,7 +105,7 @@ public class BaseCharacter : MonoBehaviour
     //     baseGun = null;
     // } 
 
-    public void GetWeapon_onHold(){
+    protected virtual void GetWeapon_onHold(){
         if(holdGunPos == null) return;
         if(holdGunPos.transform.childCount == 0){ 
             return;
@@ -176,17 +180,37 @@ public class BaseCharacter : MonoBehaviour
         GameObject weapon = obj;
             bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
             if( !pickup_bool ){
-                pickup_bool = true;
-                weapon.transform.SetParent( holdGunPos.transform );  // holdGun.transform 
-                weapon.transform.localPosition = Vector3.zero;  // reset position
-                weapon.transform.localEulerAngles = Vector3.zero;               // reset rotation
-                
-                weapon.GetComponent<BaseGun>().Holder = "Player";
-                GetWeapon_onHold();
-                // weapon.Add(other.gameObject);   // add weapon
 
+                if (HoldWeaponCount < MaxHoldWeapon)    // can Holding Gun total number
+                {
+                    HoldWeaponCount ++;
+                    pickup_bool = true;
+                    weaponList.Add(obj);
+
+                    // weapon.transform.SetParent( holdGunPos.transform );  // holdGun.transform 
+                    if (HoldWeaponCount > 1){
+                        // weapon.transform.SetParent( SecGunPositon.transform );  // holdGun.transform 
+                        ResetGunPosition(weapon ,  SecGunPositon.transform );
+                    }else{
+                        ResetGunPosition(weapon ,  holdGunPos.transform );
+                    }
+
+                    weapon.GetComponent<BaseGun>().Holder = "Player";
+                    GetWeapon_onHold();
+                    // weapon.Add(other.gameObject);   // add weapon
+                }
+                else{       // really have two gun
+                    // do something....
+                }
                 // changeWeapon_func( weapons.Lenght );
             }
+    }
+
+    protected void ResetGunPosition(GameObject weapon , Transform parent){
+
+        weapon.transform.SetParent( parent.transform );  // holdGun.transform 
+        weapon.transform.localPosition = Vector3.zero;  // reset position
+        weapon.transform.localEulerAngles = Vector3.zero;               // reset rotation
     }
 
 }
