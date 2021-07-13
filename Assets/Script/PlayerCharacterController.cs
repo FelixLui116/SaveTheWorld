@@ -9,6 +9,8 @@ public class PlayerCharacterController : BaseCharacter
 
     // [Header("Skill")]
     private SkillController skill;
+
+    private int lastWeapon;
     
     // public Button ShootBtn;
     // public Button[] skillBtn;
@@ -22,20 +24,43 @@ public class PlayerCharacterController : BaseCharacter
     public void switchingWeapon_func(){
         if(HoldWeaponCount == 0) return;    // no gun
 
-        Debug.Log( HoldWeaponCount + " || " + currentWeapon );
-        // if (HoldWeaponCount != currentWeapon){
-            
-        // }
+        lastWeapon = currentWeapon;
+
+        if (lastWeapon == 0)
+        {
+            currentWeapon = 1;
+        }else{
+            currentWeapon = 0;
+        }
+
+        // Debug.Log( HoldWeaponCount + " || " + currentWeapon );
+
+        if ( weaponList.Count > 1)  //   need to have one weapon first
+        {
+            SelectWeapon(currentWeapon);
+        }
+        
     }
 
+    protected void SelectWeapon(int current_Weapon ){
+        Transform weaponPos , SecweaponPos;
+        
+        weaponPos = holdGunPos.transform ;
+        SecweaponPos = SecGunPositon.transform ;
 
+        ResetGunPosition(weaponList[current_Weapon] , weaponPos );
+        ResetGunPosition(weaponList[lastWeapon] , SecweaponPos );
+        
+        GetWeapon_onHold(); // switch Base Gun Sprite in base character
+
+    }
     
     protected override void GetWeapon_onHold()
     {
         if(holdGunPos == null) return;
         if(holdGunPos.transform.childCount == 0) return;
 
-        baseGun = holdGunPos.transform.GetChild(currentWeapon).GetComponent<BaseGun>();
+        baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
     
         // baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
 
@@ -59,13 +84,14 @@ public class PlayerCharacterController : BaseCharacter
     void Update()
     {
         // PressShoot();
-        // if (Input.GetKeyDown("space"))      // Test Function
-        // {
-        //     print("space key was pressed");
-        //     if(baseGun != null ){
-        //         baseGun.shooting_func();
-        //     }
-        // }
+        if (Input.GetKeyDown("space"))      // Test Function
+        {
+            print("space key was pressed");
+            // if(baseGun != null ){
+            //     baseGun.shooting_func();
+            // }
+            switchingWeapon_func();
+        }
     }
 
     
