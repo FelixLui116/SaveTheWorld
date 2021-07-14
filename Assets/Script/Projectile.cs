@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 {
     public Rigidbody Bullet_rb;
     public float destroyTime;
+    public float bulletDamage;
 
     public TrailRenderer trail;
 

@@ -13,9 +13,11 @@ public class UIContrller : MonoBehaviour
     // public Text HP , Bullet;
     public Button[] skillBtn;
     public ShootingButton ShootBtn; // base shooting
+    public Button dodgeBtn; // base shooting
     private void Awake() {
-        if (ShootBtn != null){
-        }
+        // if (ShootBtn != null){
+        if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
+        
     }
     void Start()
     {
@@ -29,7 +31,6 @@ public class UIContrller : MonoBehaviour
         {
             // Bullet_Text();
             // playerCharacterController.PressShoot();
-
             if (ShootBtn.PressDown_GET){    //PressDown
 
             // Debug.Log(" Is pressing ");

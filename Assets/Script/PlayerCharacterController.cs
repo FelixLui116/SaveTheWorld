@@ -11,6 +11,9 @@ public class PlayerCharacterController : BaseCharacter
     private SkillController skill;
 
     private int lastWeapon;
+
+    private float dodge_timer = 2.5f;
+    private bool canDodging = true;
     
     // public Button ShootBtn;
     // public Button[] skillBtn;
@@ -77,6 +80,41 @@ public class PlayerCharacterController : BaseCharacter
         }
         */
     }
+
+    public void dodge_click (Button btn ){
+        
+        StartCoroutine( dodge_func(btn) );
+    }
+    private IEnumerator dodge_func ( Button btn ){
+        Debug.Log("=== canDodging: " + canDodging);
+        if (canDodging)
+        {  
+            canDodging = false;
+            // canDodging = true;
+            yield return Button_Loading(btn ,dodge_timer );
+            canDodging = true;
+        }
+    
+    }
+
+    private IEnumerator Button_Loading(Button btn , float countTimer ){
+        // btn..transform.GetChild(0).GetComponent<Image>();
+        var LoadingBar = btn.transform.GetChild(0).GetComponent<Image>();
+        float Timer = 1;
+        LoadingBar.fillAmount = 1;
+        // while (Timer > 0)
+        while (LoadingBar.fillAmount > 0)
+        {
+            float deltaTime = Time.fixedDeltaTime / countTimer;
+            LoadingBar.fillAmount -= deltaTime;
+            if (LoadingBar.fillAmount < 0){
+                LoadingBar.fillAmount = 0;
+                yield break;            
+            }
+            Timer -= deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+    }
     
     
 
@@ -84,12 +122,9 @@ public class PlayerCharacterController : BaseCharacter
     void Update()
     {
         // PressShoot();
+
         if (Input.GetKeyDown("space"))      // Test Function
         {
-            print("space key was pressed");
-            // if(baseGun != null ){
-            //     baseGun.shooting_func();
-            // }
             switchingWeapon_func();
         }
     }
