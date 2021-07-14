@@ -6172,44 +6172,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1210094678}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1222480564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7673408752332839699, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7039755039223778978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1222480565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4225874058314448475, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
     type: 3}
   m_PrefabInstance: {fileID: 7039755039223778978}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1222480566
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222480564}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef68a2bfbb30a4743844ffbe953a1ed1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1222480568 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4486088077759979496, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
     type: 3}
   m_PrefabInstance: {fileID: 7039755039223778978}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222480564}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61280c3e94c8d492dbcab1fd02474b8e, type: 3}
@@ -9025,11 +9000,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 871114565393609327, guid: 6d4935883e79be446b3630c632093273,
-        type: 3}
-      propertyPath: baseCharacter
-      value: 
-      objectReference: {fileID: 1780303581}
     - target: {fileID: 3723187372602304106, guid: 6d4935883e79be446b3630c632093273,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -9510,7 +9480,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 
 --- !u!222 &1802498381
 CanvasRenderer:
   m_ObjectHideFlags: 0

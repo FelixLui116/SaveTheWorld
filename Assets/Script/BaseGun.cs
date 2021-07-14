@@ -158,11 +158,13 @@ public class BaseGun : MonoBehaviour
         // Projectile bullet = Shooting_point[count].GetComponent<Projectile>();
         Projectile bullet = null;
         bullet.bulletDamage = WeaponDamage;
-        
         if ( Holder == "Player" ){    // isPlayer 
+            bullet.Bullet_rb.gameObject.tag = "PlayerBullet";
             bullet =  PoolSystem.Instance.playerAcre.transform.GetChild( count ).GetComponent<Projectile>();
             
+
         }else if( Holder == "Enemy" ){     // isEnemy
+        bullet.Bullet_rb.gameObject.tag = "EnemyBullet";
             bullet =  PoolSystem.Instance.enemyAcre.transform.GetChild( count ).GetComponent<Projectile>();
         }
 

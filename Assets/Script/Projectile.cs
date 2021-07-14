@@ -39,16 +39,16 @@ public class Projectile : MonoBehaviour
 
         // /////////////
 
-        if (other.gameObject.GetComponent<Health>() != null){
-            // enemy -HP    // show some effect
-            if (other.gameObject.tag == "Enemy" != null){
-                Debug.Log(" Hit tag enemy!!! ");
-            }
+        // if (other.gameObject.GetComponent<Health>() != null){
+        //     // enemy -HP    // show some effect
+        //     if (other.gameObject.tag == "Enemy" != null){
+        //         Debug.Log(" Hit tag enemy!!! ");
+        //     }
             
-        }
-        else if(other.collider.name == "wall"){
-            Debug.Log(" is enter the wall!!!");
-        }
+        // }
+        // else if(other.collider.name == "wall"){
+        //     Debug.Log(" is enter the wall!!!");
+        // }
     }
 
     public void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation  ){

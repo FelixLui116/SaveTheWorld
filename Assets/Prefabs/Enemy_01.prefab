@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4486088077759979496}
   - component: {fileID: 4235110599463979560}
   - component: {fileID: 4366321559428582652}
+  - component: {fileID: 5138443425419876127}
   m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Enemy
@@ -71,6 +72,7 @@ MonoBehaviour:
   _name: Enemy
   baseGun: {fileID: 0}
   holdGunPos: {fileID: 0}
+  SecGunPositon: {fileID: 0}
   characterController: {fileID: 1845190760121851918}
   putGunPos: {fileID: 0}
   targetPlayer: {fileID: 0}
@@ -109,6 +111,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &5138443425419876127
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673408752332839699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef68a2bfbb30a4743844ffbe953a1ed1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8368283999883699414
 GameObject:
   m_ObjectHideFlags: 0

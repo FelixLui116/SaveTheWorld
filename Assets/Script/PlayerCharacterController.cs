@@ -14,6 +14,7 @@ public class PlayerCharacterController : BaseCharacter
 
     private float dodge_timer = 2.5f;
     private bool canDodging = true;
+    // [SerializeField] protected GameObject playerBody;
     
     // public Button ShootBtn;
     // public Button[] skillBtn;
