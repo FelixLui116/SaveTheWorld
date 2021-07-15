@@ -20,7 +20,7 @@ public class EnemyCharacterController : BaseCharacter
     public Transform targetPlayer;
     [SerializeField] protected  float DetectRange = 10f;
     [SerializeField] private MovePath movePath;
-
+    
     private bool detected_Target = false;
     private EnemyState _currentState = EnemyState.Idle;
     protected EnemyState CurrentState
@@ -37,6 +37,7 @@ public class EnemyCharacterController : BaseCharacter
     {
 
         StartCoroutine( movePath.PathGo() ); 
+        baseGun.pickupGun_cloneBullet();
     }
 
     void Update()
@@ -68,6 +69,8 @@ public class EnemyCharacterController : BaseCharacter
                 movePath.StopCoroutines();
                 break;
             case EnemyState.Shooting:
+
+                baseGun.shooting_func();
                 Debug.Log(" in Change shoot");
                 break;
             case EnemyState.Idle:
@@ -82,6 +85,11 @@ public class EnemyCharacterController : BaseCharacter
         if (targetPlayer != null && !detected_Target)
         {
             DetectTarget();
+        }
+
+        if (Input.GetKeyDown("space"))      // Test Function
+        {
+            baseGun.shooting_func();
         }
     }
 

@@ -25,6 +25,7 @@ public class PoolSystem : MonoBehaviour
     public void SpawnToPool(GameObject taegetObject , string tagName =  "Player" , GameObject PoolAcre = null ){ // GameObject PoolAcre 
         if (tagName == "Player" )
         {
+        taegetObject.tag = "PlayerHit";
             // taegetObject.tag = "PlayerBullet";
             Instantiate (taegetObject, new Vector3(0,0,0) , Quaternion.identity , PoolAcre.transform);
             
@@ -32,6 +33,7 @@ public class PoolSystem : MonoBehaviour
         }
         else if(tagName == "Enemy"){
             // taegetObject.tag = "EnemyBullet";
+            Instantiate (taegetObject, new Vector3(0,0,0) , Quaternion.identity , PoolAcre.transform);
         } 
     }
 

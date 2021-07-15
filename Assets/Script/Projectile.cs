@@ -60,7 +60,9 @@ public class Projectile : MonoBehaviour
 
         // Debug.Log("=: " + pos + rotation + " ~~ "+transform.position  +transform.rotation);
 
-        trail.enabled = true;
+        if (trail!= null ){
+            trail.enabled = true;
+        }
 
         
         float range =0.0f;

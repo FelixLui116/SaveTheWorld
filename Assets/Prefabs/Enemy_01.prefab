@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1845190760121851918}
   - component: {fileID: 4486088077759979496}
   - component: {fileID: 4235110599463979560}
+  - component: {fileID: 6243593319503446010}
   - component: {fileID: 4366321559428582652}
   - component: {fileID: 5138443425419876127}
   m_Layer: 0
@@ -70,7 +71,7 @@ MonoBehaviour:
   current_health: 0
   health_max: 10
   _name: Enemy
-  baseGun: {fileID: 0}
+  baseGun: {fileID: 6243593319503446010}
   holdGunPos: {fileID: 0}
   SecGunPositon: {fileID: 0}
   characterController: {fileID: 1845190760121851918}
@@ -98,6 +99,39 @@ MonoBehaviour:
   characterController: {fileID: 1845190760121851918}
   thisObj: {fileID: 4225874058314448475}
   Path: []
+--- !u!114 &6243593319503446010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673408752332839699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7183815e83391204e9ceacd697b134a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shooting_point:
+  - {fileID: 8368283999883699414}
+  Bullet: {fileID: 55685470609121626, guid: 235aa15ffd772114fa48a84a1eacc69b, type: 3}
+  FireFlash: {fileID: 0}
+  Holder: Enemy
+  AmmoColor: 0
+  GunSound: {fileID: 0}
+  WeaponDamage: 1
+  FireRate: 2
+  BulletSpeed: 50
+  BulletRange: 2
+  BulletDestory: 1
+  TotalAmmo: 2
+  CurrentAmmo: 0
+  ReloadWeapon_time: 0
+  isPickup: 0
+  BulletLimit: 0
+  Ammo: 100
+  Crosshair: {fileID: 0}
+  WeaponImg: {fileID: 0}
+  WeaponImg_Disable: {fileID: 0}
 --- !u!135 &4366321559428582652
 SphereCollider:
   m_ObjectHideFlags: 0

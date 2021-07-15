@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 55685470609121621}
   m_Layer: 0
   m_Name: Bullet_1
-  m_TagString: Untagged
+  m_TagString: PlayerHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,4 +254,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet_rb: {fileID: 55685468966418937}
   destroyTime: 2
+  bulletDamage: 0
   trail: {fileID: 2203919965977855999}

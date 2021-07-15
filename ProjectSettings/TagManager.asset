@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - Weapon
   - Enemy
+  - PlayerHit
+  - EnemyHit
   layers:
   - Default
   - TransparentFX

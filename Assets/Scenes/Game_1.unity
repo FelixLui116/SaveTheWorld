@@ -9416,7 +9416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAcre: {fileID: 305426844}
   enemyAcre: {fileID: 1888473119}
-  bulletPoolList: []
 --- !u!1 &1802498378
 GameObject:
   m_ObjectHideFlags: 0
