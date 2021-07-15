@@ -19,6 +19,7 @@ public class BaseGun : MonoBehaviour
     // public bool isPlayGun = false;
 
     // public Text ShootingType; 
+    private GameObject poolObject;
 
     [Header("Weapon statistics")]
     
@@ -99,7 +100,8 @@ public class BaseGun : MonoBehaviour
             {
                 for (int i = 0; i < canCloneBullet; i++)
                 {
-                    PoolSystem.Instance.SpawnToPool(Bullet );
+                    // PoolSystem.Instance.SpawnToPool(Bullet );
+                    PoolSystem.Instance.SpawnToPool(Bullet , Holder , poolObject );
                 //     var bullet = Instantiate(Bullet, Shooting_point[0].transform.position, Shooting_point[0].transform.rotation); //Bullet , transform.position = firePoint
                 }
                 yield return new WaitForSeconds(60 / (ReloadWeapon_time  * 60));
@@ -142,13 +144,27 @@ public class BaseGun : MonoBehaviour
     protected void Start()
     {
         CurrentAmmo = TotalAmmo;   
+    }
 
+    public void pickupGun_cloneBullet(){
         //use pool system
-        for (int i = 0; i < TotalAmmo; i++)
+        // PoolSystem.Instance.CreatePoolForBullet(Holder , this.name);
+        poolObject = null;
+        poolObject = PoolSystem.Instance.CreatePoolForBullet(Holder ,this.name);//this.name
+
+        for (int i = 0; i < CurrentAmmo; i++)
         {
-               PoolSystem.Instance.SpawnToPool(Bullet );
-        //     var bullet = Instantiate(Bullet, Shooting_point[0].transform.position, Shooting_point[0].transform.rotation); //Bullet , transform.position = firePoint
+            PoolSystem.Instance.SpawnToPool(Bullet , Holder , poolObject );
         }
+    }
+
+
+    public void bulletAdd(){
+        
+        // for (int i = CurrentAmmo; i < CurrentAmmo; i++)
+        // {
+        //     PoolSystem.Instance.SpawnToPool(Bullet , Holder , poolObject );
+        // }
     }
 
    
@@ -157,18 +173,19 @@ public class BaseGun : MonoBehaviour
 
         // Projectile bullet = Shooting_point[count].GetComponent<Projectile>();
         Projectile bullet = null;
-        bullet.bulletDamage = WeaponDamage;
+        // bullet.bulletDamage = WeaponDamage;
+
         if ( Holder == "Player" ){    // isPlayer 
-            bullet.Bullet_rb.gameObject.tag = "PlayerBullet";
-            bullet =  PoolSystem.Instance.playerAcre.transform.GetChild( count ).GetComponent<Projectile>();
+            bullet.gameObject.tag = "PlayerBullet";
+            bullet =  poolObject.transform.GetChild( count ).GetComponent<Projectile>();
             
 
         }else if( Holder == "Enemy" ){     // isEnemy
-        bullet.Bullet_rb.gameObject.tag = "EnemyBullet";
-            bullet =  PoolSystem.Instance.enemyAcre.transform.GetChild( count ).GetComponent<Projectile>();
+        // bullet.Bullet_rb.gameObject.tag = "EnemyBullet";
+            // bullet =  PoolSystem.Instance.enemyAcre.transform.GetChild( count ).GetComponent<Projectile>();
         }
 
-        bullet.Fire(  bulletSpeed ,  bulletRange,  bulletDestory , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        bullet.Fire(  bulletSpeed ,  bulletRange,  bulletDestory , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage); // weaponEnd.transform.position, weaponEnd.transform.rotation
         // transform.forward * bulletSpeed;
     }
 

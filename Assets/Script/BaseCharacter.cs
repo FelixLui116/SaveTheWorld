@@ -178,9 +178,13 @@ public class BaseCharacter : MonoBehaviour
     // }
     public void WeaponGet(GameObject obj){
         GameObject weapon = obj;
-            bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
-            if( !pickup_bool ){
+            // bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
+            BaseGun baseGun = weapon.GetComponent<BaseGun>();
+            bool pickup_bool = baseGun.isPickup;
 
+            if( !pickup_bool ){
+                
+                baseGun.pickupGun_cloneBullet();
                 if (HoldWeaponCount < MaxHoldWeapon)    // can Holding Gun total number
                 {
                     HoldWeaponCount ++;

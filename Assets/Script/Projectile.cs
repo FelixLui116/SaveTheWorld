@@ -51,8 +51,9 @@ public class Projectile : MonoBehaviour
         // }
     }
 
-    public void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation  ){
+    public void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation , float damage ){
         
+        bulletDamage = damage;
         // reset pos to Gun FirePoint Pos
         transform.position = pos;
         transform.rotation = rotation;

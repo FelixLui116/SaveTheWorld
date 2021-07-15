@@ -7059,6 +7059,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4f40b53c220b24a8591379846e1b16c8, type: 2}
+    - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
+        type: 3}
+      propertyPath: TotalAmmo
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
 --- !u!4 &1340991635 stripped
@@ -9411,6 +9416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAcre: {fileID: 305426844}
   enemyAcre: {fileID: 1888473119}
+  bulletPoolList: []
 --- !u!1 &1802498378
 GameObject:
   m_ObjectHideFlags: 0

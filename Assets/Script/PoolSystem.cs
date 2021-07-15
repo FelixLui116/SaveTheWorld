@@ -10,6 +10,8 @@ public class PoolSystem : MonoBehaviour
 
     public GameObject enemyAcre;
 
+    // public List<Projectile> bulletPoolList = new List<Projectile>();
+
 
     private void Awake() {
 
@@ -19,17 +21,33 @@ public class PoolSystem : MonoBehaviour
         }
     }     
 
-    public void SpawnToPool(GameObject taegetObject , string tagName =  "Player" ){
+    
+    public void SpawnToPool(GameObject taegetObject , string tagName =  "Player" , GameObject PoolAcre = null ){ // GameObject PoolAcre 
         if (tagName == "Player" )
         {
-            Instantiate (taegetObject, new Vector3(0,0,0) , Quaternion.identity , playerAcre.transform);
+            // taegetObject.tag = "PlayerBullet";
+            Instantiate (taegetObject, new Vector3(0,0,0) , Quaternion.identity , PoolAcre.transform);
             
             // Instantiate(taegetObject , playerAcre.transform); //Bullet , transform.position = firePoint
         }
         else if(tagName == "Enemy"){
-            
+            // taegetObject.tag = "EnemyBullet";
         } 
-        
+    }
+
+    public GameObject CreatePoolForBullet(string Holder , string poolName){
+        Transform newParent;
+        if (Holder == "Player"){
+            newParent = playerAcre.transform;
+        }
+        else{
+            newParent = enemyAcre.transform;
+        }
+        GameObject objPool = new GameObject();
+        objPool.name = poolName + "_poolBullet";
+        objPool.transform.SetParent(newParent);
+
+        return objPool;
     }
 
     void Start()
