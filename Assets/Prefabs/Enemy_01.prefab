@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7673408752332839699}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 16.87, y: 1.0936651, z: 11.55}
+  m_LocalPosition: {x: 16.87, y: 1.4, z: 11.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4523017752742845849}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shooting_point:
   - {fileID: 8368283999883699414}
-  Bullet: {fileID: 55685470609121626, guid: 235aa15ffd772114fa48a84a1eacc69b, type: 3}
+  Bullet: {fileID: 55685470609121626, guid: 5e483af3efe004cb0bc543bd44292747, type: 3}
   FireFlash: {fileID: 0}
   Holder: Enemy
   AmmoColor: 0
