@@ -14,9 +14,11 @@ public class UIContrller : MonoBehaviour
     public Button[] skillBtn;
     public ShootingButton ShootBtn; // base shooting
     public Button dodgeBtn; // base shooting
+    public Button SwitchGunBtn; // base shooting
     private void Awake() {
         // if (ShootBtn != null){
-        if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
+        // if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
+        if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         
     }
     void Start()
@@ -29,6 +31,10 @@ public class UIContrller : MonoBehaviour
     {
         if (playerCharacterController.baseGun != null && playerCharacterController != null)
         {
+            if (!playerCharacterController.CanSwitchWeapon) // is Changing Weapon not shoot
+            {
+                return;
+            }
             // Bullet_Text();
             // playerCharacterController.PressShoot();
             if (ShootBtn.PressDown_GET){    //PressDown

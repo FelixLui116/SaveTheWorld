@@ -12,8 +12,16 @@ public class PlayerCharacterController : BaseCharacter
 
     private int lastWeapon;
 
-    private float dodge_timer = 2.5f;
+     [SerializeField] private float dodge_timer = 2.5f; // Not using
+     [SerializeField] private float SwitchWeapon_timer = 0.5f;
     private bool canDodging = true;
+    private bool canSwitchWeapon = true;
+    public bool CanSwitchWeapon
+    {
+        get => canSwitchWeapon;
+        set { canSwitchWeapon = value; }
+    }
+
     // [SerializeField] protected GameObject playerBody;
     
     // public Button ShootBtn;
@@ -83,7 +91,6 @@ public class PlayerCharacterController : BaseCharacter
     }
 
     public void dodge_click (Button btn ){
-        
         StartCoroutine( dodge_func(btn) );
     }
     private IEnumerator dodge_func ( Button btn ){
@@ -118,6 +125,24 @@ public class PlayerCharacterController : BaseCharacter
     }
     
     
+
+    /// Switch Weapon 
+    public void SwitchWeapon_click (Button btn ){
+        StartCoroutine( SwitchWeapon_func(btn) );
+    }
+    private IEnumerator SwitchWeapon_func ( Button btn ){
+        if (CanSwitchWeapon)
+        {  
+            CanSwitchWeapon = false;
+            // canDodging = true;
+            yield return Button_Loading(btn ,SwitchWeapon_timer );
+            CanSwitchWeapon = true;
+
+            switchingWeapon_func();
+        }
+    
+    }
+
 
     // Update is called once per frame
     void Update()

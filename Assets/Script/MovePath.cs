@@ -42,27 +42,46 @@ public class MovePath : MonoBehaviour
     }
 
     public void Base_moveToTarget( Transform targetPos  , bool Rotate = false, bool MoveTo = false){
-        Debug.Log("-Base_moveToTarget");
+        Debug.Log("--- Base_moveToTarget");
         StartCoroutine(  Rotate_func( targetPos ) );
 
     }
     
-    public void StopCoroutines() => StopAllCoroutines();
+    public void RotateToTarget(){
+        Debug.Log("--- RotateToTarget");
+    }
 
+    
+    public void StopCoroutines(){ 
+        Debug.Log("=== StopCoroutines");
+        StopAllCoroutines();
+        IsMoving = false;
+        // StopCoroutine( "PathGo" );
+        // StopCoroutine( "Rotate_func" );
+        // StopCoroutine( "Move_func" );
+    }
+
+
+    
     public IEnumerator PathGo(){
+        IsMoving = true;
         // Debug.Log(" Path.Position: "+  Path[0].position);
         
-        if ( Path.Length != 0)
+        if ( Path.Length != 0 && IsMoving)
         {
             for (int i = 0; i < Path.Length; i++)
             {
                 // Vector3 Path_V = new Vector3( Path[i].position.x , Path[i].position.y ,  Path[i].position.z );
                 
                 Debug.Log(" Path.Position: "+  Path[i]);
-                yield return  Rotate_func( Path[i] ) ;
+
+                if (IsMoving)
+                { 
+                    yield return  Rotate_func( Path[i] ) ;
+                }
                 PathCount++;
             }
-            if (IsloopPath)
+            if (IsloopPath && IsMoving)
             {
                 PathCount = 0;
                 StartCoroutine( PathGo() ); 
@@ -83,8 +102,11 @@ public class MovePath : MonoBehaviour
         Debug.Log(" is Rotae Finsh"); 
         // yield return null;
         Vector3 path_V3 = new Vector3(byAngles.position.x , byAngles.position.y ,  byAngles.position.z );
-        Debug.Log(" path_V3:" + path_V3); 
-        yield return Move_func(path_V3 , MoveSpeed );
+        // Debug.Log(" path_V3:" + path_V3); 
+        if (IsMoving)
+        { 
+            yield return Move_func(path_V3 , MoveSpeed );
+        }
     }
     private IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
         
@@ -107,6 +129,10 @@ public class MovePath : MonoBehaviour
             yield return null;
         }
     }
+
+    // map
+
+
 
     /*
     private void MoveCharacter(int Move_status , Vector3 MovePos){

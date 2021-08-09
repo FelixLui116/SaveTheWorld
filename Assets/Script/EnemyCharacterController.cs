@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum EnemyState
 {
-    Idle, Rotate, Moving, Stop, Shooting
+    Idle, Rotate, Moving, GetTarget, Shooting
 }
 public class EnemyCharacterController : BaseCharacter
 {
@@ -25,18 +25,25 @@ public class EnemyCharacterController : BaseCharacter
     private EnemyState _currentState = EnemyState.Idle;
     protected EnemyState CurrentState
     {
-        get => _currentState;
+        // get => _currentState;
+        // set
+        // {
+        //     if (_currentState == value) return;
+        //     EnemyStateChangedEvent(_currentState);
+        // }
+        get { return _currentState; }
         set
         {
-            if (_currentState == value) return;
+            _currentState = value;
             EnemyStateChangedEvent(_currentState);
         }
     }
 
     void Start()
-    {
+    { 
+        // StartCoroutine( movePath.PathGo() ); 
+        CurrentState = EnemyState.Idle;  
 
-        StartCoroutine( movePath.PathGo() ); 
         baseGun.pickupGun_cloneBullet();
     }
 
@@ -56,25 +63,25 @@ public class EnemyCharacterController : BaseCharacter
 
 
     private void EnemyStateChangedEvent(EnemyState state){
+        Debug.Log(" Enemy state: " + state);
         switch (state)
         {
             case EnemyState.Moving:
-                Debug.Log(" in Change Moving");
                 break;
             case EnemyState.Rotate:
-                Debug.Log(" in Change rotate");
                 break;
-            case EnemyState.Stop:
-                Debug.Log(" in Change stop");
+            case EnemyState.GetTarget:
                 movePath.StopCoroutines();
                 break;
             case EnemyState.Shooting:
 
                 baseGun.shooting_func();
-                Debug.Log(" in Change shoot");
                 break;
             case EnemyState.Idle:
-                // Debug.Log(" in Change Idle");
+                StartCoroutine( movePath.PathGo() ); 
+                
+                CurrentState = EnemyState.Moving;  
+
                 break;
             default:
                 break;
@@ -103,11 +110,12 @@ public class EnemyCharacterController : BaseCharacter
             // Debug.Log(" DetectTarget: " + targetPlayer.gameObject.name);
             detected_Target = true;
             
-            CurrentState = EnemyState.Stop;   // movePath.StopCoroutines();
-            movePath.Base_moveToTarget( targetPlayer );
+            CurrentState = EnemyState.GetTarget;   // movePath.StopCoroutines();
+            // movePath.Base_moveToTarget( targetPlayer );
 
         }else{
             detected_Target = false;
+            // CurrentState = EnemyState.Idle;
         }
     } 
 }

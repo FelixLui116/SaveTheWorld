@@ -7,7 +7,7 @@ public class LevelController : MonoBehaviour
 {
 
     public GameObject[] enemyType;
-    public GameObject player; 
+    public PlayerCharacterController player; 
 
     [Header("UI")]
     public Text health_text;
@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerHealth_text_update( player.Current_health , player.Health_max  );
     }
 
     // Update is called once per frame
@@ -52,8 +52,23 @@ public class LevelController : MonoBehaviour
         return  CurrentAmmo +"/"+ TotalAmmo + "\n" + Ammo;
     }
 
-    private void PlayerHealth_text_update ( int health_ ){
-        health_text.text = health_.ToString();
+    private void PlayerHealth_text_update ( int health_ , int health_max){
+
+        // int a = 100;
+        // int b = 50;
+        // float c  =(float)(b/a);
+        // Debug.Log("=== "+ c );
+
+        
+        // Debug.Log("=== " + health_  +"  " + health_max +"  " + ( health_/health_max ) );
+        float _Hp = ((float)health_  / (float)health_max ); // 0.XXXX, 1=100% , 0.5=50%
+        Color _hpColor = ( _Hp <= 0.2) ? Color.red : (_Hp <= 0.5) ? Color.yellow : (_Hp <= 0.8) ? Color.green : Color.green; 
+
+        Debug.Log("=== _Hp: " + _hpColor + " _Hp: " + _Hp );
+
+        health_text.color = _hpColor;
+
+        health_text.text = health_.ToString() + " / "+ health_max.ToString();
     }
     
 }
