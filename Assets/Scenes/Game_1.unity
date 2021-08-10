@@ -1012,7 +1012,6 @@ MonoBehaviour:
   enemyType:
   - {fileID: 0}
   player: {fileID: 1780303581}
-  health_text: {fileID: 1226897663}
   Ammo_Color: []
   Debug_Text: {fileID: 0}
   GunUI_Image: {fileID: 0}
@@ -2077,6 +2076,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 216778840}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &420988163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 871114565393609327, guid: 6d4935883e79be446b3630c632093273,
+    type: 3}
+  m_PrefabInstance: {fileID: 1780303579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f3f28e31c624e4fb1bdb011806c89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &423464462
 GameObject:
   m_ObjectHideFlags: 0
@@ -9985,7 +9996,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed1473c642aa4ad596474f8804868b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health_text: {fileID: 1226897663}
   playerCharacterController: {fileID: 1780303581}
+  playerCollider: {fileID: 420988163}
   skillBtn:
   - {fileID: 599228636}
   - {fileID: 864367598}

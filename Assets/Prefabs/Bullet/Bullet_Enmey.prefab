@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2203919965977855999}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: EnemyHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,8 +159,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.49662733
-        value: 0.1015625
+        time: 0.5021739
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -172,7 +172,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.86764467, b: 0.3726415, a: 1}
+      key0: {r: 1, g: 0.1273585, b: 0.21252829, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 55685470609121620}
   - component: {fileID: 55685470609121621}
   m_Layer: 0
-  m_Name: Bullet_1
+  m_Name: Bullet_2
   m_TagString: PlayerHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

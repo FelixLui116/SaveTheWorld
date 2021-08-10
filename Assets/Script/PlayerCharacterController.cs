@@ -6,14 +6,13 @@ using System.Text;
 
 public class PlayerCharacterController : BaseCharacter
 {
-
     // [Header("Skill")]
     private SkillController skill;
 
     private int lastWeapon;
 
-     [SerializeField] private float dodge_timer = 2.5f; // Not using
-     [SerializeField] private float SwitchWeapon_timer = 0.5f;
+    [SerializeField] private float dodge_timer = 2.5f; // Not using
+    [SerializeField] private float SwitchWeapon_timer = 0.5f;
     private bool canDodging = true;
     private bool canSwitchWeapon = true;
     public bool CanSwitchWeapon
@@ -131,6 +130,11 @@ public class PlayerCharacterController : BaseCharacter
         StartCoroutine( SwitchWeapon_func(btn) );
     }
     private IEnumerator SwitchWeapon_func ( Button btn ){
+        if (weaponList.Count == 0)
+        {
+            yield break;
+        }
+
         if (CanSwitchWeapon)
         {  
             CanSwitchWeapon = false;

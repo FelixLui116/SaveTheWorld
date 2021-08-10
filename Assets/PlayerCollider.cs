@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerCollider : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    public UnityAction ApplyChangeHPAction;
     [SerializeField] private BaseCharacter baseCharacter;
     void Start()
     {
@@ -38,6 +40,9 @@ public class PlayerCollider : MonoBehaviour
         // if(other.gameObject.tag == "Bullet"){
 
         // }
+        if(other.gameObject.tag == "EnemyHit"){
+            PlayerGetHit(other.transform.parent.gameObject);
+        } 
         
         // AudioPlayer(); 
         // DestroyItem();
@@ -56,9 +61,13 @@ public class PlayerCollider : MonoBehaviour
     private void Health_trigger(GameObject obj ){
         
         MedKit MedKit_obj = obj.GetComponent<MedKit>();
-        Debug.Log(" Yes Get Health_: " +MedKit_obj );
+       
+        baseCharacter.Current_health += MedKit_obj.HealingNum; 
 
-        baseCharacter.Current_health += MedKit_obj.HealingNum;
+        ApplyChangeHPAction?.Invoke();
+
+        Debug.Log(" Yes Get Health_: " + MedKit_obj.HealingNum + " || "+ baseCharacter.Current_health );
+
     }
     private void Ammo_trigger(GameObject obj ){
         
@@ -66,8 +75,11 @@ public class PlayerCollider : MonoBehaviour
         Debug.Log(" Yes Get Ammo: " +Ammo_obj.ammoTpye + " ||Num: "+Ammo_obj.AmmoNum);
         // baseCharacter.baseGun.AddAmmoTpye(Ammo_obj.ammoTpye, Ammo_obj.AmmoNum ); // Ammo_obj.AmmoNum;
     }
+    private void PlayerGetHit(GameObject obj ){
+        baseCharacter.Current_health -= 10;
+    }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter(Collision other) {   
         
     }
 }

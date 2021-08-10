@@ -7,9 +7,13 @@ using UnityEngine.EventSystems;
 using System.Text;
 public class UIContrller : MonoBehaviour
 {
+    [Header("UI")]
+    public Text health_text;
+
     [Header("== Player ==")]
     
     public PlayerCharacterController playerCharacterController;
+    [SerializeField] private PlayerCollider  playerCollider;
     // public Text HP , Bullet;
     public Button[] skillBtn;
     public ShootingButton ShootBtn; // base shooting
@@ -23,6 +27,8 @@ public class UIContrller : MonoBehaviour
     }
     void Start()
     {
+        playerCollider.ApplyChangeHPAction = PlayerHealth_text_update;
+        PlayerHealth_text_update();
         // Hp_Text();
     }
 
@@ -47,6 +53,27 @@ public class UIContrller : MonoBehaviour
                 playerCharacterController.Pressing_Shoot = false;
             }
         }
+    }
+    private void PlayerHealth_text_update (){   // call back ApplyChangeHPAction
+        int health_     =  playerCharacterController.Current_health;
+        int health_max  =  playerCharacterController.Health_max ;
+        
+            // PlayerHealth_text_update( player.Current_health , player.Health_max  );
+        // int a = 100;
+        // int b = 50;
+        // float c  =(float)(b/a);
+        // Debug.Log("=== "+ c );
+
+        
+        // Debug.Log("=== " + health_  +"  " + health_max +"  " + ( health_/health_max ) );
+        float _Hp = ((float)health_  / (float)health_max ); // 0.XXXX, 1=100% , 0.5=50%
+        Color _hpColor = ( _Hp <= 0.2) ? Color.red : (_Hp <= 0.5) ? Color.yellow : (_Hp <= 0.8) ? Color.green : Color.green; 
+
+        Debug.Log("=== _Hp: " + _hpColor + " _Hp: " + _Hp );
+
+        health_text.color = _hpColor;
+
+        health_text.text = health_.ToString() + " / "+ health_max.ToString();
     }
     // private void FixedUpdate() {
     //     if (playerCharacterController.baseGun != null && playerCharacterController != null)

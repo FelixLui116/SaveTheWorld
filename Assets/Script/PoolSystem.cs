@@ -33,6 +33,8 @@ public class PoolSystem : MonoBehaviour
         }
         else if(tagName == "Enemy"){
             // taegetObject.tag = "EnemyBullet";
+
+        // taegetObject.tag = "EnemyHit";
             Instantiate (taegetObject, new Vector3(0,0,0) , Quaternion.identity , PoolAcre.transform);
         } 
     }
