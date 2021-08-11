@@ -123,6 +123,6 @@ public class EnemyCharacterController : BaseCharacter
         }
     } 
 
-    protected void GetHit(){
+    protected override void GetHit(){
     }
 }

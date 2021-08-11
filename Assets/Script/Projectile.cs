@@ -11,9 +11,6 @@ public class Projectile : MonoBehaviour
 
     public TrailRenderer trail;
 
-    public enum TrailColor { blue,green,yellow,red}
-    public TrailColor trailColor;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +51,7 @@ public class Projectile : MonoBehaviour
         // }
     }
 
-    public void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation , float damage ){
+    public void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation , float damage , Color trailColor ){
         
         bulletDamage = damage;
         // reset pos to Gun FirePoint Pos
@@ -65,7 +62,7 @@ public class Projectile : MonoBehaviour
 
         if (trail!= null ){
             trail.enabled = true;
-            trailColor_map();
+            SetTrailColor(trailColor);
         }
         
         
@@ -96,15 +93,15 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void trailColor_map (){
+    
+    private void SetTrailColor( Color trailColor){
 
-        Color i = trailColor == TrailColor.blue   ? Color.blue :
-                trailColor == TrailColor.green  ? Color.green :
-                trailColor == TrailColor.yellow ? Color.yellow :
-                trailColor == TrailColor.red    ? Color.red : Color.blue;
+        // Color i = trailColor == TrailColor.blue   ? Color.blue :
+        //         trailColor == TrailColor.green  ? Color.green :
+        //         trailColor == TrailColor.yellow ? Color.yellow :
+        //         trailColor == TrailColor.red    ? Color.red : Color.blue;
 
         trail.endColor = Color.white;
-        trail.startColor = i; 
+        trail.startColor = trailColor; 
     }
-    
 }

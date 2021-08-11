@@ -10,6 +10,8 @@ using Random = UnityEngine.Random;
 public class BaseGun : MonoBehaviour
 {
     public enum AmmoTpye { Blue, green, yellow, red }    
+    public enum TrailColor { blue,green,yellow,red}
+    public TrailColor trailColor;
     public GameObject[] Shooting_point;
     public GameObject Bullet;
     public GameObject FireFlash;
@@ -189,8 +191,8 @@ public class BaseGun : MonoBehaviour
             bullet =  poolObject.transform.GetChild( count ).GetComponent<Projectile>();
             // bullet =  PoolSystem.Instance.enemyAcre.transform.GetChild( count ).GetComponent<Projectile>();
         }
-
-        bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        Color _c = trailColor_map();
+        bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage, _c); // weaponEnd.transform.position, weaponEnd.transform.rotation
         // transform.forward * bulletSpeed;
     }
 
@@ -212,6 +214,13 @@ public class BaseGun : MonoBehaviour
     //     }   
     // }
 
+    private Color trailColor_map(){
+        Color i = trailColor == TrailColor.blue   ? Color.blue :
+                trailColor == TrailColor.green  ? Color.green :
+                trailColor == TrailColor.yellow ? Color.yellow :
+                trailColor == TrailColor.red    ? Color.red : Color.blue;
+        return i;
+    }
     public void Test_Func(){
         // float bulletRange = 5f;
         // float range = Random.Range( -(bulletRange), bulletRange);

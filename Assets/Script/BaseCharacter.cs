@@ -112,11 +112,13 @@ public class BaseCharacter : MonoBehaviour
         if (Current_health <= 0)
         {
             Debug.Log(" enemy is die need to destory !!!");
-        }else{
-
+            DestroyOjbect();
         }
     }
 
+    protected virtual void GetHit(){
+        Debug.Log(" Fk i get Hits!!!");
+    }
     protected virtual void GetWeapon_onHold(){
         if(holdGunPos == null) return;
         if(holdGunPos.transform.childCount == 0){ 
@@ -227,6 +229,10 @@ public class BaseCharacter : MonoBehaviour
         weapon.transform.SetParent( parent.transform );  // holdGun.transform 
         weapon.transform.localPosition = Vector3.zero;  // reset position
         weapon.transform.localEulerAngles = Vector3.zero;               // reset rotation
+    }
+
+    private void DestroyOjbect (float timer = 0.0f) {
+        Destroy(this.gameObject);  
     }
 
 }
