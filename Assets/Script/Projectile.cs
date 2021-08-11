@@ -6,10 +6,13 @@ using Random = UnityEngine.Random;
 public class Projectile : MonoBehaviour
 {
     public Rigidbody Bullet_rb;
-    public float destroyTime;
+    // public float destroyTime;
     public float bulletDamage;
 
     public TrailRenderer trail;
+
+    public enum TrailColor { blue,green,yellow,red}
+    public TrailColor trailColor;
 
     // Start is called before the first frame update
     void Start()
@@ -62,8 +65,9 @@ public class Projectile : MonoBehaviour
 
         if (trail!= null ){
             trail.enabled = true;
+            trailColor_map();
         }
-
+        
         
         float range =0.0f;
         if (bulletRange != 0){
@@ -81,12 +85,26 @@ public class Projectile : MonoBehaviour
         StartCoroutine(DestroyTimer(bulletDestory) );
     }
 
-    IEnumerator DestroyTimer(float seconds = 2.0f)
+    public IEnumerator DestroyTimer(float seconds)
     {
+        Debug.Log("before bulletDestory: " + seconds);
         yield return new WaitForSeconds(seconds);
+        Debug.Log("after bulletDestory: " );
         // ResetVelocity();
         // poolSystem.poolDictionary[bulletName].Enqueue(gameObject);
         gameObject.SetActive(false);
         Destroy(gameObject);
     }
+
+    private void trailColor_map (){
+
+        Color i = trailColor == TrailColor.blue   ? Color.blue :
+                trailColor == TrailColor.green  ? Color.green :
+                trailColor == TrailColor.yellow ? Color.yellow :
+                trailColor == TrailColor.red    ? Color.red : Color.blue;
+
+        trail.endColor = Color.white;
+        trail.startColor = i; 
+    }
+    
 }

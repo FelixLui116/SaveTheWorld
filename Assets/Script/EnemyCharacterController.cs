@@ -16,8 +16,10 @@ public class EnemyCharacterController : BaseCharacter
 
     // [SerializeField] private float Forward = 10f;
     // protected bool IsMoving = false;
+
     protected bool IsGettarget = false;
     public Transform targetPlayer;
+    // [SerializeField] protected EnemyCollider enemyCollider;
     [SerializeField] protected  float DetectRange = 10f;
     [SerializeField] private MovePath movePath;
     
@@ -43,6 +45,8 @@ public class EnemyCharacterController : BaseCharacter
     { 
         // StartCoroutine( movePath.PathGo() ); 
         CurrentState = EnemyState.Idle;  
+        
+        // enemyCollider.ApplyChangeHPAction = GetHit;
 
         baseGun.pickupGun_cloneBullet();
     }
@@ -118,4 +122,7 @@ public class EnemyCharacterController : BaseCharacter
             // CurrentState = EnemyState.Idle;
         }
     } 
+
+    protected void GetHit(){
+    }
 }

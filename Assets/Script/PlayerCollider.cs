@@ -76,7 +76,11 @@ public class PlayerCollider : MonoBehaviour
         // baseCharacter.baseGun.AddAmmoTpye(Ammo_obj.ammoTpye, Ammo_obj.AmmoNum ); // Ammo_obj.AmmoNum;
     }
     private void PlayerGetHit(GameObject obj ){
-        baseCharacter.Current_health -= 10;
+        // baseCharacter.Current_health -= 10;
+        Projectile projectile = obj.GetComponent<Projectile>();
+        baseCharacter.Current_health -=  (int)projectile.bulletDamage;
+
+        ApplyChangeHPAction?.Invoke();
     }
 
     private void OnCollisionEnter(Collision other) {   

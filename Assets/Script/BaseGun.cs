@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class BaseGun : MonoBehaviour
 {
-    public enum AmmoTpye { Blue, green, yollow, red }    
+    public enum AmmoTpye { Blue, green, yellow, red }    
     public GameObject[] Shooting_point;
     public GameObject Bullet;
     public GameObject FireFlash;
@@ -27,7 +27,7 @@ public class BaseGun : MonoBehaviour
     [Range(0f, 10f)]    public float FireRate  = 0f;      // shoot cooldown
     [Range(0f, 1000f)]  public float BulletSpeed = 0f;
     [Range(0, 180.0f)]  public float BulletRange = 0f;  // Not shooting the midden //  if 5(Y Rotota) == <-(-5 angle) midden (5 angle) ->
-    [Range(0f, 10f)]    public float BulletDestory = 0f;
+    [Range(0f, 100f)]    public float BulletDestoryTime = 0f;
     private bool CanFire = true;
     private bool Reloading = false;
     public int TotalAmmo = 0;   // gun can have totalAmmo
@@ -58,7 +58,7 @@ public class BaseGun : MonoBehaviour
                 if(GunSound != null){
                     GunSound.Play();
                 }
-                shootingBullet(BulletSpeed , BulletRange, BulletDestory ,CurrentAmmo);
+                shootingBullet(BulletSpeed , BulletRange, BulletDestoryTime ,CurrentAmmo);
             }
             else{
                 Debug.Log("=== Weapon Reloading!!! ");
@@ -172,7 +172,7 @@ public class BaseGun : MonoBehaviour
     }
 
    
-    public void shootingBullet(float bulletSpeed ,float  bulletRange, float bulletDestory , int count){
+    public void shootingBullet(float bulletSpeed ,float  bulletRange, float BulletDestoryTime , int count){
         // Shooting_point[count].GetComponent<Rigidbody>().AddForce(0, 0, 1);
 
         // Projectile bullet = Shooting_point[count].GetComponent<Projectile>();
@@ -190,7 +190,7 @@ public class BaseGun : MonoBehaviour
             // bullet =  PoolSystem.Instance.enemyAcre.transform.GetChild( count ).GetComponent<Projectile>();
         }
 
-        bullet.Fire(  bulletSpeed ,  bulletRange,  bulletDestory , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage); // weaponEnd.transform.position, weaponEnd.transform.rotation
         // transform.forward * bulletSpeed;
     }
 

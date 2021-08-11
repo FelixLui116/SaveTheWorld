@@ -60,9 +60,9 @@ MonoBehaviour:
   GunSound: {fileID: 6718133261770744682}
   WeaponDamage: 10
   FireRate: 4
-  BulletSpeed: 100
+  BulletSpeed: 50
   BulletRange: 5
-  BulletDestory: 0.5
+  BulletDestoryTime: 1
   TotalAmmo: 28
   CurrentAmmo: 0
   ReloadWeapon_time: 2

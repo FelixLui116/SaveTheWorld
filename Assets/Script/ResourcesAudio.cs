@@ -7,7 +7,7 @@ public class ResourcesAudio : MonoBehaviour
 
     [SerializeField]  private enum GunAudio { FIRE , RELOAD , PICKUP , DROP};
     [Header("Item")]
-    public AudioClip[] Ammo_Audio;   // BLUE, GREEN, YOLLOW, RED 
+    public AudioClip[] Ammo_Audio;   // BLUE, GREEN, yellow, RED 
     public AudioClip medkit;
     public AudioClip coin;
 

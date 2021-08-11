@@ -28,7 +28,11 @@ public class BaseCharacter : MonoBehaviour
     public int Current_health
     {
         get => current_health;
-        set { current_health = value; }
+        set 
+        { 
+            current_health = value;
+            CheckHp();
+        }
     }
     public int Health_max
     {
@@ -104,6 +108,14 @@ public class BaseCharacter : MonoBehaviour
     //     baseGun.gameObject.transform.SetParent(putGunPos);
     //     baseGun = null;
     // } 
+    protected virtual void CheckHp(){
+        if (Current_health <= 0)
+        {
+            Debug.Log(" enemy is die need to destory !!!");
+        }else{
+
+        }
+    }
 
     protected virtual void GetWeapon_onHold(){
         if(holdGunPos == null) return;

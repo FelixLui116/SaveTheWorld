@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6243593319503446010}
   - component: {fileID: 4366321559428582652}
   - component: {fileID: 5138443425419876127}
+  - component: {fileID: 2407652295036930815}
   m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Enemy
@@ -68,8 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61280c3e94c8d492dbcab1fd02474b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_health: 0
-  health_max: 10
+  current_health: 50
+  health_max: 100
   _name: Enemy
   baseGun: {fileID: 6243593319503446010}
   holdGunPos: {fileID: 0}
@@ -118,13 +119,13 @@ MonoBehaviour:
   Holder: Enemy
   AmmoColor: 0
   GunSound: {fileID: 0}
-  WeaponDamage: 1
+  WeaponDamage: 10
   FireRate: 2
-  BulletSpeed: 50
+  BulletSpeed: 20
   BulletRange: 2
-  BulletDestory: 1
+  BulletDestoryTime: 3
   TotalAmmo: 2
-  CurrentAmmo: 0
+  CurrentAmmo: 2
   ReloadWeapon_time: 0
   isPickup: 0
   BulletLimit: 0
@@ -143,7 +144,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &5138443425419876127
 Animator:
@@ -164,6 +165,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2407652295036930815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673408752332839699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b587035c59ae4873aae790e780c2fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCharacter: {fileID: 4486088077759979496}
 --- !u!1 &8368283999883699414
 GameObject:
   m_ObjectHideFlags: 0

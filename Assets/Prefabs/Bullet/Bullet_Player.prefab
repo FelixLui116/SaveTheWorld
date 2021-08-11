@@ -253,6 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet_rb: {fileID: 55685468966418937}
-  destroyTime: 2
   bulletDamage: 0
   trail: {fileID: 2203919965977855999}
+  trailColor: 2
