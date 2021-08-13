@@ -24,7 +24,9 @@ public class BaseCharacter : MonoBehaviour
 
     public CharacterController characterController;
     [SerializeField] protected Transform putGunPos;
+    [SerializeField] protected float DestroyOjbectTimer = 0.0f;
     // public LevelController levelController;  
+    [SerializeField] protected AudioSource HitAudio;
     public int Current_health
     {
         get => current_health;
@@ -112,7 +114,7 @@ public class BaseCharacter : MonoBehaviour
         if (Current_health <= 0)
         {
             Debug.Log(" enemy is die need to destory !!!");
-            DestroyOjbect();
+            DestroyOjbect(DestroyOjbectTimer);
         }
     }
 

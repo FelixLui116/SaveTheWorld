@@ -22,8 +22,11 @@ public class MedKit : BaseItem
 
     private void OnTriggerEnter(Collider other) {
         Debug.Log(" in Coin OnTriggerEnter " + other.gameObject.name);
-        AudioPlayer(); 
-        DestroyItem();
+        AudioPlayer();
+        if(other.gameObject.tag == "Player")
+        {
+            DestroyItem();
+        } 
     }
     // Update is called once per frame
     void Update()

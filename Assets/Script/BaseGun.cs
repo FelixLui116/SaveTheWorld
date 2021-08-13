@@ -192,6 +192,7 @@ public class BaseGun : MonoBehaviour
             // bullet =  PoolSystem.Instance.enemyAcre.transform.GetChild( count ).GetComponent<Projectile>();
         }
         Color _c = trailColor_map();
+        StartCoroutine( FireFlash_func() );
         bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage, _c); // weaponEnd.transform.position, weaponEnd.transform.rotation
         // transform.forward * bulletSpeed;
     }
@@ -207,6 +208,12 @@ public class BaseGun : MonoBehaviour
         }
     }
 
+    public IEnumerator FireFlash_func( float timer = 0.1f){
+        if(FireFlash == null) yield break;
+        FireFlash.SetActive(true);
+        yield return new WaitForSeconds(timer);
+        FireFlash.SetActive(false);
+    }
     // private void OnTriggerEnter(Collider other) {
     //     if (!isPickup && other.gameObject.tag == "Player")
     //     {

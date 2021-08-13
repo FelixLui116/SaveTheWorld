@@ -25,7 +25,10 @@ public class Coin : BaseItem
     private void OnTriggerEnter(Collider other) {
         // Debug.Log(" in Coin OnTriggerEnter " + other.gameObject.name);
         AudioPlayer(); 
-        DestroyItem();
+        if(other.gameObject.tag == "Player")
+        {
+            DestroyItem();
+        }
     }
 
     // Update is called once per frame
