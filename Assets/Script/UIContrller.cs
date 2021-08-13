@@ -13,8 +13,11 @@ public class UIContrller : MonoBehaviour
     [Header("== Player ==")]
     
     public PlayerCharacterController playerCharacterController;
-    [SerializeField] private PlayerCollider  playerCollider;
+    private PlayerCollider playerCollider;
     // public Text HP , Bullet;
+
+    [Header("Skill")]
+    [SerializeField] private SkillController playerSkills;
     public Button[] skillBtn;
     public ShootingButton ShootBtn; // base shooting
     public Button dodgeBtn; // base shooting
@@ -23,13 +26,20 @@ public class UIContrller : MonoBehaviour
         // if (ShootBtn != null){
         // if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
         if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
+        // if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => null );
+        // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
+        // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => null );
         
+        playerCharacterController= GameObject.Find("Player").GetComponent<PlayerCharacterController>();
+         
+        playerCollider = playerCharacterController.playerCollider;
     }
     void Start()
     {
         playerCollider.ApplyChangeHPAction = PlayerHealth_text_update;
         PlayerHealth_text_update();
         // Hp_Text();
+        // SkillController playerSkills = playerCharacterController.skill;
     }
 
     // Update is called once per frame

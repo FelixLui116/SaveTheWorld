@@ -53,16 +53,16 @@ public class EnemyCharacterController : BaseCharacter
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))      // Test Function
-        {
-            CurrentState = EnemyState.Rotate;
-        }if (Input.GetKeyDown(KeyCode.W))      // Test Function
-        {
-            CurrentState = EnemyState.Shooting;
-        }if (Input.GetKeyDown(KeyCode.E))      // Test Function
-        {
-            CurrentState = EnemyState.Moving;
-        }
+        // if (Input.GetKeyDown(KeyCode.Q))      // Test Function
+        // {
+        //     CurrentState = EnemyState.Rotate;
+        // }if (Input.GetKeyDown(KeyCode.W))      // Test Function
+        // {
+        //     CurrentState = EnemyState.Shooting;
+        // }if (Input.GetKeyDown(KeyCode.E))      // Test Function
+        // {
+        //     CurrentState = EnemyState.Moving;
+        // }
     }
 
 

@@ -7,9 +7,10 @@ using System.Text;
 public class PlayerCharacterController : BaseCharacter
 {
     // [Header("Skill")]
-    private SkillController skill;
+    // [SerializeField] public SkillController skill;
 
-    private int lastWeapon;
+    private int lastWeapon;    
+    public PlayerCollider  playerCollider;
 
     [SerializeField] private float dodge_timer = 2.5f; // Not using
     [SerializeField] private float SwitchWeapon_timer = 0.5f;

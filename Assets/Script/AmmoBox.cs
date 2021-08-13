@@ -20,10 +20,10 @@ public class AmmoBox : BaseItem
     }
     private void OnTriggerEnter(Collider other) {
         Debug.Log(" in AmmoBox Collistion " + other.gameObject.name);
-        AudioPlayer(); 
         if(other.gameObject.tag == "Player")
         {
             DestroyItem();
+            AudioPlayer(); 
         }
     }
 

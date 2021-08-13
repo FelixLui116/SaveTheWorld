@@ -24,10 +24,11 @@ public class Coin : BaseItem
 
     private void OnTriggerEnter(Collider other) {
         // Debug.Log(" in Coin OnTriggerEnter " + other.gameObject.name);
-        AudioPlayer(); 
+        
         if(other.gameObject.tag == "Player")
         {
             DestroyItem();
+            AudioPlayer(); 
         }
     }
 

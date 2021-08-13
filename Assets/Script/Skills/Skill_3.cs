@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill_3 : SkillController
+public class Skill_3 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

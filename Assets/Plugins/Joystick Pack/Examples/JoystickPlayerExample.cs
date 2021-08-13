@@ -15,6 +15,10 @@ public class JoystickPlayerExample : MonoBehaviour
 
     private Touch initTouch = new Touch();
 
+    private void Awake() {
+         variableJoystick = GameObject.Find("Joystick_L").GetComponent<VariableJoystick>();
+        // variableJoystick = Joystick_L_obj.GetComponent<VariableJoystick>() ;
+    }
     public void FixedUpdate()
     {
         // Debug.Log(" Horizontal " +variableJoystick.Horizontal +" Vertical  "+ variableJoystick.Vertical);

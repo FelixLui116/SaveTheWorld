@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &931302597982556360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8016853782436806628}
+  m_Layer: 0
+  m_Name: SkillPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8016853782436806628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931302597982556360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.509, y: 0, z: 0.815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7823042625658624739}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1094179075481322616
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +85,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2782203941134610429}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -0.5}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7823042624405600494}
@@ -276,6 +306,7 @@ MonoBehaviour:
   putGunPos: {fileID: 2490965969666115562}
   DestroyOjbectTimer: 0
   HitAudio: {fileID: 8952574158538689662}
+  playerCollider: {fileID: 871114565393609327}
   dodge_timer: 2.5
   SwitchWeapon_timer: 0.5
 --- !u!143 &1788315427571248073
@@ -492,7 +523,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7823042625356266875}
   - component: {fileID: 7823042625356266872}
-  - component: {fileID: 7823042625356266870}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -534,21 +564,6 @@ MonoBehaviour:
   gravity: -9.81
   player_body: {fileID: 7823042625658624738}
   rotatespeed: 50
---- !u!114 &7823042625356266870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7823042625356266874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca314f41e5afc7408ae4f223b6b9308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 7823042625658624738}
-  variableJoystick: {fileID: 0}
-  rotatespeed: 50
 --- !u!1 &7823042625658624738
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +599,7 @@ Transform:
   - {fileID: 4443649588159174419}
   - {fileID: 3723187372602304106}
   - {fileID: 2490965969666115562}
+  - {fileID: 8016853782436806628}
   m_Father: {fileID: 7823042625356266875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

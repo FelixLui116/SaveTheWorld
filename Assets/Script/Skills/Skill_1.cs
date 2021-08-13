@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill_1 : SkillController
+public class Skill_1 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,8 @@ public class Skill_1 : SkillController
     void Update()
     {
         
+    }
+    public void Skill_1_func(GameObject Obj){
+        Instantiate(Obj);
     }
 }
