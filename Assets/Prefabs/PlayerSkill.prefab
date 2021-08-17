@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09136fe5af534408b4f35f4c02a207e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Obj1: {fileID: 100000, guid: fe51af5d16276f047838072c6809adc7, type: 3}
 --- !u!1 &4089236112955931463
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ MonoBehaviour:
   Skill1: {fileID: 5735685292868792916}
   Skill2: {fileID: 7119963719602235608}
   Skill3: {fileID: 6909462069976546422}
-  Obj1: {fileID: 8678116897001883093, guid: 05df5c6fcd7bb4e1795c4e10d5c25cdc, type: 3}
-  Obj2: {fileID: 0}
-  Obj3: {fileID: 0}
-  Obj4: {fileID: 0}
+  Skills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

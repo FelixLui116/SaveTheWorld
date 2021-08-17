@@ -5,18 +5,32 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    public float smoothSpeed;
+    public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
-    // Start is called before the first frame update
+     private void Awake() {
+        // target = GameObject.Find("PlayerController").GetComponent<Transform>();
+    }
     void Start()
     {
         
+        target = GameObject.Find("PlayerController").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        transform.position = target.position + offset;
+    // void LateUpdate()
+    // {
+    //     transform.position = target.position + offset;
+    // }
+
+    private void FixedUpdate() {
+        if (target != null)
+        {
+            Vector3 desiredPosition = target.position + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position , desiredPosition , smoothSpeed);
+            transform.position = smoothedPosition;
+            transform.LookAt(target);
+            
+        }
+ 
     }
 }

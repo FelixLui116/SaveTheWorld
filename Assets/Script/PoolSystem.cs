@@ -7,8 +7,8 @@ public class PoolSystem : MonoBehaviour
     public static PoolSystem Instance { get; private set; }
 
     public GameObject playerAcre;
-
     public GameObject enemyAcre;
+    public GameObject skillAcre;
 
     // public List<Projectile> bulletPoolList = new List<Projectile>();
 
@@ -52,6 +52,15 @@ public class PoolSystem : MonoBehaviour
         objPool.transform.SetParent(newParent);
 
         return objPool;
+    }
+
+    public GameObject CreatePoolSkill(GameObject taegetObject, Vector3 targetV3){
+
+        GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.identity , skillAcre.transform);
+        obj.tag = "PlayerHit";
+        // obj.transform.SetParent(skillAcre.transform);
+        return obj;
+
     }
 
     void Start()

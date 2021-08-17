@@ -15,4 +15,8 @@ public class Skill_2 : MonoBehaviour
     {
         
     }
+    public void Skill_1_func(GameObject Obj , PoolSystem poolSystem){
+        Instantiate(Obj);
+    }
+
 }

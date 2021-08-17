@@ -22,11 +22,12 @@ public class UIContrller : MonoBehaviour
     public ShootingButton ShootBtn; // base shooting
     public Button dodgeBtn; // base shooting
     public Button SwitchGunBtn; // base shooting
+    // public PoolSystem poolSystem;
     private void Awake() {
         // if (ShootBtn != null){
         // if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
         if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
-        // if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => null );
+        if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform.position) );
         // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
         // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => null );
         
@@ -38,6 +39,7 @@ public class UIContrller : MonoBehaviour
     {
         playerCollider.ApplyChangeHPAction = PlayerHealth_text_update;
         PlayerHealth_text_update();
+        // Skill_Btn();
         // Hp_Text();
         // SkillController playerSkills = playerCharacterController.skill;
     }
@@ -85,6 +87,13 @@ public class UIContrller : MonoBehaviour
 
         health_text.text = health_.ToString() + " / "+ health_max.ToString();
     }
+
+    // public void Skill_Btn(){
+    //     // for (int i = 0; i < skillBtn.length; i++)
+    //     // {
+    //         // skillBtn[i].onClick.AddListener(() =>  );
+    //     // }
+    // }
     // private void FixedUpdate() {
     //     if (playerCharacterController.baseGun != null && playerCharacterController != null)
     //     {
