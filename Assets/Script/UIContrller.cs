@@ -27,7 +27,7 @@ public class UIContrller : MonoBehaviour
         // if (ShootBtn != null){
         // if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
         if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
-        if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform.position) );
+        if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
         // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
         // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => null );
         

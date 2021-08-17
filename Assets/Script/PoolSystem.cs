@@ -54,9 +54,15 @@ public class PoolSystem : MonoBehaviour
         return objPool;
     }
 
-    public GameObject CreatePoolSkill(GameObject taegetObject, Vector3 targetV3){
+    public GameObject CreatePoolSkill(GameObject taegetObject, Transform targetTF ){
 
-        GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.identity , skillAcre.transform);
+        var x = targetTF.rotation.x;
+        var y = targetTF.rotation.y;
+        var z = targetTF.rotation.z;
+
+        Vector3 targetV3  = targetTF.position;
+        // GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.identity , skillAcre.transform);
+        GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.Euler(x, y, z) , skillAcre.transform);
         obj.tag = "PlayerHit";
         // obj.transform.SetParent(skillAcre.transform);
         return obj;

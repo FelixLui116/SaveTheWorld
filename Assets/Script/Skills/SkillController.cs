@@ -30,8 +30,8 @@ public class SkillController : MonoBehaviour
         }
     }
 
-    public void Controll_skill_1(Vector3 targetV3){
-        Skill1.Skill_1_func(targetV3);
+    public void Controll_skill_1(Transform targetTF){
+        Skill1.Skill_1_func(targetTF);
     }
 
 }

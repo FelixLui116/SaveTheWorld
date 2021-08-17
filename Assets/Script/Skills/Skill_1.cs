@@ -16,9 +16,9 @@ public class Skill_1 : MonoBehaviour
     {
         
     }
-    public void Skill_1_func(Vector3 targetV3){
-        // Instantiate(Obj);
+    public void Skill_1_func(Transform targetTF){
+        // Instantiate(Obj);  .transform.eulerAngles.y;
         GameObject obj = null;
-        obj = PoolSystem.Instance.CreatePoolSkill(Obj1 , targetV3);
+        obj = PoolSystem.Instance.CreatePoolSkill(Obj1 , targetTF);
     }
 }
