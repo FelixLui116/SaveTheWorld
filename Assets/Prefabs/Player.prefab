@@ -307,9 +307,11 @@ MonoBehaviour:
   DestroyOjbectTimer: 0
   HitAudio: {fileID: 8952574158538689662}
   playerCollider: {fileID: 871114565393609327}
-  dodge_timer: 2.5
   SwitchWeapon_timer: 0.5
   joystickPlayerScript: {fileID: 7964319210005088109}
+  dodge_timer: 2.5
+  dodging_forward: 5
+  dodging_timer: 0.5
 --- !u!143 &1788315427571248073
 CharacterController:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
+using DG.Tweening;
 
 public class PlayerCharacterController : BaseCharacter
 {
@@ -12,10 +13,13 @@ public class PlayerCharacterController : BaseCharacter
     private int lastWeapon;    
     public PlayerCollider  playerCollider;
 
-    [SerializeField] private float dodge_timer = 2.5f; // Not using
     [SerializeField] private float SwitchWeapon_timer = 0.5f;
-    
     [SerializeField] private JoystickPlayerExample joystickPlayerScript;
+    
+    [Header("dodge")]
+    [SerializeField] private float dodge_timer = 2.5f;
+    [SerializeField] private float  dodging_forward = 5f; //how much to move forward
+    [SerializeField] private float  dodging_timer = 0.5f; //how much to move forward
     
     // [SerializeField] private float slidSpeed = 1f;
     private bool canDodging = true;
@@ -25,8 +29,21 @@ public class PlayerCharacterController : BaseCharacter
         get => canSwitchWeapon;
         set { canSwitchWeapon = value; }
     }
-    private State state;
-    private enum State{
+
+    private State _state = State.Normal;
+    // private State state;
+    private State state
+    {
+        get => _state;
+        set {  
+
+            if (_state == value) return;
+            _state = value;
+            ChangeState(_state);
+        }
+    }
+    
+    public enum State{
         Normal,
         DodgeRollSliding,
     }
@@ -109,17 +126,28 @@ public class PlayerCharacterController : BaseCharacter
         {  
             canDodging = false;
             
+            StartCoroutine(dodgeing_move() );
             state = State.DodgeRollSliding;
+            
             yield return Button_Loading(btn ,dodge_timer );
             canDodging = true;
-            state = State.Normal;
+            // state = State.Normal;
         }
     }
 
-    private void dodgeing_move(){
-        float slidSpeed = 15000f;
+    private IEnumerator dodgeing_move(){
+
+        // this.gameObject.transform.DOMove(new Vector3(2,2,2), 1);
+        this.gameObject.transform.DOMove(this.gameObject.transform.position+ this.gameObject.transform.forward * dodging_forward, dodging_timer);
+
+        yield return new WaitForSeconds(dodging_timer);
+        state = State.Normal;
+// float movementSpeed = 10f;
+// this.gameObject.transform.position += transform.forward * Time.deltaTime * movementSpeed;
+
+        // float slidSpeed = 15000f;
         // this.gameObject.transform.localPosition +=  new Vector3(0,0,1)  * slidSpeed *Time.deltaTime;
-        this.gameObject.transform.localPosition = new Vector3 (0,0, 15)  *slidSpeed *Time.deltaTime;
+        // this.gameObject.transform.localPosition = new Vector3 (0,0, 15)  *slidSpeed *Time.deltaTime;
 
     }
 
@@ -174,19 +202,23 @@ public class PlayerCharacterController : BaseCharacter
 
         if (Input.GetKeyDown("space"))      // Test Function
         {
-            switchingWeapon_func();
+            // switchingWeapon_func(); 
+            state = State.DodgeRollSliding;
+            StartCoroutine(dodgeing_move() );
         }
 
+    }
+
+    public void ChangeState(State changeState ){
         switch(state){
             case State.Normal:
-                if (joystickPlayerScript.enabled == false){
-                    joystickPlayerScript.enabled = true;
+                if (joystickPlayerScript.isEnabled == false){
+                    joystickPlayerScript.isEnabled = true;
                 }
                 break;
             
             case State.DodgeRollSliding:
-                // joystickPlayerScript.enabled = false;
-                dodgeing_move();
+                joystickPlayerScript.isEnabled = false;
                 break;
         }
     }

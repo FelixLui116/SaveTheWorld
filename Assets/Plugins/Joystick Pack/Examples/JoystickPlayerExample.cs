@@ -12,7 +12,22 @@ public class JoystickPlayerExample : MonoBehaviour
     public GameObject player_body;
     Quaternion TargetRotation;
     public float rotatespeed = 50.0f;
+    public bool isEnabled
+    {
+        get => enabled;
+        set 
+        {
+            enabled = value;
 
+        Debug.Log("~~~ " + value);
+            if (enabled)
+            {
+                this.enabled = true;
+            }else{
+                this.enabled = false;
+            }
+        }
+    }
     private Touch initTouch = new Touch();
 
     private void Awake() {
@@ -21,8 +36,7 @@ public class JoystickPlayerExample : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        // Debug.Log(" Horizontal " +variableJoystick.Horizontal +" Vertical  "+ variableJoystick.Vertical);
-      
+        
         // float horizontal = Input.GetAxisRaw("Horizontal");
         // float vertical = Input.GetAxisRaw("Vertical");
 
@@ -33,6 +47,8 @@ public class JoystickPlayerExample : MonoBehaviour
             // Debug.Log("CharacterController is grounded");
             gravity_ = 0;
         };
+
+        
         
         Vector3 direction = new Vector3(variableJoystick.Horizontal ,gravity_,   variableJoystick.Vertical ).normalized;
         if(direction.magnitude >= 0.1f){
