@@ -6,9 +6,9 @@ public class SkillController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] protected GameObject SkillPos_Hand; 
-    [SerializeField] protected Skill_1 Skill1; 
-    [SerializeField] protected Skill_2 Skill2; 
-    [SerializeField] protected Skill_3 Skill3; 
+    [SerializeField] protected GameObject Skill1; 
+    [SerializeField] protected GameObject Skill2; 
+    [SerializeField] protected GameObject Skill3; 
     // [SerializeField] protected GameObject [] Skills; 
     void Start()
     {
@@ -31,7 +31,13 @@ public class SkillController : MonoBehaviour
     }
 
     public void Controll_skill_1(Transform targetTF){
-        Skill1.Skill_1_func(targetTF);
+
+        // CloneSkillObj(targetTF , Skill1);
+        PoolSystem.Instance.CreatePoolSkill_top(targetTF , Skill1);
+    }
+
+    public void CloneSkillObj (Transform targetTF , GameObject obj){
+        
     }
 
 }

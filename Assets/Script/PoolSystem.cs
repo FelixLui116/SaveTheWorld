@@ -54,20 +54,88 @@ public class PoolSystem : MonoBehaviour
         return objPool;
     }
 
-    public GameObject CreatePoolSkill(GameObject taegetObject, Transform targetTF ){
+    public GameObject CreatePoolSkill_top(Transform targetTF ,GameObject taegetObject ){
 
-        var x = targetTF.rotation.x;
-        var y = targetTF.rotation.y;
-        var z = targetTF.rotation.z;
+        GameObject obj_top = new GameObject();
+        obj_top.transform.SetParent(skillAcre.transform);
+        obj_top.name = "obj_top";
+        obj_top.transform.rotation = targetTF.rotation;
+        obj_top.transform.position = targetTF.position;
+        
+        var skillobj = Instantiate(taegetObject ,obj_top.transform );
 
-        Vector3 targetV3  = targetTF.position;
-        // GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.identity , skillAcre.transform);
-        GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.Euler(x, y, z) , skillAcre.transform);
-        obj.tag = "PlayerHit";
-        // obj.transform.SetParent(skillAcre.transform);
-        return obj;
-
+        return obj_top;
     }
+
+    
+
+    // public GameObject CreatePoolSkill(GameObject taegetObject, Transform targetTF , Vector3 addPosV3){
+
+    //     GameObject obj_top = new GameObject();
+    //     obj_top.transform.SetParent(skillAcre.transform);
+    //     obj_top.name = "obj_top";
+    //     GameObject parent = obj_top;
+
+    //     parent.transform.rotation = targetTF.rotation;
+    //     parent.transform.position = targetTF.position;
+        
+    //     // obj.transform.SetParent(skillAcre.transform);
+    //     // return obj;
+    //     return obj_top;
+
+    // }
+    // public void CreateTopSkillObj(GameObject taegetObject , GameObject obj) {
+    //     GameObject obj_top = new GameObject();
+    //     GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.identity (Quaternion.Euler(0, 0, 0) ), skillAcre.transform);
+    //     obj_top.transform.SetParent(skillAcre.transform);
+    //     obj_top.name = "obj_top";
+        
+    //     return obj_top;
+    // }
+
+
+
+
+
+
+
+    // public GameObject CreatePoolSkill(GameObject taegetObject, Transform targetTF , Vector3 addPosV3 ,GameObject parent ){
+
+    //     // var x = targetTF.rotation.x;
+    //     // var y = targetTF.rotation.y;
+    //     // var z = targetTF.rotation.z;
+
+    //     // Vector3 targetV3  = targetTF.position;
+    //     // if (addPosV3 != null)
+    //     // {
+    //         // targetV3.x += addPosV3.x; 
+    //         // targetV3.y += addPosV3.y; 
+    //         // targetV3.z += addPosV3.z;
+    //     // }
+    //     parent.transform.rotation = targetTF.rotation;
+    //     parent.transform.position = targetTF.position;
+
+
+    //     // GameObject obj = Instantiate (taegetObject, targetV3 , Quaternion.identity (Quaternion.Euler(x, y, z) ), skillAcre.transform);
+    //     GameObject obj = Instantiate (taegetObject, parent.transform);
+    //     obj.tag = "PlayerHit";
+    //     // obj.transform.position;
+    //     obj.transform.position = new Vector3(0,0,0);
+    //     Debug.Log("~~~ "+obj.transform.position.x);
+
+    //     // obj.transform.SetParent(skillAcre.transform);
+    //     return obj;
+
+    // }
+
+    // public GameObject CreateTopSkillObj() {
+
+    //     GameObject obj_top = new GameObject();
+    //     obj_top.transform.SetParent(skillAcre.transform);
+    //     obj_top.name = "obj_top";
+        
+    //     return obj_top;
+    // }
 
     void Start()
     {

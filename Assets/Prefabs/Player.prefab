@@ -309,6 +309,7 @@ MonoBehaviour:
   playerCollider: {fileID: 871114565393609327}
   dodge_timer: 2.5
   SwitchWeapon_timer: 0.5
+  joystickPlayerScript: {fileID: 7964319210005088109}
 --- !u!143 &1788315427571248073
 CharacterController:
   m_ObjectHideFlags: 0
@@ -541,7 +542,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7823042625356266875}
-  - component: {fileID: 7823042625356266872}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -564,25 +564,6 @@ Transform:
   m_Father: {fileID: 7823042624405600494}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7823042625356266872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7823042625356266874}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37d705c8e9115e439ec799186182634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  variableJoystick: {fileID: 0}
-  rb: {fileID: 0}
-  playerController: {fileID: 1788315427571248073}
-  gravity: -9.81
-  player_body: {fileID: 7823042625658624738}
-  rotatespeed: 50
 --- !u!1 &7823042625658624738
 GameObject:
   m_ObjectHideFlags: 0

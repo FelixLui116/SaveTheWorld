@@ -14,6 +14,10 @@ public class PlayerCharacterController : BaseCharacter
 
     [SerializeField] private float dodge_timer = 2.5f; // Not using
     [SerializeField] private float SwitchWeapon_timer = 0.5f;
+    
+    [SerializeField] private JoystickPlayerExample joystickPlayerScript;
+    
+    // [SerializeField] private float slidSpeed = 1f;
     private bool canDodging = true;
     private bool canSwitchWeapon = true;
     public bool CanSwitchWeapon
@@ -21,13 +25,19 @@ public class PlayerCharacterController : BaseCharacter
         get => canSwitchWeapon;
         set { canSwitchWeapon = value; }
     }
-
+    private State state;
+    private enum State{
+        Normal,
+        DodgeRollSliding,
+    }
     // [SerializeField] protected GameObject playerBody;
     
     // public Button ShootBtn;
     // public Button[] skillBtn;
 
-
+    private void Awake() {
+        state = State.Normal;
+    }
     void Start()
     {
         
@@ -98,11 +108,19 @@ public class PlayerCharacterController : BaseCharacter
         if (canDodging)
         {  
             canDodging = false;
-            // canDodging = true;
+            
+            state = State.DodgeRollSliding;
             yield return Button_Loading(btn ,dodge_timer );
             canDodging = true;
+            state = State.Normal;
         }
-    
+    }
+
+    private void dodgeing_move(){
+        float slidSpeed = 15000f;
+        // this.gameObject.transform.localPosition +=  new Vector3(0,0,1)  * slidSpeed *Time.deltaTime;
+        this.gameObject.transform.localPosition = new Vector3 (0,0, 15)  *slidSpeed *Time.deltaTime;
+
     }
 
     private IEnumerator Button_Loading(Button btn , float countTimer ){
@@ -157,6 +175,19 @@ public class PlayerCharacterController : BaseCharacter
         if (Input.GetKeyDown("space"))      // Test Function
         {
             switchingWeapon_func();
+        }
+
+        switch(state){
+            case State.Normal:
+                if (joystickPlayerScript.enabled == false){
+                    joystickPlayerScript.enabled = true;
+                }
+                break;
+            
+            case State.DodgeRollSliding:
+                // joystickPlayerScript.enabled = false;
+                dodgeing_move();
+                break;
         }
     }
 

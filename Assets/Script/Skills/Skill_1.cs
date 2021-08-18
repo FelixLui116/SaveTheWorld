@@ -6,8 +6,14 @@ public class Skill_1 : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] protected GameObject Obj1; 
+    // [SerializeField] private int CloneTime; 
+    [SerializeField] private Vector3 [] position; 
+
+    [SerializeField] private float destroyTime = 1f;
+    
     void Start()
     {
+        // Skill_1_func();
         // Skill_1_func();
     }
 
@@ -16,9 +22,16 @@ public class Skill_1 : MonoBehaviour
     {
         
     }
-    public void Skill_1_func(Transform targetTF){
+    public void Skill_1_func(){
         // Instantiate(Obj);  .transform.eulerAngles.y;
-        GameObject obj = null;
-        obj = PoolSystem.Instance.CreatePoolSkill(Obj1 , targetTF);
+        for (int i = 0; i < position.Length; i++)
+        {
+            var bullet = Instantiate(Obj1);
+        }
+    }
+
+    private void destroyTime_func(){
+        // yield return new WaitForSeconds(destroyTime);
+        Destroy(this.gameObject , destroyTime);
     }
 }

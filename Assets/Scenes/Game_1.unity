@@ -9898,31 +9898,6 @@ PrefabInstance:
       propertyPath: variableJoystick
       value: 
       objectReference: {fileID: 1955806545}
-    - target: {fileID: 7823042625356266872, guid: 6d4935883e79be446b3630c632093273,
-        type: 3}
-      propertyPath: rotatespeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823042625356266875, guid: 6d4935883e79be446b3630c632093273,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0043360004
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823042625356266875, guid: 6d4935883e79be446b3630c632093273,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99999064
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823042625356266875, guid: 6d4935883e79be446b3630c632093273,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0043258667
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823042625356266875, guid: 6d4935883e79be446b3630c632093273,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0026216507
-      objectReference: {fileID: 0}
     - target: {fileID: 7823042625356266875, guid: 6d4935883e79be446b3630c632093273,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -10015,6 +9990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3238569838589475353, guid: 6d4935883e79be446b3630c632093273, type: 3}
+    - {fileID: 7823042625356266872, guid: 6d4935883e79be446b3630c632093273, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6d4935883e79be446b3630c632093273, type: 3}
 --- !u!114 &1780303581 stripped
 MonoBehaviour:
@@ -10163,6 +10139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAcre: {fileID: 305426844}
   enemyAcre: {fileID: 1888473119}
+  skillAcre: {fileID: 0}
 --- !u!1 &1802498378
 GameObject:
   m_ObjectHideFlags: 0
