@@ -151,6 +151,18 @@ public class PlayerCharacterController : BaseCharacter
 
     }
 
+    private bool CanMove(){
+
+        DOTween.Kill(this.gameObject);
+        return false;
+
+    }
+    private bool TryMove(){
+        return false;
+    }
+
+
+
     private IEnumerator Button_Loading(Button btn , float countTimer ){
         // btn..transform.GetChild(0).GetComponent<Image>();
         var LoadingBar = btn.transform.GetChild(0).GetComponent<Image>();

@@ -84,6 +84,6 @@ public class PlayerCollider : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {   
-        
+        Debug.Log("==== :" +other);
     }
 }

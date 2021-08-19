@@ -15,6 +15,7 @@ public class Skill_1 : MonoBehaviour
     {
         // Skill_1_func();
         // Skill_1_func();
+        destroyTime_func();
     }
 
     // Update is called once per frame
