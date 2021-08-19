@@ -17,8 +17,6 @@ public class BaseGun : MonoBehaviour
     public GameObject FireFlash;
     public String Holder = "";      // put player / enemy   player Comtroller  using tag or string
     public AmmoTpye AmmoColor;
-    public AudioSource GunSound;
-    // public bool isPlayGun = false;
 
     // public Text ShootingType; 
     private GameObject poolObject;
@@ -44,11 +42,18 @@ public class BaseGun : MonoBehaviour
     public Image Crosshair;
     public Image WeaponImg;
     public Image WeaponImg_Disable;
-
+    [Header("AudioClip")]
+    [SerializeField] protected AudioClip reloadAudio;
+    [SerializeField] protected AudioClip fireAudio;
+    private AudioSource audioSource;
+    // public bool isPlayGun = false;
     public bool CanFire_get
     {
         get => CanFire;
         set => CanFire = value;
+    }
+    private void Awake() {
+        audioSource = GetComponent<AudioSource>();
     }
 
     
@@ -57,14 +62,17 @@ public class BaseGun : MonoBehaviour
             if(CurrentAmmo > 0){
                 Debug.Log("=== shootingBullet!!! ");
                 CurrentAmmo--; 
-                if(GunSound != null){
-                    GunSound.Play();
+                if(audioSource != null){
+                    audioSource.clip =fireAudio;
+                    audioSource.Play();
                 }
                 shootingBullet(BulletSpeed , BulletRange, BulletDestoryTime ,CurrentAmmo);
             }
             else{
                 Debug.Log("=== Weapon Reloading!!! ");
                 StartCoroutine( ReloadWeapon_func() );
+                audioSource.clip = reloadAudio;
+                audioSource.Play();
             }
         }
         
