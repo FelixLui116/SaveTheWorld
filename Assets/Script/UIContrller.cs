@@ -9,6 +9,7 @@ public class UIContrller : MonoBehaviour
 {
     [Header("UI")]
     public Text health_text;
+    public Text coin_text;
 
     [Header("== Player ==")]
     
@@ -38,7 +39,9 @@ public class UIContrller : MonoBehaviour
     void Start()
     {
         playerCollider.ApplyChangeHPAction = PlayerHealth_text_update;
+        playerCollider.ApplyChangeCoinAction = PlayerCoin_text_update;
         PlayerHealth_text_update();
+        PlayerCoin_text_update();
         // Skill_Btn();
         // Hp_Text();
         // SkillController playerSkills = playerCharacterController.skill;
@@ -86,6 +89,14 @@ public class UIContrller : MonoBehaviour
         health_text.color = _hpColor;
 
         health_text.text = health_.ToString() + " / "+ health_max.ToString();
+    }
+
+    private void PlayerCoin_text_update(){
+        int _coin = playerCharacterController.Coin;
+
+        coin_text.text = _coin.ToString();
+        Debug.Log("=== _coin: " + _coin);
+
     }
 
     // public void Skill_Btn(){

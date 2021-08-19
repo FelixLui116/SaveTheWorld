@@ -8517,6 +8517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health_text: {fileID: 1226897663}
+  coin_text: {fileID: 322263234}
   playerCharacterController: {fileID: 0}
   playerSkills: {fileID: 2068323003}
   skillBtn:

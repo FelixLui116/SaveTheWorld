@@ -10,7 +10,7 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected int health_max;
     [SerializeField] protected string _name;
     protected GameObject coin_Obj;
-    protected int _coin = 0;
+    [SerializeField] protected int _coin = 0;
     protected List<GameObject> weaponList = new List<GameObject>();
 
     public BaseGun baseGun;
@@ -111,12 +111,13 @@ public class BaseCharacter : MonoBehaviour
     //     baseGun = null;
     // } 
     protected virtual void CheckHp(){
-        if (Current_health <= 0)
-        {
-            Debug.Log(" enemy is die need to destory !!!");
-            DestroyOjbect(DestroyOjbectTimer);
-        }
+        // if (Current_health == 0)
+        // {
+        //     Debug.Log(" enemy is die need to destory !!!");
+        //     DestroyOjbect(DestroyOjbectTimer);
+        // }
     }
+
 
     protected virtual void GetHit(){
         Debug.Log(" Fk i get Hits!!!");
@@ -233,7 +234,7 @@ public class BaseCharacter : MonoBehaviour
         weapon.transform.localEulerAngles = Vector3.zero;               // reset rotation
     }
 
-    private void DestroyOjbect (float timer = 0.0f) {
+    protected void DestroyOjbect (float timer = 0.0f) {
         Destroy(this.gameObject);  
     }
 

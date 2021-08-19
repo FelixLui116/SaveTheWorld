@@ -22,6 +22,7 @@ public class EnemyCharacterController : BaseCharacter
     [SerializeField] protected EnemyCollider enemyCollider;
     [SerializeField] protected  float DetectRange = 10f;
     [SerializeField] private MovePath movePath;
+    [SerializeField] protected GameObject coinPrefab;
     
     private bool detected_Target = false;
     private EnemyState _currentState = EnemyState.Idle;
@@ -125,5 +126,19 @@ public class EnemyCharacterController : BaseCharacter
 
     protected override void GetHit(){
         HitAudio.Play();
+    }
+
+    protected void CreateCoin(){
+        var coinClone = Instantiate(coinPrefab);
+        Coin coinScript = coinClone.GetComponent<Coin>();
+        coinScript.CoinNum = _coin;
+    }
+    protected override void CheckHp(){
+        if (Current_health == 0)
+        {
+            CreateCoin();
+            Debug.Log(" enemy is die need to destory !!!");
+            DestroyOjbect(DestroyOjbectTimer);
+        }
     }
 }

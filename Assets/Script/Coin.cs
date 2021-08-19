@@ -9,7 +9,7 @@ public class Coin : BaseItem
     void Start()
     {
         // Debug.Log("=== " + DestroyTime);
-        audio_Collision.clip = ResourcesAudio.Instance.coin;
+        // audio_Collision.clip = ResourcesAudio.Instance.coin;
     }
 
     // protected override void OnCollisionEnter(Collision other){

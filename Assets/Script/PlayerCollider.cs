@@ -8,6 +8,7 @@ public class PlayerCollider : MonoBehaviour
     // Start is called before the first frame update
 
     public UnityAction ApplyChangeHPAction;
+    public UnityAction ApplyChangeCoinAction;
     [SerializeField] private BaseCharacter baseCharacter;
     void Start()
     {
@@ -54,8 +55,10 @@ public class PlayerCollider : MonoBehaviour
         
         // AudioPlayer(); 
         // DestroyItem();
-        Debug.Log(" Yes Get Coin: " + coin_obj.CoinNum);
         baseCharacter.Coin += coin_obj.CoinNum;
+        
+        ApplyChangeCoinAction?.Invoke();
+        Debug.Log(" Yes Get Coin: " + coin_obj.CoinNum + " || "+ baseCharacter.Coin );
     }
 
     private void Health_trigger(GameObject obj ){

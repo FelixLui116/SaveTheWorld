@@ -211,6 +211,7 @@ MonoBehaviour:
   current_health: 50
   health_max: 100
   _name: Enemy
+  _coin: 0
   baseGun: {fileID: 6243593319503446010}
   holdGunPos: {fileID: 0}
   SecGunPositon: {fileID: 0}
@@ -222,6 +223,8 @@ MonoBehaviour:
   enemyCollider: {fileID: 2407652295036930815}
   DetectRange: 10
   movePath: {fileID: 4235110599463979560}
+  coinPrefab: {fileID: 1490024841198276204, guid: 6a0f01df6fd749b4ead8025d94c107a0,
+    type: 3}
 --- !u!114 &4235110599463979560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +264,6 @@ MonoBehaviour:
   FireFlash: {fileID: 0}
   Holder: Enemy
   AmmoColor: 0
-  GunSound: {fileID: 0}
   WeaponDamage: 10
   FireRate: 2
   BulletSpeed: 20
@@ -276,6 +278,8 @@ MonoBehaviour:
   Crosshair: {fileID: 0}
   WeaponImg: {fileID: 0}
   WeaponImg_Disable: {fileID: 0}
+  reloadAudio: {fileID: 0}
+  fireAudio: {fileID: 0}
 --- !u!135 &4366321559428582652
 SphereCollider:
   m_ObjectHideFlags: 0
