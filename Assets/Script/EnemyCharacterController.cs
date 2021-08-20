@@ -129,9 +129,14 @@ public class EnemyCharacterController : BaseCharacter
     }
 
     protected void CreateCoin(){
-        var coinClone = Instantiate(coinPrefab);
+        GameObject coinClone = Instantiate(coinPrefab);
+        var y_pos = this.gameObject.transform.position.y;
+        Debug.Log("~~~" + coinClone.transform.position.y  +" || "+ this.gameObject.transform.position.y );
+        coinClone.transform.position = new Vector3(this.gameObject.transform.position.x,1,this.gameObject.transform.position.z);
+        
         Coin coinScript = coinClone.GetComponent<Coin>();
         coinScript.CoinNum = _coin;
+
     }
     protected override void CheckHp(){
         if (Current_health == 0)

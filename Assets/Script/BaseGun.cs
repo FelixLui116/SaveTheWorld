@@ -28,6 +28,7 @@ public class BaseGun : MonoBehaviour
     [Range(0f, 1000f)]  public float BulletSpeed = 0f;
     [Range(0, 180.0f)]  public float BulletRange = 0f;  // Not shooting the midden //  if 5(Y Rotota) == <-(-5 angle) midden (5 angle) ->
     [Range(0f, 100f)]    public float BulletDestoryTime = 0f;
+    public bool canPassThrough = false;
     private bool CanFire = true;
     private bool Reloading = false;
     public int TotalAmmo = 0;   // gun can have totalAmmo
@@ -201,7 +202,7 @@ public class BaseGun : MonoBehaviour
         }
         Color _c = trailColor_map();
         StartCoroutine( FireFlash_func() );
-        bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage, _c); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage, _c , canPassThrough); // weaponEnd.transform.position, weaponEnd.transform.rotation
         // transform.forward * bulletSpeed;
     }
 

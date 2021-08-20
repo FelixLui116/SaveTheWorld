@@ -211,7 +211,7 @@ MonoBehaviour:
   current_health: 50
   health_max: 100
   _name: Enemy
-  _coin: 0
+  _coin: 5
   baseGun: {fileID: 6243593319503446010}
   holdGunPos: {fileID: 0}
   SecGunPositon: {fileID: 0}

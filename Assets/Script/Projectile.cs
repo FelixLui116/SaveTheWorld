@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody Bullet_rb;
     // public float destroyTime;
     public float bulletDamage;
+    public bool canPassThrough_bullet = false;
 
     public TrailRenderer trail;
 
@@ -51,9 +52,10 @@ public class Projectile : MonoBehaviour
         // }
     }
 
-    public void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation , float damage , Color trailColor ){
+    public async void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation , float damage , Color trailColor , bool passThrough){
         
         bulletDamage = damage;
+        canPassThrough_bullet = passThrough;
         // reset pos to Gun FirePoint Pos
         transform.position = pos;
         transform.rotation = rotation;
@@ -90,6 +92,10 @@ public class Projectile : MonoBehaviour
         // ResetVelocity();
         // poolSystem.poolDictionary[bulletName].Enqueue(gameObject);
         gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+
+    public void DestroyObj(){
         Destroy(gameObject);
     }
 

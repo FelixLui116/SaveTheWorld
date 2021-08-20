@@ -3143,7 +3143,7 @@ PrefabInstance:
     - target: {fileID: 6718133261770744682, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
       propertyPath: MaxDistance
-      value: 1
+      value: 1.000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
@@ -5256,6 +5256,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
+        type: 3}
+      propertyPath: canPassThrough
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5039901719583900119, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
       propertyPath: m_IsTrigger
@@ -5264,7 +5269,7 @@ PrefabInstance:
     - target: {fileID: 6718133261770744682, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
       propertyPath: MaxDistance
-      value: 1
+      value: 1.000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
@@ -5999,7 +6004,7 @@ PrefabInstance:
     - target: {fileID: 6718133261770744682, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
       propertyPath: MaxDistance
-      value: 1
+      value: 1.000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
