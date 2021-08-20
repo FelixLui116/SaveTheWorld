@@ -11,6 +11,11 @@ public class BasePanel : MonoBehaviour
     [SerializeField] protected Button CancelBtn;
     // [SerializeField] protected
     // Start is called before the first frame update
+
+    private void Awake() {
+        
+        CancelBtn.onClick.AddListener(() => Cancel_func() );
+    }
     void Start()
     {
         
@@ -25,6 +30,10 @@ public class BasePanel : MonoBehaviour
         
     }
     
+    protected void Cancel_func(){
+        this.gameObject.SetActive(false);
+    }
+
     // protected void Cancel_func(){
     // }
 }

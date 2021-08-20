@@ -15,6 +15,7 @@ public class MainController : MonoBehaviour
     [Header("== Panel ==")]
     
     [SerializeField] private GameObject HowToPlayPanel;
+    [SerializeField] private GameObject SettingPanel;
     // Start is called before the first frame update
     protected void Start()
     {
@@ -22,7 +23,7 @@ public class MainController : MonoBehaviour
         howToPlayBtn.onClick.AddListener(() => HowToPlayPanel_func() );
         quitBtn.onClick.AddListener(() => Quit_func() );
 
-        // settingBtn.onClick.AddListener(() =>  );
+        settingBtn.onClick.AddListener(() =>  Setting_func() );
     }
 
     // Update is called once per frame
@@ -44,5 +45,8 @@ public class MainController : MonoBehaviour
     }
     public void HowToPlayPanel_func(){      // is working
         HowToPlayPanel.SetActive(true);
+    }
+    public void Setting_func(){      // is working
+        SettingPanel.SetActive(true);
     }
 }

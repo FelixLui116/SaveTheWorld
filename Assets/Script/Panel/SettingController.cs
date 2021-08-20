@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.UI;
 
-public class HowToPlayPanel : BasePanel
+public class SettingController : BasePanel
 {
     // Start is called before the first frame update
+
+
+    public Slider musicSlider;
+    public Slider sfxSlider;
     void Start()
-    {   
-        // CancelBtn.onClick.AddListener(() => Cancel_func() );
+    {
+        
     }
 
     // Update is called once per frame
@@ -17,7 +20,4 @@ public class HowToPlayPanel : BasePanel
     {
         
     }
-    // protected void Cancel_func(){
-    //     this.gameObject.SetActive(false);
-    // }
 }
