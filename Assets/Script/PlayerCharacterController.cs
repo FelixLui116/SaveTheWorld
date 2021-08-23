@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class PlayerCharacterController : BaseCharacter
 {
     // [Header("Skill")]
     // [SerializeField] public SkillController skill;
-
+    
+    public UnityAction ApplyPlayerDie;
     private int lastWeapon;    
     public PlayerCollider  playerCollider;
 
@@ -240,7 +242,7 @@ public class PlayerCharacterController : BaseCharacter
     protected override void CheckHp(){
         if (Current_health == 0)
         {
-            // CreateCoin();
+            ApplyPlayerDie?.Invoke();
             Debug.Log(" Player is die need to destory !!!");
             DestroyOjbect(DestroyOjbectTimer);
         }

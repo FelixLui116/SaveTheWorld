@@ -3647,12 +3647,12 @@ GameObject:
   - component: {fileID: 889536084}
   - component: {fileID: 889536083}
   m_Layer: 0
-  m_Name: ResourcesAudioController
+  m_Name: ResourcesAudioController (Not using)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &889536083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8692,6 +8692,8 @@ MonoBehaviour:
   health_text: {fileID: 1226897663}
   coin_text: {fileID: 322263234}
   playerCharacterController: {fileID: 0}
+  PlayAgainPrefabs: {fileID: 1187009344640146913, guid: 30b9be13e6a214c7794b293d0e056881,
+    type: 3}
   playerSkills: {fileID: 2068323003}
   skillBtn:
   - {fileID: 599228636}

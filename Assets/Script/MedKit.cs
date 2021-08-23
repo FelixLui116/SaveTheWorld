@@ -9,7 +9,7 @@ public class MedKit : BaseItem
     [Range(0, 1000)] public int HealingNum = 0;
     void Start()
     {
-        audio_Collision.clip = ResourcesAudio.Instance.medkit;
+        // audio_Collision.clip = ResourcesAudio.Instance.medkit;
     }
     // protected override void OnCollisionEnter(Collision other){
     //     Debug.Log(" in Med Kit " + other.gameObject.name);

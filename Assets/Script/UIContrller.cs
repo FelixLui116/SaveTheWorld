@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 using System.Text;
 public class UIContrller : MonoBehaviour
@@ -16,6 +15,8 @@ public class UIContrller : MonoBehaviour
     public PlayerCharacterController playerCharacterController;
     private PlayerCollider playerCollider;
     // public Text HP , Bullet;
+
+    public GameObject PlayAgainPrefabs;
 
     [Header("Skill")]
     [SerializeField] private SkillController playerSkills;
@@ -40,6 +41,8 @@ public class UIContrller : MonoBehaviour
     {
         playerCollider.ApplyChangeHPAction = PlayerHealth_text_update;
         playerCollider.ApplyChangeCoinAction = PlayerCoin_text_update;
+
+        playerCharacterController.ApplyPlayerDie = PlayerDie_Panel;
         PlayerHealth_text_update();
         PlayerCoin_text_update();
         // Skill_Btn();
@@ -97,6 +100,10 @@ public class UIContrller : MonoBehaviour
         coin_text.text = _coin.ToString();
         Debug.Log("=== _coin: " + _coin);
 
+    }
+
+    private void PlayerDie_Panel(){
+        GameObject panel_obj = Instantiate( PlayAgainPrefabs, this.gameObject.transform.parent); // Clone in Canvas
     }
 
     // public void Skill_Btn(){
