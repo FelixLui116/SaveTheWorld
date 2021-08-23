@@ -2754,6 +2754,8 @@ MonoBehaviour:
   howToPlayBtn: {fileID: 1574794805}
   quitBtn: {fileID: 372029733}
   settingBtn: {fileID: 1216493045}
+  SceneName:
+  - Game_1_ClonePlayer
   HowToPlayPanel: {fileID: 1418630123}
   SettingPanel: {fileID: 1786900156}
 --- !u!1 &2052492317

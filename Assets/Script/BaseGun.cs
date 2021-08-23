@@ -20,6 +20,7 @@ public class BaseGun : MonoBehaviour
 
     // public Text ShootingType; 
     private GameObject poolObject;
+    [SerializeField] protected bool isKeepShooting = false;
 
     [Header("Weapon statistics")]
     
@@ -74,6 +75,7 @@ public class BaseGun : MonoBehaviour
                 StartCoroutine( ReloadWeapon_func() );
                 audioSource.clip = reloadAudio;
                 audioSource.Play();
+
             }
         }
         
@@ -85,6 +87,11 @@ public class BaseGun : MonoBehaviour
     {
         yield return new WaitForSeconds(60 / (FireRate * 60));
         CanFire = true;
+
+        if (isKeepShooting)
+        {
+            shooting_func();
+        }
     }
 
     public IEnumerator ReloadWeapon_func(){ 
@@ -128,6 +135,10 @@ public class BaseGun : MonoBehaviour
                 }else{
                     Ammo = 0;
                 }
+            }
+
+            if (isKeepShooting){
+                shooting_func();
             }
            
         

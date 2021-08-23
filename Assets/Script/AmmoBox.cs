@@ -19,7 +19,7 @@ public class AmmoBox : BaseItem
         // audio_Collision.clip = ResourcesAudio.Instance.Ammo_Audio[i];
     }
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(" in AmmoBox Collistion " + other.gameObject.name);
+        // Debug.Log(" in AmmoBox Collistion " + other.gameObject.name);
         if(other.gameObject.tag == "Player")
         {
             DestroyItem();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MainController : MonoBehaviour
     public Button quitBtn;
     public Button settingBtn;
 
+    public string [] SceneName;
     
     [Header("== Panel ==")]
     
@@ -19,7 +21,7 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        startBtn.onClick.AddListener(() => ToScene("Game_1") );
+        startBtn.onClick.AddListener(() => ToScene( SceneName[0] ));
         howToPlayBtn.onClick.AddListener(() => HowToPlayPanel_func() );
         quitBtn.onClick.AddListener(() => Quit_func() );
 

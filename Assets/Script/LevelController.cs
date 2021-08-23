@@ -8,22 +8,31 @@ public class LevelController : MonoBehaviour
     public bool TestPlayer = false;
     public GameObject PlayerPrefabs;
 
+    public GameObject playerObject;
+
     public GameObject[] enemyType;
     public PlayerCharacterController player; 
 
-    
+    public static LevelController Instance { get; private set; }
     public Image[] Ammo_Color;
     public Text Debug_Text;
     public Image GunUI_Image = null;  // baseCharacter.baseGun. ( WeaponImg , WeaponImg_Disable)
     public Text AmmoText;
 
     private void Awake() {
-        
+        if (Instance == null)
+        {
+            // DontDestroyOnLoad(notifications);
+            Instance = this;
+        }
         if (TestPlayer)
         {
             GameObject playerPrefabs = Instantiate(PlayerPrefabs);
+            playerObject = playerPrefabs;
             playerPrefabs.name = "Player";
         }
+
+        
     }
     
     // Start is called before the first frame update

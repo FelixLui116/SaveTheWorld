@@ -235,5 +235,12 @@ public class PlayerCharacterController : BaseCharacter
         }
     }
 
-    
+    protected override void CheckHp(){
+        if (Current_health == 0)
+        {
+            // CreateCoin();
+            Debug.Log(" Player is die need to destory !!!");
+            // DestroyOjbect(DestroyOjbectTimer);
+        }
+    }
 }

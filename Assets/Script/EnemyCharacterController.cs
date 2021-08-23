@@ -50,6 +50,8 @@ public class EnemyCharacterController : BaseCharacter
         enemyCollider.ApplyChangeHPAction = GetHit;
 
         baseGun.pickupGun_cloneBullet();
+
+        targetPlayer = LevelController.Instance.playerObject.transform;
     }
 
     void Update()
@@ -76,7 +78,11 @@ public class EnemyCharacterController : BaseCharacter
             case EnemyState.Rotate:
                 break;
             case EnemyState.GetTarget:
+                Debug.Log("--- GetTarget:");
                 movePath.StopCoroutines();
+
+                CurrentState = EnemyState.Shooting;
+
                 break;
             case EnemyState.Shooting:
 
@@ -112,7 +118,6 @@ public class EnemyCharacterController : BaseCharacter
         if(Vector3.Distance(thisObj_V3, targetPlayer_V3) < DetectRange)
         {
             //Do something
-            // Debug.Log(" DetectTarget: " + targetPlayer.gameObject.name);
             detected_Target = true;
             
             CurrentState = EnemyState.GetTarget;   // movePath.StopCoroutines();

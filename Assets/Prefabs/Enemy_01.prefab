@@ -264,11 +264,13 @@ MonoBehaviour:
   FireFlash: {fileID: 0}
   Holder: Enemy
   AmmoColor: 0
+  isKeepShooting: 1
   WeaponDamage: 10
   FireRate: 2
   BulletSpeed: 20
   BulletRange: 2
   BulletDestoryTime: 3
+  canPassThrough: 0
   TotalAmmo: 2
   CurrentAmmo: 2
   ReloadWeapon_time: 0
