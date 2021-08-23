@@ -255,4 +255,5 @@ MonoBehaviour:
   Bullet_rb: {fileID: 55685468966418937}
   bulletDamage: 0
   canPassThrough_bullet: 0
+  _destroyTime: 0
   trail: {fileID: 2203919965977855999}

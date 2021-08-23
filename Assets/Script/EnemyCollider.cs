@@ -41,7 +41,7 @@ public class EnemyCollider : MonoBehaviour
     private void EnmeyGetHit(GameObject obj ){
         // baseCharacter.Current_health -= 10;
         Projectile projectile = obj.GetComponent<Projectile>();
-        if (projectile.canPassThrough_bullet){
+        if (!projectile.canPassThrough_bullet){
             projectile.DestroyObj();
         }
         enemyCharacter.Current_health -=  (int)projectile.bulletDamage;

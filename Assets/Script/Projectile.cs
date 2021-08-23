@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     // public float destroyTime;
     public float bulletDamage;
     public bool canPassThrough_bullet = false;
+    public float _destroyTime;  // chack only
 
     public TrailRenderer trail;
 
@@ -86,6 +87,7 @@ public class Projectile : MonoBehaviour
 
     public IEnumerator DestroyTimer(float seconds)
     {
+        _destroyTime = seconds;
         Debug.Log("before bulletDestory: " + seconds);
         yield return new WaitForSeconds(seconds);
         Debug.Log("after bulletDestory: " );

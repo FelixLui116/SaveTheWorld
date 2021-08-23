@@ -33,6 +33,11 @@ public class BasePanel : MonoBehaviour
     protected void Cancel_func(){
         this.gameObject.SetActive(false);
     }
+    
+    public void OpenPanel_func(){
+        this.gameObject.SetActive(true);
+    }
+
 
     // protected void Cancel_func(){
     // }

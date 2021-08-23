@@ -242,7 +242,7 @@ public class PlayerCharacterController : BaseCharacter
         {
             // CreateCoin();
             Debug.Log(" Player is die need to destory !!!");
-            // DestroyOjbect(DestroyOjbectTimer);
+            DestroyOjbect(DestroyOjbectTimer);
         }
     }
 }
