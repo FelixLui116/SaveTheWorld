@@ -12,6 +12,7 @@ public class GlobalManager : MonoBehaviour
 
     public GameObject notifications;
     public static GlobalManager Instance { get; private set; }
+    public MusicController musicController;
 
 
 

@@ -210,7 +210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1187009344640146912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -256,8 +256,8 @@ MonoBehaviour:
   YesBtn: {fileID: 0}
   NoBtn: {fileID: 0}
   CancelBtn: {fileID: 1187009344616405652}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 477204144923838126}
+  sfxSlider: {fileID: 1817650584185409963}
 --- !u!114 &1187009344640146915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,7 +675,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8245981043229464842}
+        m_MethodName: MusicSliderValueChanged
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5661307024580701513
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +772,7 @@ GameObject:
   - component: {fileID: 8323397332393829004}
   - component: {fileID: 1817650584185409963}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SfxSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -838,7 +849,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8245981043229464842}
+        m_MethodName: SfxSliderValueChanged
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6655500355473172322
 GameObject:
   m_ObjectHideFlags: 0
