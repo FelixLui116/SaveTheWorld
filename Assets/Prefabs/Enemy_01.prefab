@@ -266,10 +266,10 @@ MonoBehaviour:
   AmmoColor: 0
   isKeepShooting: 1
   WeaponDamage: 10
-  FireRate: 2
-  BulletSpeed: 20
+  FireRate: 1
+  BulletSpeed: 50
   BulletRange: 2
-  BulletDestoryTime: 3
+  BulletDestoryTime: 0.3
   canPassThrough: 0
   TotalAmmo: 2
   CurrentAmmo: 2

@@ -877,6 +877,7 @@ MonoBehaviour:
   TestPlayer: 1
   PlayerPrefabs: {fileID: 7823042624405600497, guid: 6d4935883e79be446b3630c632093273,
     type: 3}
+  playerObject: {fileID: 0}
   enemyType:
   - {fileID: 0}
   player: {fileID: 0}

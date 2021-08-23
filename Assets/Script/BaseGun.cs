@@ -138,7 +138,7 @@ public class BaseGun : MonoBehaviour
             }
 
             if (isKeepShooting){
-                shooting_func();
+                // shooting_func();
             }
            
         

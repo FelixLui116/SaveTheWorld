@@ -215,8 +215,10 @@ public class PlayerCharacterController : BaseCharacter
         if (Input.GetKeyDown("space"))      // Test Function
         {
             // switchingWeapon_func(); 
-            state = State.DodgeRollSliding;
-            StartCoroutine(dodgeing_move() );
+
+            // state = State.DodgeRollSliding;
+            // StartCoroutine(dodgeing_move() );
+            
         }
 
     }

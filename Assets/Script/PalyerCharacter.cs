@@ -15,9 +15,9 @@ public class PlayerCharacter : BaseCharacter
     {
         if (Input.GetKeyDown("space"))      // Test Function
         {
-            print("space key was pressed");
+            // print("space key was pressed");
             if(baseGun != null ){
-                baseGun.shooting_func();
+                // baseGun.shooting_func();
             }
         }
     

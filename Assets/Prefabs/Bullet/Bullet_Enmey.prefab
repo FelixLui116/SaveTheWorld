@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 55685470609121621}
   m_Layer: 0
   m_Name: Bullet_Enmey
-  m_TagString: PlayerHit
+  m_TagString: EnemyHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet_rb: {fileID: 55685468966418937}
-  destroyTime: 2
   bulletDamage: 0
+  canPassThrough_bullet: 0
   trail: {fileID: 2203919965977855999}
-  trailColor: 2
