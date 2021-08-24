@@ -8,6 +8,7 @@ public class MainController : MonoBehaviour
 {
 
     public Button startBtn;
+    public Button continueBtn;
     public Button howToPlayBtn;
     public Button quitBtn;
     public Button settingBtn;
@@ -21,7 +22,8 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        startBtn.onClick.AddListener(() => ToScene( SceneName[0] ));
+        startBtn.onClick.AddListener(() => ToScene( SceneName[0] , true ));
+        continueBtn.onClick.AddListener(() => ToScene( SceneName[0] , false ));
         howToPlayBtn.onClick.AddListener(() => HowToPlayPanel_func() );
         quitBtn.onClick.AddListener(() => Quit_func() );
 
@@ -38,8 +40,10 @@ public class MainController : MonoBehaviour
         Application.Quit();
     } 
 
-    public void ToScene(string gameScene){
+    public void ToScene(string gameScene , bool newGame){
         StartCoroutine(GlobalManager.Instance.loadSceneAsync(gameScene));
+
+        // newGame
     }
 
     public void ChangePlayinfo(){      // is working

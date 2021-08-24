@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayAgainPanel : BasePanel
 {
     // Start is called before the first frame update
+
+    public string sceneName = "MainScenes";
+    private void Awake() {
+        NoBtn.onClick.AddListener(() => BackToMain() );
+
+    }
     void Start()
     {
         
@@ -16,5 +22,10 @@ public class PlayAgainPanel : BasePanel
         
     }
 
-    
+    public void BackToMain(){
+
+        StartCoroutine(GlobalManager.Instance.loadSceneAsync(sceneName));
+
+    }
+
 }

@@ -75,6 +75,7 @@ public class GlobalManager : MonoBehaviour
         reader.Close();
         JsonUtility.FromJsonOverwrite(jsonString, _PlayerData);
         Debug.Log( "playerHP: "+ _PlayerData.playerHP);
+        Debug.Log( "playerMoney: "+ _PlayerData.money);
      
     }
 
