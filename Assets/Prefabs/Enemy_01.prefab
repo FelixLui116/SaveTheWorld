@@ -274,8 +274,8 @@ MonoBehaviour:
   BulletRange: 2
   BulletDestoryTime: 0.3
   canPassThrough: 0
-  TotalAmmo: 2
-  CurrentAmmo: 2
+  TotalAmmo: 0
+  CurrentAmmo: 0
   ReloadWeapon_time: 0
   isPickup: 0
   BulletLimit: 0

@@ -23,7 +23,7 @@ public class PlayAgainPanel : BasePanel
     }
 
     public void BackToMain(){
-
+        LevelController.Instance.savePoint();
         StartCoroutine(GlobalManager.Instance.loadSceneAsync(sceneName));
 
     }

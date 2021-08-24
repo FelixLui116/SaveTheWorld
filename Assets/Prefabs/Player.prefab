@@ -296,9 +296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3ac4115b27b4e638e58bcb13f7cbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_health: 10
+  current_health: 100
   health_max: 100
   _name: 
+  _coin: 0
   baseGun: {fileID: 0}
   holdGunPos: {fileID: 1094179075481322616}
   SecGunPositon: {fileID: 3922943613871199516}

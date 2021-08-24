@@ -82,7 +82,7 @@ public class Projectile : MonoBehaviour
         // Debug.Log("direction: " + direction);
         Bullet_rb.AddForce(direction * bulletSpeed * 100);  // 100 may not need 40* 100 is OK
         
-        StartCoroutine(DestroyTimer(bulletDestory) );
+        // StartCoroutine(DestroyTimer(bulletDestory) );
     }
 
     public IEnumerator DestroyTimer(float seconds)

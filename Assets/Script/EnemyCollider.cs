@@ -12,7 +12,7 @@ public class EnemyCollider : MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(" in OnTriggerEnter: " + other.gameObject.tag);
+        // Debug.Log(" in OnTriggerEnter: " + other.gameObject.tag);
         // Neet get parent
         if(other.gameObject.tag == "Coin"){
         } 

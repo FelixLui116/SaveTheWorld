@@ -82,8 +82,13 @@ public class PlayerCollider : MonoBehaviour
         // baseCharacter.Current_health -= 10;
         Projectile projectile = obj.GetComponent<Projectile>();
         baseCharacter.Current_health -=  (int)projectile.bulletDamage;
+        Debug.Log("=== : " + projectile.canPassThrough_bullet);
+        if (!projectile.canPassThrough_bullet){
+            projectile.DestroyObj();
+        }
 
         ApplyChangeHPAction?.Invoke();
+        
     }
 
     private void OnCollisionEnter(Collision other) {   
