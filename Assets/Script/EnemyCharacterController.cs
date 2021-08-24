@@ -52,6 +52,8 @@ public class EnemyCharacterController : BaseCharacter
         baseGun.pickupGun_cloneBullet();
 
         targetPlayer = LevelController.Instance.playerObject.transform;
+    
+        movePath.ApplyShoot = ChangeStateToShoot;
     }
 
     void Update()
@@ -68,31 +70,42 @@ public class EnemyCharacterController : BaseCharacter
         // }
     }
 
+    private void ChangeStateToShoot(){
+        CurrentState = EnemyState.Shooting;
+    }
 
     private void EnemyStateChangedEvent(EnemyState state){
         Debug.Log(" Enemy state: " + state);
         switch (state)
         {
             case EnemyState.Moving:
+                movePath.ToMove();
                 break;
             case EnemyState.Rotate:
                 break;
             case EnemyState.GetTarget:
                 Debug.Log("--- GetTarget:");
-                movePath.StopCoroutines();
+                // movePath.StopCoroutines();
 
-                // GameObject _target = 
-                movePath.RotateToTarget(targetPlayer);
-
-                // CurrentState = EnemyState.Shooting;
+                movePath.KillAllAction();
+                movePath.ToRotateTarget(targetPlayer);
+                
+                // CurrentState = EnemyState.Shooting;  // == ChangeStateToShoot()
 
                 break;
             case EnemyState.Shooting:
 
                 baseGun.shooting_func();
+                detected_Target = false;
+
+                CurrentState = EnemyState.Idle;
+                // DetectTarget();
+                
                 break;
             case EnemyState.Idle:
-                StartCoroutine( movePath.PathGo() ); 
+                // StartCoroutine( movePath.PathGo() ); 
+                
+                movePath.KillAllAction();
                 
                 CurrentState = EnemyState.Moving;  
 
@@ -103,7 +116,7 @@ public class EnemyCharacterController : BaseCharacter
     }
     
     private void FixedUpdate() {
-        if (targetPlayer != null && !detected_Target)
+        if (targetPlayer != null && !detected_Target && (CurrentState == EnemyState.Moving))
         {
             DetectTarget();
         }

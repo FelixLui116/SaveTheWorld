@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
+using UnityEngine.Events;
 
 public class MovePath : MonoBehaviour
 {
-    // Start is called before the first frame update
 
-    // [SerializeField] protected float moveMaxRange = 50f;
-    // private Vector3 pos;
     [SerializeField] private float MoveSpeed = 5f;      // in time // 一定時間內完成
-    [SerializeField] private float RotateSpeed = 5f;    // in time // Roatate in X sec  一定時間內完成
+    [SerializeField] private float RotateSpeed = 2f;    // in time // Roatate in X sec  一定時間內完成
 
     [SerializeField] private float waiting = 2f;
     [SerializeField] private float Forward = 10f;
@@ -21,117 +20,185 @@ public class MovePath : MonoBehaviour
 
     [SerializeField] protected Transform[] Path;
     private int PathCount = 0;
-    
-    private Vector3 thisObj_V3;
+
+    public UnityAction ApplyShoot;
+
     void Start()
     {
-        thisObj_V3 = new Vector3(thisObj.position.x ,thisObj.position.y , thisObj.position.z );
-
-        // Testing
-        // Vector3 path_V3 = new Vector3(Path[0].position.x , Path[0].position.y ,  Path[0].position.z );
-        // StartCoroutine( Move_func(path_V3 , MoveSpeed ) );
-
-
-        // StartCoroutine( PathGo() ); 
+        // ToMove();
+        // ToRotateTarget_test();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void Update() {
         
     }
 
-    public void Base_moveToTarget( Transform targetPos  , bool Rotate = false, bool MoveTo = false){
-        Debug.Log("--- Base_moveToTarget");
-        StartCoroutine(  Rotate_func( targetPos ) );
-
-    }
-    
-    public void RotateToTarget(Transform target){
-        Debug.Log("--- RotateToTarget");
-         StartCoroutine(  Rotate_func( target ) );
-        // gameObject.transform.LookAt(target);
-    }
-
-    
-    public void StopCoroutines(){ 
-        Debug.Log("=== StopCoroutines");
-        StopAllCoroutines();
-        IsMoving = false;
-        // StopCoroutine( "PathGo" );
-        // StopCoroutine( "Rotate_func" );
-        // StopCoroutine( "Move_func" );
-    }
+    public void ToMove(){
+        float moveV3_x = Path[PathCount].position.x;
+        float moveV3_z = Path[PathCount].position.z;
 
 
-    
-    public IEnumerator PathGo(){
-        IsMoving = true;
-        // Debug.Log(" Path.Position: "+  Path[0].position);
-        
-        if ( Path.Length != 0 && IsMoving)
-        {
-            for (int i = 0; i < Path.Length; i++)
-            {
-                // Vector3 Path_V = new Vector3( Path[i].position.x , Path[i].position.y ,  Path[i].position.z );
-                
-                Debug.Log(" Path.Position: "+  Path[i]);
+        thisObj.DOLookAt(new Vector3(Path[PathCount].position.x, Path[PathCount].position.y, Path[PathCount].position.z), RotateSpeed , AxisConstraint.Y , Vector3.up);
+   
+        Tween t = thisObj.DOMove( new Vector3(moveV3_x, thisObj.position.y ,moveV3_z) , MoveSpeed);
 
-                if (IsMoving)
-                { 
-                    yield return  Rotate_func( Path[i] ) ;
-                }
-                PathCount++;
-            }
-            if (IsloopPath && IsMoving)
-            {
+        t.OnComplete( ()=> {
+            PathCount++;
+            // Debug.Log("PathCount: " +PathCount + " || "+Path.Length );
+            if (PathCount >= Path.Length){
                 PathCount = 0;
-                StartCoroutine( PathGo() ); 
             }
-        }
+            ToMove();
+        } );        
+
     }
 
-    private IEnumerator Rotate_func(Transform byAngles )
-    {
-        for (var t = 0f; t < 1; t += Time.deltaTime / RotateSpeed)
-        {
-            Vector3 lTargetDir = byAngles.position - transform.position;
-            lTargetDir.y = 0.0f;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lTargetDir), t * RotateSpeed);
-            // yield return null;
-            yield return new WaitForFixedUpdate();
-        }
-        Debug.Log(" is Rotae Finsh"); 
-        // yield return null;
-        Vector3 path_V3 = new Vector3(byAngles.position.x , byAngles.position.y ,  byAngles.position.z );
-        // Debug.Log(" path_V3:" + path_V3); 
-        if (IsMoving)
-        { 
-            yield return Move_func(path_V3 , MoveSpeed );
-        }
+    public void KillAllAction(){
+        thisObj.DOKill();
     }
-    private IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
+
+    public void ToRotate(){
+        // thisObj.DoRotate(new Vector3(0,90,0) , RotateSpeed);
+    }
+    public void ToRotateTarget(Transform _target){
         
-        target.y = thisObj_V3.y;
-        /// /////
-        // var cc = GetComponent<CharacterController>();
-        for (var t = 0f; t < 1; t += Time.deltaTime / MovingTime)      //for (var t = 0f; t < 1; t += Time.deltaTime)
-        {
-            var offset = target - transform.position;
-            //Get the difference.
-            if(offset.magnitude > .1f) {    // .1f
-                offset = offset.normalized * Speed;
-                // offset = offset.normalized;
-                characterController.Move(offset * Time.deltaTime);
-            }else{
-                Debug.Log(" break ");
-                yield break;
-            } 
-                // Debug.Log(" yield return null; ");
-            yield return null;
-        }
+        Tween t = thisObj.DOLookAt(new Vector3(_target.position.x, _target.position.y, _target.position.z), RotateSpeed , AxisConstraint.Y , Vector3.up);
+    
+        t.OnComplete( ()=> {
+            ApplyShoot?.Invoke();
+        } );        
     }
+    // public void ToRotateTarget_test (){
+    //     transform.DORotate(new Vector3(0, 0, 360), 5);
+    // }
 
+}
+
+    // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // [SerializeField] private float MoveSpeed = 5f;      // in time // 一定時間內完成
+    // [SerializeField] private float RotateSpeed = 5f;    // in time // Roatate in X sec  一定時間內完成
+
+    // [SerializeField] private float waiting = 2f;
+    // [SerializeField] private float Forward = 10f;
+    // protected bool IsMoving = false;
+    // public bool IsloopPath = false;
+    // public CharacterController characterController;
+    // [SerializeField] private Transform thisObj; 
+
+    // [SerializeField] protected Transform[] Path;
+    // private int PathCount = 0;
+    
+    // private Vector3 thisObj_V3;
+    // void Start()
+    // {
+    //     thisObj_V3 = new Vector3(thisObj.position.x ,thisObj.position.y , thisObj.position.z );
+
+    //     // Testing
+    //     // Vector3 path_V3 = new Vector3(Path[0].position.x , Path[0].position.y ,  Path[0].position.z );
+    //     // StartCoroutine( Move_func(path_V3 , MoveSpeed ) );
+
+
+    //     // StartCoroutine( PathGo() ); 
+    // }
+
+    // // Update is called once per frame
+    // void Update()
+    // {
+        
+    // }
+
+    // public void Base_moveToTarget( Transform targetPos  , bool Rotate = false, bool MoveTo = false){
+    //     Debug.Log("--- Base_moveToTarget");
+    //     StartCoroutine(  Rotate_func( targetPos ) );
+
+    // }
+    
+    // public void RotateToTarget(Transform target){
+    //     Debug.Log("--- RotateToTarget");
+    //      StartCoroutine(  Rotate_func( target ) );
+    //     // gameObject.transform.LookAt(target);
+    // }
+
+    
+    // public void StopCoroutines(){ 
+    //     Debug.Log("=== StopCoroutines");
+    //     StopAllCoroutines();
+    //     IsMoving = false;
+    //     // StopCoroutine( "PathGo" );
+    //     // StopCoroutine( "Rotate_func" );
+    //     // StopCoroutine( "Move_func" );
+    // }
+
+
+    
+    // public IEnumerator PathGo(){
+    //     IsMoving = true;
+    //     // Debug.Log(" Path.Position: "+  Path[0].position);
+        
+    //     if ( Path.Length != 0 && IsMoving)
+    //     {
+    //         for (int i = 0; i < Path.Length; i++)
+    //         {
+    //             // Vector3 Path_V = new Vector3( Path[i].position.x , Path[i].position.y ,  Path[i].position.z );
+                
+    //             Debug.Log(" Path.Position: "+  Path[i]);
+
+    //             if (IsMoving)
+    //             { 
+    //                 yield return  Rotate_func( Path[i] ) ;
+    //             }
+    //             PathCount++;
+    //         }
+    //         if (IsloopPath && IsMoving)
+    //         {
+    //             PathCount = 0;
+    //             StartCoroutine( PathGo() ); 
+    //         }
+    //     }
+    // }
+
+    // private IEnumerator Rotate_func(Transform byAngles )
+    // {
+    //     for (var t = 0f; t < 1; t += Time.deltaTime / RotateSpeed)
+    //     {
+    //         Vector3 lTargetDir = byAngles.position - transform.position;
+    //         lTargetDir.y = 0.0f;
+    //         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lTargetDir), t * RotateSpeed);
+    //         // yield return null;
+    //         yield return new WaitForFixedUpdate();
+    //     }
+    //     Debug.Log(" is Rotae Finsh"); 
+    //     // yield return null;
+    //     Vector3 path_V3 = new Vector3(byAngles.position.x , byAngles.position.y ,  byAngles.position.z );
+    //     // Debug.Log(" path_V3:" + path_V3); 
+    //     if (IsMoving)
+    //     { 
+    //         yield return Move_func(path_V3 , MoveSpeed );
+    //     }
+    // }
+    // private IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
+        
+    //     target.y = thisObj_V3.y;
+    //     /// /////
+    //     // var cc = GetComponent<CharacterController>();
+    //     for (var t = 0f; t < 1; t += Time.deltaTime / MovingTime)      //for (var t = 0f; t < 1; t += Time.deltaTime)
+    //     {
+    //         var offset = target - transform.position;
+    //         //Get the difference.
+    //         if(offset.magnitude > .1f) {    // .1f
+    //             offset = offset.normalized * Speed;
+    //             // offset = offset.normalized;
+    //             characterController.Move(offset * Time.deltaTime);
+    //         }else{
+    //             Debug.Log(" break ");
+    //             yield break;
+    //         } 
+    //             // Debug.Log(" yield return null; ");
+    //         yield return null;
+    //     }
+    // }
+
+    // ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // map
 
@@ -315,4 +382,4 @@ public class MovePath : MonoBehaviour
                        
                         }
     */
-}
+

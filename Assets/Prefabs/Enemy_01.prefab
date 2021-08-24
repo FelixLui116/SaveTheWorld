@@ -168,7 +168,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7673408752332839699}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 16.87, y: 1.4, z: 11.55}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -177,7 +177,7 @@ Transform:
   - {fileID: 3645864937606868214}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!143 &1845190760121851918
 CharacterController:
   m_ObjectHideFlags: 0
@@ -238,13 +238,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
-  RotateSpeed: 10
+  RotateSpeed: 1
   waiting: 2
   Forward: 10
   IsloopPath: 1
   characterController: {fileID: 1845190760121851918}
   thisObj: {fileID: 4225874058314448475}
-  Path: []
+  Path:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6243593319503446010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +267,7 @@ MonoBehaviour:
   FireFlash: {fileID: 0}
   Holder: Enemy
   AmmoColor: 0
-  isKeepShooting: 1
+  isKeepShooting: 0
   WeaponDamage: 10
   FireRate: 1
   BulletSpeed: 50

@@ -1708,6 +1708,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HowTopPlayPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6359850442355590282, guid: b23ba4dbb7d1247a69a5bfce9e38da29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6359850442355590283, guid: b23ba4dbb7d1247a69a5bfce9e38da29,
         type: 3}
       propertyPath: m_LocalPosition.x
