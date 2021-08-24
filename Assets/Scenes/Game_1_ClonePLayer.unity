@@ -1377,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 4225874058314448475, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.87
+      value: 17.1
       objectReference: {fileID: 0}
     - target: {fileID: 4225874058314448475, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
         type: 3}
@@ -1387,7 +1387,7 @@ PrefabInstance:
     - target: {fileID: 4225874058314448475, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.77
+      value: 22.9
       objectReference: {fileID: 0}
     - target: {fileID: 4225874058314448475, guid: bf9a925e57361c8479d8ff8b6ec3b9fe,
         type: 3}
@@ -5826,7 +5826,7 @@ PrefabInstance:
     - target: {fileID: 1187009344640146912, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1187009344640146912, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
         type: 3}
@@ -6837,7 +6837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 1
-  offset: {x: 0, y: 7, z: -7}
+  offset: {x: 0, y: 10, z: -10}
 --- !u!81 &1472686050
 AudioListener:
   m_ObjectHideFlags: 0

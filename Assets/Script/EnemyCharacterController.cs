@@ -81,7 +81,10 @@ public class EnemyCharacterController : BaseCharacter
                 Debug.Log("--- GetTarget:");
                 movePath.StopCoroutines();
 
-                CurrentState = EnemyState.Shooting;
+                // GameObject _target = 
+                movePath.RotateToTarget(targetPlayer);
+
+                // CurrentState = EnemyState.Shooting;
 
                 break;
             case EnemyState.Shooting:

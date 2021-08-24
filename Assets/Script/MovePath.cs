@@ -47,8 +47,10 @@ public class MovePath : MonoBehaviour
 
     }
     
-    public void RotateToTarget(){
+    public void RotateToTarget(Transform target){
         Debug.Log("--- RotateToTarget");
+         StartCoroutine(  Rotate_func( target ) );
+        // gameObject.transform.LookAt(target);
     }
 
     
@@ -129,6 +131,7 @@ public class MovePath : MonoBehaviour
             yield return null;
         }
     }
+
 
     // map
 

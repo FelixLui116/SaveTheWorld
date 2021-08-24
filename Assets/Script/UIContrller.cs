@@ -87,7 +87,7 @@ public class UIContrller : MonoBehaviour
         float _Hp = ((float)health_  / (float)health_max ); // 0.XXXX, 1=100% , 0.5=50%
         Color _hpColor = ( _Hp <= 0.2) ? Color.red : (_Hp <= 0.5) ? Color.yellow : (_Hp <= 0.8) ? Color.green : Color.green; 
 
-        Debug.Log("=== _Hp: " + _hpColor + " _Hp: " + _Hp );
+        // Debug.Log("=== _Hp: " + _hpColor + " _Hp: " + _Hp );
 
         health_text.color = _hpColor;
 
@@ -98,7 +98,7 @@ public class UIContrller : MonoBehaviour
         int _coin = playerCharacterController.Coin;
 
         coin_text.text = _coin.ToString();
-        Debug.Log("=== _coin: " + _coin);
+        // Debug.Log("=== _coin: " + _coin);
 
     }
 
