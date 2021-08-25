@@ -8,7 +8,7 @@ public class PlayAgainPanel : BasePanel
 
     public string sceneName = "MainScenes";
     private void Awake() {
-        NoBtn.onClick.AddListener(() => BackToMain() );
+        NoBtn.onClick.AddListener(() => BackToMain(sceneName) );
 
     }
     void Start()
@@ -22,10 +22,10 @@ public class PlayAgainPanel : BasePanel
         
     }
 
-    public void BackToMain(){
-        LevelController.Instance.savePoint();
-        StartCoroutine(GlobalManager.Instance.loadSceneAsync(sceneName));
+    // public void BackToMain(){
+    //     LevelController.Instance.savePoint();
+    //     StartCoroutine(GlobalManager.Instance.loadSceneAsync(sceneName));
 
-    }
+    // }
 
 }

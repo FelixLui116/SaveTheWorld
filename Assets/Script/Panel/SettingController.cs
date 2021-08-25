@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class SettingController : BasePanel
 {
     // Start is called before the first frame update
+    public Button BackToMainBtn;
     public Slider musicSlider;
     public Slider sfxSlider;
     private bool _blockToggleListener;
     private float currMusicVol, currSfxVol;
     void Start()
     {
-        
+        if(BackToMainBtn != null) BackToMainBtn.onClick.AddListener(() => BackToMain("MainScenes") );
 
         currMusicVol = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         currSfxVol = PlayerPrefs.GetFloat("SfxVolume", 0.5f);

@@ -38,6 +38,11 @@ public class BasePanel : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
+    protected void BackToMain(string sceneName){
+        LevelController.Instance.savePoint();
+        StartCoroutine(GlobalManager.Instance.loadSceneAsync(sceneName));
+
+    }
 
     // protected void Cancel_func(){
     // }
