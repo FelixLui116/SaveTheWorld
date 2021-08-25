@@ -385,8 +385,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
   m_Range: 15
-  m_SpotAngle: 70
-  m_InnerSpotAngle: 7
+  m_SpotAngle: 100
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3ac4115b27b4e638e58bcb13f7cbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_health: 50
+  current_health: 100
   health_max: 100
   _name: 
   _coin: 0
@@ -493,6 +493,7 @@ MonoBehaviour:
   putGunPos: {fileID: 2490965969666115562}
   DestroyOjbectTimer: 0
   HitAudio: {fileID: 8952574158538689662}
+  DetectRange: 30
   playerCollider: {fileID: 871114565393609327}
   SwitchWeapon_timer: 0.5
   joystickPlayerScript: {fileID: 7964319210005088109}

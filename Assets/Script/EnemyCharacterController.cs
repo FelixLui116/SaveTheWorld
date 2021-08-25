@@ -18,13 +18,13 @@ public class EnemyCharacterController : BaseCharacter
     // protected bool IsMoving = false;
 
     protected bool IsGettarget = false;
-    public Transform targetPlayer;
     [SerializeField] protected EnemyCollider enemyCollider;
-    [SerializeField] protected  float DetectRange = 10f;
     [SerializeField] private MovePath movePath;
     [SerializeField] protected GameObject coinPrefab;
     
-    private bool detected_Target = false;
+    // private bool detected_Target = false;
+    // [SerializeField] protected  float DetectRange = 10f;
+    // protected Transform targetPlayer;
     private EnemyState _currentState = EnemyState.Idle;
     protected EnemyState CurrentState
     {

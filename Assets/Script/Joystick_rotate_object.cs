@@ -21,6 +21,10 @@ public class Joystick_rotate_object : MonoBehaviour
     }
     public void FixedUpdate()
     {
+        // if (true)
+        // {
+            
+        // }
         // Vector3 direction = new Vector3(variableJoystick.Horizontal , 0,   variableJoystick.Vertical ).normalized;
         
         Quaternion TargetRotation;

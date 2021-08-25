@@ -23,6 +23,8 @@ public class PlayerCharacterController : BaseCharacter
     [SerializeField] private float  dodging_forward = 5f; //how much to move forward
     [SerializeField] private float  dodging_timer = 0.5f; //how much to move forward
     
+    // [Header("LockTraget")]
+    // [SerializeField] private float A
     // [SerializeField] private float slidSpeed = 1f;
     private bool canDodging = true;
     private bool canSwitchWeapon = true;
@@ -205,7 +207,11 @@ public class PlayerCharacterController : BaseCharacter
 
             switchingWeapon_func();
         }
-    
+    }
+
+
+    private void LockTraget_func(){
+        
     }
 
 
