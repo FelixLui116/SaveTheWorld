@@ -6,8 +6,10 @@ using UnityEngine.UI;
 using System.Text;
 public class UIContrller : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("UI PlayerInfo")]
     public Text health_text;
+    public Slider healthBarSlider;
+    public Image healthBar;
     public Text coin_text;
 
     [Header("== Player ==")]
@@ -85,13 +87,16 @@ public class UIContrller : MonoBehaviour
         
         // Debug.Log("=== " + health_  +"  " + health_max +"  " + ( health_/health_max ) );
         float _Hp = ((float)health_  / (float)health_max ); // 0.XXXX, 1=100% , 0.5=50%
-        Color _hpColor = ( _Hp <= 0.2) ? Color.red : (_Hp <= 0.5) ? Color.yellow : (_Hp <= 0.8) ? Color.green : Color.green; 
+        Color _hpColor = ( _Hp <= 0.3) ? Color.red : (_Hp <= 0.5) ? Color.yellow : (_Hp <= 0.8) ? Color.green : Color.green; 
 
         // Debug.Log("=== _Hp: " + _hpColor + " _Hp: " + _Hp );
 
-        health_text.color = _hpColor;
-
+        // health_text.color = _hpColor;
         health_text.text = health_.ToString() + " / "+ health_max.ToString();
+        healthBar.color = _hpColor;
+        healthBarSlider.value = _Hp;
+        Debug.Log("=== _Hp: " + healthBarSlider.value );
+
     }
 
     private void PlayerCoin_text_update(){

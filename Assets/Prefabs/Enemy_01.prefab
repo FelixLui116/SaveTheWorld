@@ -270,9 +270,9 @@ MonoBehaviour:
   isKeepShooting: 0
   WeaponDamage: 10
   FireRate: 1
-  BulletSpeed: 50
+  BulletSpeed: 20
   BulletRange: 2
-  BulletDestoryTime: 0.3
+  BulletDestoryTime: 1
   canPassThrough: 0
   TotalAmmo: 0
   CurrentAmmo: 0

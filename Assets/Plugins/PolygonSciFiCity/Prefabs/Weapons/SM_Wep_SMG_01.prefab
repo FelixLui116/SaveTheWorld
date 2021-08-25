@@ -60,11 +60,13 @@ MonoBehaviour:
   FireFlash: {fileID: 6606547280681494253}
   Holder: Player
   AmmoColor: 0
+  isKeepShooting: 0
   WeaponDamage: 10
   FireRate: 4
   BulletSpeed: 50
   BulletRange: 2
-  BulletDestoryTime: 0.3
+  BulletDestoryTime: 1
+  canPassThrough: 0
   TotalAmmo: 28
   CurrentAmmo: 0
   ReloadWeapon_time: 2

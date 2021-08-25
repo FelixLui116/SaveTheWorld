@@ -9,6 +9,7 @@ public class PoolSystem : MonoBehaviour
     public GameObject playerAcre;
     public GameObject enemyAcre;
     public GameObject skillAcre;
+    public GameObject DestroyAcre;
 
     // public List<Projectile> bulletPoolList = new List<Projectile>();
 
@@ -67,7 +68,9 @@ public class PoolSystem : MonoBehaviour
         return obj_top;
     }
 
-    
+    public void MoveToDestroyPool(GameObject obj  ){
+        obj.transform.SetParent(DestroyAcre.transform);
+    }
 
     // public GameObject CreatePoolSkill(GameObject taegetObject, Transform targetTF , Vector3 addPosV3){
 

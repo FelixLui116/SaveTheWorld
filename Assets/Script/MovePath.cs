@@ -34,23 +34,24 @@ public class MovePath : MonoBehaviour
     }
 
     public void ToMove(){
-        float moveV3_x = Path[PathCount].position.x;
-        float moveV3_z = Path[PathCount].position.z;
+        if(Path.Length > 0){ //have more than one Path
+            float moveV3_x = Path[PathCount].position.x;
+            float moveV3_z = Path[PathCount].position.z;
 
 
-        thisObj.DOLookAt(new Vector3(Path[PathCount].position.x, Path[PathCount].position.y, Path[PathCount].position.z), RotateSpeed , AxisConstraint.Y , Vector3.up);
-   
-        Tween t = thisObj.DOMove( new Vector3(moveV3_x, thisObj.position.y ,moveV3_z) , MoveSpeed);
+            thisObj.DOLookAt(new Vector3(Path[PathCount].position.x, Path[PathCount].position.y, Path[PathCount].position.z), RotateSpeed , AxisConstraint.Y , Vector3.up);
+    
+            Tween t = thisObj.DOMove( new Vector3(moveV3_x, thisObj.position.y ,moveV3_z) , MoveSpeed);
 
-        t.OnComplete( ()=> {
-            PathCount++;
-            // Debug.Log("PathCount: " +PathCount + " || "+Path.Length );
-            if (PathCount >= Path.Length){
-                PathCount = 0;
-            }
-            ToMove();
-        } );        
-
+            t.OnComplete( ()=> {
+                PathCount++;
+                // Debug.Log("PathCount: " +PathCount + " || "+Path.Length );
+                if (PathCount >= Path.Length){
+                    PathCount = 0;
+                }
+                ToMove();
+            } );   
+        } 
     }
 
     public void KillAllAction(){

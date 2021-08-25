@@ -123,7 +123,7 @@ public class BaseGun : MonoBehaviour
                 //     var bullet = Instantiate(Bullet, Shooting_point[0].transform.position, Shooting_point[0].transform.rotation); //Bullet , transform.position = firePoint
                 }
                 if (ReloadWeapon_time != 0){
-                    yield return new WaitForSeconds(60 / (ReloadWeapon_time  * 60));
+                    yield return new WaitForSeconds(60 / (ReloadWeapon_time  * 100));
                 }else{
                     yield return new WaitForFixedUpdate();
                 }

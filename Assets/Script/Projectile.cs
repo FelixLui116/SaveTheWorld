@@ -10,18 +10,16 @@ public class Projectile : MonoBehaviour
     public float bulletDamage;
     public bool canPassThrough_bullet = false;
     public float _destroyTime;  // chack only
-
+    public GameObject hitParticles;
     public TrailRenderer trail;
+
+    private float moveSpeed_bullet = 0; 
+    private Vector3 direction;
+    private bool isFire = false;
 
     // Start is called before the first frame update
     void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter(Collision other)
@@ -65,7 +63,7 @@ public class Projectile : MonoBehaviour
 
         if (trail!= null ){
             trail.enabled = true;
-            SetTrailColor(trailColor);
+            // SetTrailColor(trailColor);
         }
         
         
@@ -78,11 +76,17 @@ public class Projectile : MonoBehaviour
         }
 
         Quaternion _rotation = Quaternion.Euler(0, (transform.localRotation.eulerAngles.y + range), 0);// addRange <-->  (0, range, 0)
-        Vector3 direction = _rotation * Vector3.forward;
-        // Debug.Log("direction: " + direction);
-        Bullet_rb.AddForce(direction * bulletSpeed * 100);  // 100 may not need 40* 100 is OK
         
-        // StartCoroutine(DestroyTimer(bulletDestory) );
+        // ///
+        // Vector3 direction = _rotation * Vector3.forward;
+        // Bullet_rb.AddForce(direction * bulletSpeed * 100);  // 100 may not need 40* 100 is OK
+        // ///
+        direction = _rotation  * Vector3.forward;
+        moveSpeed_bullet = bulletSpeed;
+        isFire = true;
+
+        PoolSystem.Instance.MoveToDestroyPool(this.gameObject);
+        StartCoroutine(DestroyTimer(bulletDestory) );
     }
 
     public IEnumerator DestroyTimer(float seconds)
@@ -98,7 +102,28 @@ public class Projectile : MonoBehaviour
     }
 
     public void DestroyObj(){
+
+        if (hitParticles != null){
+            CreateHitParaticle();
+        }
         Destroy(gameObject);
+    }
+
+    private IEnumerator  CreateHitParaticle(float timer = 2f){
+        GameObject hitObj = Instantiate(hitParticles);
+        hitObj.transform.position = transform.position;
+        hitObj.transform.rotation = transform.rotation; 
+
+        yield return new WaitForSeconds(timer);
+        
+        Destroy(hitObj);
+    }
+
+    private void Update() {
+        if (isFire)
+        {
+            transform.position += direction * moveSpeed_bullet * Time.deltaTime;
+        }
     }
 
     
