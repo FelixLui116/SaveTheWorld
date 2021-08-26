@@ -33,6 +33,7 @@ public class EnemyCollider : MonoBehaviour
         // DestroyItem();
     }
 
+
     // Update is called once per frame
     void Update()
     {

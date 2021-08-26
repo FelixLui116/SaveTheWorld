@@ -200,13 +200,20 @@ public class BaseCharacter : MonoBehaviour
     //         }
     //     }
     // }
+
+    public void WeaponGet_XXXX(GameObject obj ){
+        GameObject weapon = obj;
+        BaseGun baseGun = weapon.GetComponent<BaseGun>();
+        baseGun.PopupGunInfo();
+    }
+
     public void WeaponGet(GameObject obj){
         GameObject weapon = obj;
         // bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
         BaseGun baseGun = weapon.GetComponent<BaseGun>();
         bool pickup_bool = baseGun.isPickup;
 
-        baseGun.PopupGunInfo();
+        // baseGun.PopupGunInfo();
 
         if( !pickup_bool ){
             

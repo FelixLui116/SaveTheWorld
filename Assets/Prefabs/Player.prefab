@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f3f28e31c624e4fb1bdb011806c89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCharacter: {fileID: 8003121395244212146}
+  playerCharacterController: {fileID: 8003121395244212146}
 --- !u!54 &3880788641876416576
 Rigidbody:
   m_ObjectHideFlags: 0

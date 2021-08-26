@@ -25,18 +25,23 @@ public class UIContrller : MonoBehaviour
     [Header("== Button ==")]
     [SerializeField] private SkillController playerSkills;
     public Button[] skillBtn;
-    public ShootingButton ShootBtn; // base shooting
+    private ShootingButton shootingButton; // base shooting
+    public Button ShootBtn;
     public Button dodgeBtn; // base shooting
     public Button SwitchGunBtn; // base shooting
     public Button LockTragetBtn; // base shooting
+    public Button InteractionsBtn; // base shooting
     // public PoolSystem poolSystem;
     private void Awake() {
-        // if (ShootBtn != null){
+        if (ShootBtn != null){
+            shootingButton = ShootBtn.gameObject.GetComponent<ShootingButton>();
+        }
         if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
         if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
         if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         
+        // if (InteractionsBtn != null)   InteractionsBtn.onClick.AddListener(() =>  );
         // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
         // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => null );
         
@@ -68,7 +73,7 @@ public class UIContrller : MonoBehaviour
             }
             // Bullet_Text();
             // playerCharacterController.PressShoot();
-            if (ShootBtn.PressDown_GET){    //PressDown
+            if (shootingButton.PressDown_GET){    //PressDown
 
             // Debug.Log(" Is pressing ");
                 playerCharacterController.Pressing_Shoot = true;

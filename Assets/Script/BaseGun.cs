@@ -274,12 +274,12 @@ public class BaseGun : MonoBehaviour
         yield return new WaitForSeconds(timer);
         FireFlash.SetActive(false);
     }
-    // private void OnTriggerEnter(Collider other) {
-    //     if (!isPickup && other.gameObject.tag == "Player")
-    //     {
-
-    //     }   
-    // }
+    
+    private void OnTriggerExit(Collider other){
+        if(other.gameObject.tag == "Player"){
+            
+        } 
+    }
 
     private Color trailColor_map(){
         Color i = trailColor == TrailColor.blue   ? Color.blue :
@@ -294,21 +294,23 @@ public class BaseGun : MonoBehaviour
         Debug.Log(" is PopUp GunInfo" + gameObject);
         GameObject dialogLayer = GameObject.Find("DialogLayer");
 
+        // GameObject instance = Instantiate(popupPrefab , transform.position , Quaternion.identity, transform);
+        GameObject popupInfo_Clone = Instantiate(popupPrefab ,dialogLayer.transform );
+        GunInfoPanel gunInfoPanel = popupInfo_Clone.GetComponent<GunInfoPanel>();
+        gunInfoPanel.updateInfoText( weaponTpye.ToString() , WeaponDamage.ToString() );
+
+
         // GameObject popupClone = Instantiate(popupPrefab);
         // Vector2 screenPosition = Camera.main.WorldToScreenPoint(new Vector2(gameObject.transform.position.x , gameObject.transform.position.y) );
 
         // popupClone.transform.SetParent(canvas.transform);
         // popupClone.transform.position = screenPosition;
 
-        // GameObject instance = Instantiate(popupPrefab , transform.position , Quaternion.identity, transform);
-        GameObject instance = Instantiate(popupPrefab ,dialogLayer.transform );
-        
         // Vector2 screenPosition = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
         // instance.transform.SetParent(dialogLayer.transform, false);
         // instance.transform.position = screenPosition;
         // instance.SetText(text);
-    
     }
 
     public void Test_Func(){

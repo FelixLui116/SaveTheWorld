@@ -9,7 +9,7 @@ public class PlayerCollider : MonoBehaviour
 
     public UnityAction ApplyChangeHPAction;
     public UnityAction ApplyChangeCoinAction;
-    [SerializeField] private BaseCharacter baseCharacter;
+    [SerializeField] private PlayerCharacterController playerCharacterController;
     void Start()
     {
         
@@ -36,7 +36,10 @@ public class PlayerCollider : MonoBehaviour
         /// 
 
         if(other.gameObject.tag == "Weapon"){
-            baseCharacter.WeaponGet(other.gameObject);
+            playerCharacterController.WeaponGet(other.gameObject);
+
+            // playerCharacterController.baseGun.PopupGunInfo();
+            // playerCharacterController.WeaponGet_XXXX(other.gameObject);
         } 
         // if(other.gameObject.tag == "Bullet"){
 
@@ -49,39 +52,46 @@ public class PlayerCollider : MonoBehaviour
         // DestroyItem();
     }
 
+
+    private void OnTriggerExit(Collider other) {
+        if(other.gameObject.tag == "Weapon"){
+            // playerCharacterController.baseGun.PopupGunInfo();
+        } 
+    }
+
     private void Coin_trigger(GameObject obj ){
         
         Coin coin_obj = obj.GetComponent<Coin>();
         
         // AudioPlayer(); 
         // DestroyItem();
-        baseCharacter.Coin += coin_obj.CoinNum;
+        playerCharacterController.Coin += coin_obj.CoinNum;
         
         ApplyChangeCoinAction?.Invoke();
-        Debug.Log(" Yes Get Coin: " + coin_obj.CoinNum + " || "+ baseCharacter.Coin );
+        Debug.Log(" Yes Get Coin: " + coin_obj.CoinNum + " || "+ playerCharacterController.Coin );
     }
 
     private void Health_trigger(GameObject obj ){
         
         MedKit MedKit_obj = obj.GetComponent<MedKit>();
        
-        baseCharacter.Current_health += MedKit_obj.HealingNum; 
+        playerCharacterController.Current_health += MedKit_obj.HealingNum; 
 
         ApplyChangeHPAction?.Invoke();
 
-        Debug.Log(" Yes Get Health_: " + MedKit_obj.HealingNum + " || "+ baseCharacter.Current_health );
+        Debug.Log(" Yes Get Health_: " + MedKit_obj.HealingNum + " || "+ playerCharacterController.Current_health );
 
     }
     private void Ammo_trigger(GameObject obj ){
         
         AmmoBox Ammo_obj = obj.GetComponent<AmmoBox>();
         Debug.Log(" Yes Get Ammo: " +Ammo_obj.ammoTpye + " ||Num: "+Ammo_obj.AmmoNum);
-        // baseCharacter.baseGun.AddAmmoTpye(Ammo_obj.ammoTpye, Ammo_obj.AmmoNum ); // Ammo_obj.AmmoNum;
+        // playerCharacterController.baseGun.AddAmmoTpye(Ammo_obj.ammoTpye, Ammo_obj.AmmoNum ); // Ammo_obj.AmmoNum;
     }
     private void PlayerGetHit(GameObject obj ){
-        // baseCharacter.Current_health -= 10;
+        // playerCharacterController.Current_health -= 10;
         Projectile projectile = obj.GetComponent<Projectile>();
-        baseCharacter.Current_health -=  (int)projectile.bulletDamage;
+        playerCharacterController.Current_health -=  (int)projectile.bulletDamage;
         Debug.Log("=== : " + projectile.canPassThrough_bullet);
         if (!projectile.canPassThrough_bullet){
             projectile.DestroyObj();
