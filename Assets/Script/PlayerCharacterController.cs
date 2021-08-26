@@ -86,6 +86,7 @@ public class PlayerCharacterController : BaseCharacter
     }
 
     protected void SelectWeapon(int current_Weapon ){
+        Debug.Log("=== current_Weapon: "+ current_Weapon);
         Transform weaponPos , SecweaponPos;
         
         weaponPos = holdGunPos.transform ;
@@ -93,7 +94,7 @@ public class PlayerCharacterController : BaseCharacter
 
         ResetGunPosition(weaponList[current_Weapon] , weaponPos );
         ResetGunPosition(weaponList[lastWeapon] , SecweaponPos );
-        
+
         GetWeapon_onHold(); // switch Base Gun Sprite in base character
 
     }

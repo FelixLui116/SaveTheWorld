@@ -34,7 +34,7 @@ public class BaseGun : MonoBehaviour
     private bool Reloading = false;
     public int TotalAmmo = 0;   // gun can have totalAmmo
     public int CurrentAmmo  = 0;
-    public float ReloadWeapon_time = 0;
+    public float ReloadWeapon_time = 0;  // float 0.2 = 3s  (60/ (xx * 100) )
     public bool isPickup = false;
     public bool BulletLimit = true;
 
@@ -63,18 +63,38 @@ public class BaseGun : MonoBehaviour
         if(CanFire){
             if(CurrentAmmo > 0){
                 Debug.Log("=== shootingBullet!!! ");
-                CurrentAmmo--; 
+                // CurrentAmmo--; 
+                // CurrentAmmo -= Shooting_point.Length;
+
                 if(audioSource != null){
                     audioSource.clip =fireAudio;
                     audioSource.Play();
                 }
-                shootingBullet(BulletSpeed , BulletRange, BulletDestoryTime ,CurrentAmmo);
+                
+                bool multShoot = false;
+                if (Shooting_point.Length > 1){ //check multipleShoot
+                    multShoot = true;
+                }
+                    // Debug.Log("==== multShoot:" + multShoot);
+                for (int i = 0; i < Shooting_point.Length; i++){
+                    CurrentAmmo --;
+                    // Debug.Log("==== CurrentAmmo:" + CurrentAmmo);
+                    shootingBullet(BulletSpeed , BulletRange, BulletDestoryTime ,CurrentAmmo, multShoot);
+                }
+
+
+                if (CurrentAmmo == 0)   // No Ammo Auto reload
+                {
+                    StartCoroutine( ReloadWeapon_func() );
+                    audioSource.clip = reloadAudio;
+                    audioSource.Play();
+                }
             }
             else{
                 Debug.Log("=== Weapon Reloading!!! ");
-                StartCoroutine( ReloadWeapon_func() );
-                audioSource.clip = reloadAudio;
-                audioSource.Play();
+                // StartCoroutine( ReloadWeapon_func() );
+                // audioSource.clip = reloadAudio;
+                // audioSource.Play();
 
             }
         }
@@ -194,7 +214,7 @@ public class BaseGun : MonoBehaviour
     }
 
    
-    public void shootingBullet(float bulletSpeed ,float  bulletRange, float BulletDestoryTime , int count){
+    public void shootingBullet(float bulletSpeed ,float  bulletRange, float BulletDestoryTime , int count , bool multipleShoot =false){
         // Shooting_point[count].GetComponent<Rigidbody>().AddForce(0, 0, 1);
 
         // Projectile bullet = Shooting_point[count].GetComponent<Projectile>();
@@ -213,7 +233,19 @@ public class BaseGun : MonoBehaviour
         }
         Color _c = trailColor_map();
         StartCoroutine( FireFlash_func() );
-        bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage, _c , canPassThrough); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        
+        if (multipleShoot)
+        {
+            bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[count].transform.position, Shooting_point[count].transform.rotation ,WeaponDamage, _c , canPassThrough); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        }else{
+            bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage, _c , canPassThrough); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        }
+        // for (int i = 0; i < Shooting_point.Length; i++)
+        // {
+        //     Debug.Log("==== Shooting_point.Length:" + Shooting_point[i].name);
+            // }
+        // bullet.Fire(  bulletSpeed ,  bulletRange,  BulletDestoryTime , Shooting_point[0].transform.position, Shooting_point[0].transform.rotation ,WeaponDamage, _c , canPassThrough); // weaponEnd.transform.position, weaponEnd.transform.rotation
+        
         // transform.forward * bulletSpeed;
     }
 
@@ -248,6 +280,12 @@ public class BaseGun : MonoBehaviour
                 trailColor == TrailColor.red    ? Color.red : Color.blue;
         return i;
     }
+
+    
+    public void PopupGunInfo(){
+        // instantiate(   ,  );
+    }
+
     public void Test_Func(){
         // float bulletRange = 5f;
         // float range = Random.Range( -(bulletRange), bulletRange);

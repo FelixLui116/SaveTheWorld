@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using System.Text;
 public class UIContrller : MonoBehaviour
 {
+    [SerializeField] private GameObject dialogLayer;
+    
     [Header("UI PlayerInfo")]
     public Text health_text;
     public Slider healthBarSlider;
@@ -111,7 +113,7 @@ public class UIContrller : MonoBehaviour
     }
 
     private void PlayerDie_Panel(){
-        GameObject panel_obj = Instantiate( PlayAgainPrefabs, this.gameObject.transform.parent); // Clone in Canvas
+        GameObject panel_obj = Instantiate( PlayAgainPrefabs, dialogLayer.transform); // Clone in Canvas
     }
 
     // public void Skill_Btn(){

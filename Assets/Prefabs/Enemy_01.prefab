@@ -219,9 +219,8 @@ MonoBehaviour:
   putGunPos: {fileID: 0}
   DestroyOjbectTimer: 0
   HitAudio: {fileID: 3817688678072778751}
-  targetPlayer: {fileID: 0}
-  enemyCollider: {fileID: 2407652295036930815}
   DetectRange: 10
+  enemyCollider: {fileID: 2407652295036930815}
   movePath: {fileID: 4235110599463979560}
   coinPrefab: {fileID: 1490024841198276204, guid: 6a0f01df6fd749b4ead8025d94c107a0,
     type: 3}
@@ -269,13 +268,13 @@ MonoBehaviour:
   AmmoColor: 0
   isKeepShooting: 0
   WeaponDamage: 10
-  FireRate: 1
+  FireRate: 4
   BulletSpeed: 20
   BulletRange: 2
-  BulletDestoryTime: 1
+  BulletDestoryTime: 10
   canPassThrough: 0
-  TotalAmmo: 0
-  CurrentAmmo: 0
+  TotalAmmo: 2
+  CurrentAmmo: 2
   ReloadWeapon_time: 0
   isPickup: 0
   BulletLimit: 0

@@ -228,7 +228,9 @@ public class BaseCharacter : MonoBehaviour
                     // weapon.Add(other.gameObject);   // add weapon
                 }
                 else{       // really have two gun
-                    // do something....
+                    
+                    Debug.Log(" is Full weapon");
+
                 }
                 // changeWeapon_func( weapons.Lenght );
             }
