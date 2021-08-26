@@ -202,38 +202,40 @@ public class BaseCharacter : MonoBehaviour
     // }
     public void WeaponGet(GameObject obj){
         GameObject weapon = obj;
-            // bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
-            BaseGun baseGun = weapon.GetComponent<BaseGun>();
-            bool pickup_bool = baseGun.isPickup;
+        // bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
+        BaseGun baseGun = weapon.GetComponent<BaseGun>();
+        bool pickup_bool = baseGun.isPickup;
 
-            if( !pickup_bool ){
-                
-                baseGun.pickupGun_cloneBullet();
-                if (HoldWeaponCount < MaxHoldWeapon)    // can Holding Gun total number
-                {
-                    HoldWeaponCount ++;
-                    pickup_bool = true;
-                    weaponList.Add(obj);
+        baseGun.PopupGunInfo();
 
-                    // weapon.transform.SetParent( holdGunPos.transform );  // holdGun.transform 
-                    if (HoldWeaponCount > 1){
-                        // weapon.transform.SetParent( SecGunPositon.transform );  // holdGun.transform 
-                        ResetGunPosition(weapon ,  SecGunPositon.transform );
-                    }else{
-                        ResetGunPosition(weapon ,  holdGunPos.transform );
-                    }
+        if( !pickup_bool ){
+            
+            baseGun.pickupGun_cloneBullet();
+            if (HoldWeaponCount < MaxHoldWeapon)    // can Holding Gun total number
+            {
+                HoldWeaponCount ++;
+                pickup_bool = true;
+                weaponList.Add(obj);
 
-                    weapon.GetComponent<BaseGun>().Holder = "Player";
-                    GetWeapon_onHold();
-                    // weapon.Add(other.gameObject);   // add weapon
+                // weapon.transform.SetParent( holdGunPos.transform );  // holdGun.transform 
+                if (HoldWeaponCount > 1){
+                    // weapon.transform.SetParent( SecGunPositon.transform );  // holdGun.transform 
+                    ResetGunPosition(weapon ,  SecGunPositon.transform );
+                }else{
+                    ResetGunPosition(weapon ,  holdGunPos.transform );
                 }
-                else{       // really have two gun
-                    
-                    Debug.Log(" is Full weapon");
 
-                }
-                // changeWeapon_func( weapons.Lenght );
+                weapon.GetComponent<BaseGun>().Holder = "Player";
+                GetWeapon_onHold();
+                // weapon.Add(other.gameObject);   // add weapon
             }
+            else{       // really have two gun
+                
+                Debug.Log(" is Full weapon");
+
+            }
+            // changeWeapon_func( weapons.Lenght );
+        }
     }
 
     protected void ResetGunPosition(GameObject weapon , Transform parent){

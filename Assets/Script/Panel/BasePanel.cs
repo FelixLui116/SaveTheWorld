@@ -14,7 +14,7 @@ public class BasePanel : MonoBehaviour
 
     private void Awake() {
         
-        CancelBtn.onClick.AddListener(() => Cancel_func() );
+        if(CancelBtn != null) CancelBtn.onClick.AddListener(() => Cancel_func() );
     }
     void Start()
     {

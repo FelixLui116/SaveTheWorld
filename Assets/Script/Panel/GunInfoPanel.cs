@@ -11,12 +11,16 @@ public class GunInfoPanel : BasePanel
     //   [SerializeField] private 
     void Start()
     {
-        
+        // Vector3 Offset = new Vector3(0,2,0);
+        // transform.localPosition += Offset; 
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void DestroyTimer(float timer = 0.0f){
+        Destroy( gameObject );
     }
 }

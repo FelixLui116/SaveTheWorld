@@ -73,6 +73,8 @@ MonoBehaviour:
   isPickup: 0
   BulletLimit: 0
   Ammo: 50
+  popupPrefab: {fileID: 1272861574893498752, guid: 858a6496d9efe4ce3bdfa8d48bdba857,
+    type: 3}
   Crosshair: {fileID: 0}
   WeaponImg: {fileID: 0}
   WeaponImg_Disable: {fileID: 0}

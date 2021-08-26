@@ -9,14 +9,20 @@ using Random = UnityEngine.Random;
 
 public class BaseGun : MonoBehaviour
 {
+    /// /// Not Using
     public enum AmmoTpye { Blue, green, yellow, red }    
+    public AmmoTpye AmmoColor;
     public enum TrailColor { blue,green,yellow,red}
     public TrailColor trailColor;
+
+    ///  ///
     public GameObject[] Shooting_point;
     public GameObject Bullet;
     public GameObject FireFlash;
     public String Holder = "";      // put player / enemy   player Comtroller  using tag or string
-    public AmmoTpye AmmoColor;
+
+    public enum WeaponTpye { Pistol, ShotGun }   
+    public WeaponTpye weaponTpye;
 
     // public Text ShootingType; 
     private GameObject poolObject;
@@ -41,12 +47,14 @@ public class BaseGun : MonoBehaviour
     public int Ammo  = 100;   // 00/XXX
 
     [Header("UI")]
+    [SerializeField] protected GameObject popupPrefab;
     public Image Crosshair;
     public Image WeaponImg;
     public Image WeaponImg_Disable;
     [Header("AudioClip")]
     [SerializeField] protected AudioClip reloadAudio;
     [SerializeField] protected AudioClip fireAudio;
+
     private AudioSource audioSource;
     // public bool isPlayGun = false;
     public bool CanFire_get
@@ -283,7 +291,24 @@ public class BaseGun : MonoBehaviour
 
     
     public void PopupGunInfo(){
-        // instantiate(   ,  );
+        Debug.Log(" is PopUp GunInfo" + gameObject);
+        GameObject dialogLayer = GameObject.Find("DialogLayer");
+
+        // GameObject popupClone = Instantiate(popupPrefab);
+        // Vector2 screenPosition = Camera.main.WorldToScreenPoint(new Vector2(gameObject.transform.position.x , gameObject.transform.position.y) );
+
+        // popupClone.transform.SetParent(canvas.transform);
+        // popupClone.transform.position = screenPosition;
+
+        // GameObject instance = Instantiate(popupPrefab , transform.position , Quaternion.identity, transform);
+        GameObject instance = Instantiate(popupPrefab ,dialogLayer.transform );
+        
+        // Vector2 screenPosition = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+        // instance.transform.SetParent(dialogLayer.transform, false);
+        // instance.transform.position = screenPosition;
+        // instance.SetText(text);
+    
     }
 
     public void Test_Func(){

@@ -140,6 +140,7 @@ MonoBehaviour:
   FireFlash: {fileID: 0}
   Holder: Player
   AmmoColor: 0
+  weaponTpye: 1
   isKeepShooting: 0
   WeaponDamage: 0
   FireRate: 1
@@ -153,6 +154,8 @@ MonoBehaviour:
   isPickup: 0
   BulletLimit: 0
   Ammo: 0
+  popupPrefab: {fileID: 1272861574893498752, guid: 858a6496d9efe4ce3bdfa8d48bdba857,
+    type: 3}
   Crosshair: {fileID: 0}
   WeaponImg: {fileID: 0}
   WeaponImg_Disable: {fileID: 0}
