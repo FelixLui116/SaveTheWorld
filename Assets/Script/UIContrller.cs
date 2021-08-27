@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 using System.Text;
 public class UIContrller : MonoBehaviour
@@ -32,6 +33,10 @@ public class UIContrller : MonoBehaviour
     public Button LockTragetBtn; // base shooting
     public Button InteractionsBtn; // base shooting
     // public PoolSystem poolSystem;
+
+    /// Action Btn 
+    private UnityAction BtnGetGun;
+
     private void Awake() {
         if (ShootBtn != null){
             shootingButton = ShootBtn.gameObject.GetComponent<ShootingButton>();
@@ -40,6 +45,12 @@ public class UIContrller : MonoBehaviour
         if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
         if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
+        
+
+        BtnGetGun = new UnityAction(() =>{ 
+            playerCharacterController.WeaponGet(playerCharacterController.SelectedGun);
+            PlayerBtnGetGun_Remove();
+        });
         
         // if (InteractionsBtn != null)   InteractionsBtn.onClick.AddListener(() =>  );
         // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
@@ -55,6 +66,8 @@ public class UIContrller : MonoBehaviour
         playerCollider.ApplyChangeCoinAction = PlayerCoin_text_update;
 
         playerCharacterController.ApplyPlayerDie = PlayerDie_Panel;
+        playerCharacterController.ApplyBtnGetGun = PlayerBtnListenerGetGun_Add;
+        playerCharacterController.ApplyBtnRemoveGun = PlayerBtnGetGun_Remove;
         PlayerHealth_text_update();
         PlayerCoin_text_update();
         // Skill_Btn();
@@ -119,6 +132,16 @@ public class UIContrller : MonoBehaviour
 
     private void PlayerDie_Panel(){
         GameObject panel_obj = Instantiate( PlayAgainPrefabs, dialogLayer.transform); // Clone in Canvas
+    }
+
+    private void PlayerBtnListenerGetGun_Add(){
+        InteractionsBtn.onClick.AddListener(BtnGetGun);
+        // InteractionsBtn.onClick.AddListener(() =>  playerCharacterController.WeaponGet(playerCharacterController.SelectedGun) );
+    }
+    private void PlayerBtnGetGun_Remove(){
+        Debug.Log("removing WeaponGet from button"); 
+        InteractionsBtn.onClick.RemoveListener(BtnGetGun);
+        // InteractionsBtn.onClick.RemoveListener( );
     }
 
     // public void Skill_Btn(){

@@ -11,7 +11,7 @@ public class PlayerCharacterController : BaseCharacter
     // [Header("Skill")]
     // [SerializeField] public SkillController skill;
     
-    public UnityAction ApplyPlayerDie;
+    public UnityAction ApplyPlayerDie , ApplyBtnGetGun , ApplyBtnRemoveGun;
     private int lastWeapon;    
     public PlayerCollider  playerCollider;
 
@@ -23,6 +23,18 @@ public class PlayerCharacterController : BaseCharacter
     [SerializeField] private float  dodging_forward = 5f; //how much to move forward
     [SerializeField] private float  dodging_timer = 0.5f; //how much to move forward
     
+
+    private GameObject selectedGun = null;    
+    public GameObject SelectedGun
+    {
+        get => selectedGun;
+        set { selectedGun = value;
+            if (selectedGun != null){
+                Debug.Log("=== SelectedGun:" + selectedGun.name);
+            }
+        }
+    }
+
     // [Header("LockTraget")]
     // [SerializeField] private float A
     // [SerializeField] private float slidSpeed = 1f;
@@ -216,6 +228,11 @@ public class PlayerCharacterController : BaseCharacter
     }
 
 
+    public override void WeaponGet(GameObject obj)
+    {
+        base.WeaponGet(obj);
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -253,5 +270,20 @@ public class PlayerCharacterController : BaseCharacter
             Debug.Log(" Player is die need to destory !!!");
             DestroyOjbect(DestroyOjbectTimer);
         }
+    }
+
+    public void WeaponGet_Select(GameObject obj ){
+        GameObject weapon = obj;
+        BaseGun baseGun = weapon.GetComponent<BaseGun>();
+        baseGun.PopupGunInfo();
+        SelectedGun = obj;
+
+        ApplyBtnGetGun?.Invoke();
+    }
+
+    public void WeaponTriggerExit(){
+        SelectedGun = null;
+        // baseGun.PopupGunInfo();
+        ApplyBtnRemoveGun?.Invoke();
     }
 }

@@ -36,10 +36,11 @@ public class PlayerCollider : MonoBehaviour
         /// 
 
         if(other.gameObject.tag == "Weapon"){
-            playerCharacterController.WeaponGet(other.gameObject);
+            // playerCharacterController.WeaponGet(other.gameObject);
 
             // playerCharacterController.baseGun.PopupGunInfo();
-            // playerCharacterController.WeaponGet_XXXX(other.gameObject);
+            Debug.Log("=== Trigger Weapon");
+            playerCharacterController.WeaponGet_Select(other.gameObject);
         } 
         // if(other.gameObject.tag == "Bullet"){
 
@@ -55,6 +56,8 @@ public class PlayerCollider : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.tag == "Weapon"){
+            Debug.Log("=== TriggerExit Weapon");
+            playerCharacterController.WeaponTriggerExit();
             // playerCharacterController.baseGun.PopupGunInfo();
         } 
     }

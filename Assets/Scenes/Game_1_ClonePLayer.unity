@@ -714,7 +714,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1590080179936372, guid: 63a05b38d307b10488a7ebbb73b7f178, type: 3}
       propertyPath: m_Name
-      value: SM_Wep_Shotgun_Plasma_01
+      value: ShotGun_1
       objectReference: {fileID: 0}
     - target: {fileID: 4959576490554332, guid: 63a05b38d307b10488a7ebbb73b7f178, type: 3}
       propertyPath: m_LocalPosition.x
@@ -981,6 +981,7 @@ MonoBehaviour:
   enemyType:
   - {fileID: 0}
   player: {fileID: 0}
+  SceneBuilding: {fileID: 156601128}
   Ammo_Color: []
   Debug_Text: {fileID: 0}
   GunUI_Image: {fileID: 0}
@@ -6227,7 +6228,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1175671737170456, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_Name
-      value: SM_Wep_SMG_01 (1)
+      value: Gun_1
       objectReference: {fileID: 0}
     - target: {fileID: 1175671737170456, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_IsActive
@@ -6235,7 +6236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789264981027820, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.43
+      value: 22.1
       objectReference: {fileID: 0}
     - target: {fileID: 4789264981027820, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6243,7 +6244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789264981027820, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.17
+      value: 11.56
       objectReference: {fileID: 0}
     - target: {fileID: 4789264981027820, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7128,7 +7129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1175671737170456, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_Name
-      value: SM_Wep_SMG_01 (2)
+      value: Gun_2
       objectReference: {fileID: 0}
     - target: {fileID: 1175671737170456, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
       propertyPath: m_IsActive
@@ -8342,7 +8343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1560977212}
   m_Layer: 5
-  m_Name: Skill
+  m_Name: UI_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

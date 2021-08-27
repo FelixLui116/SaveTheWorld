@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
 
     public GameObject[] enemyType;
     public PlayerCharacterController player; 
+    public GameObject SceneBuilding;
 
     public static LevelController Instance { get; private set; }
     public Image[] Ammo_Color;

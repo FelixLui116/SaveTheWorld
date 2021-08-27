@@ -11,7 +11,7 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected string _name;
     protected GameObject coin_Obj;
     [SerializeField] protected int _coin = 0;
-    protected List<GameObject> weaponList = new List<GameObject>();
+    public List<GameObject> weaponList = new List<GameObject>();
 
     public BaseGun baseGun;
     public GameObject holdGunPos;
@@ -131,10 +131,10 @@ public class BaseCharacter : MonoBehaviour
     }
     protected virtual void GetWeapon_onHold(){
         if(holdGunPos == null) return;
-        if(holdGunPos.transform.childCount == 0){ 
-            return;
-        }else{
-            baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();}
+        if(holdGunPos.transform.childCount == 0) return;
+
+        baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
+    
     }
     
     // protected IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
@@ -201,13 +201,13 @@ public class BaseCharacter : MonoBehaviour
     //     }
     // }
 
-    public void WeaponGet_XXXX(GameObject obj ){
-        GameObject weapon = obj;
-        BaseGun baseGun = weapon.GetComponent<BaseGun>();
-        baseGun.PopupGunInfo();
-    }
+    // public void WeaponGet_Select(GameObject obj ){
+    //     GameObject weapon = obj;
+    //     BaseGun baseGun = weapon.GetComponent<BaseGun>();
+    //     baseGun.PopupGunInfo();
+    // }
 
-    public void WeaponGet(GameObject obj){
+    public virtual void WeaponGet(GameObject obj){
         GameObject weapon = obj;
         // bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
         BaseGun baseGun = weapon.GetComponent<BaseGun>();
@@ -238,17 +238,43 @@ public class BaseCharacter : MonoBehaviour
             }
             else{       // really have two gun
                 
-                Debug.Log(" is Full weapon");
-
+                // Debug.Log(" is Full weapon : currentWeapon " +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);
+                WeaponDrop(currentWeapon , obj , baseGun);
             }
             // changeWeapon_func( weapons.Lenght );
         }
     }
+    protected void WeaponDrop(int weaponNum ,GameObject obj , BaseGun _baseGun ){
+        // Debug.Log("=== : " + weaponList[weaponNum].name);
+        ResetGunPosition(weaponList[weaponNum] , LevelController.Instance.SceneBuilding.transform , gameObject.transform );
+           
+        // HoldWeaponCount--;
+        Debug.Log(" is Full weapon : currentWeapon " +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);
+        
+        _baseGun.isPickup =true;
 
-    protected void ResetGunPosition(GameObject weapon , Transform parent){
+        weaponList[currentWeapon] = obj;
 
+        // WeaponGet(obj);
+        GetWeapon_onHold(); 
+        ResetGunPosition( obj , holdGunPos.transform );
+        
+        baseGun = _baseGun;
+        Debug.Log("  weaponList.Count " + weaponList.Count );
+        
+        // weaponNum
+    }
+
+    protected void ResetGunPosition(GameObject weapon , Transform parent , Transform _position = null ){
+        // Debug.Log("position: "+ position);
         weapon.transform.SetParent( parent.transform );  // holdGun.transform 
-        weapon.transform.localPosition = Vector3.zero;  // reset position
+        if (_position != null)
+        {
+            // Drop Gun
+            weapon.transform.localPosition = new Vector3( _position.position.x, (_position.position.y)+ 0.78f,  _position.position.z ) ;
+        }else{
+            weapon.transform.localPosition = Vector3.zero;  // reset position
+        }
         weapon.transform.localEulerAngles = Vector3.zero;               // reset rotation
     }
 
