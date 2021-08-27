@@ -760,20 +760,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4959576490554332, guid: 63a05b38d307b10488a7ebbb73b7f178, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4959576490554332, guid: 63a05b38d307b10488a7ebbb73b7f178, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4959576490554332, guid: 63a05b38d307b10488a7ebbb73b7f178, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6945436774552080038, guid: 63a05b38d307b10488a7ebbb73b7f178, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63a05b38d307b10488a7ebbb73b7f178, type: 3}
 --- !u!1001 &127045635
 PrefabInstance:
@@ -3859,6 +3846,11 @@ PrefabInstance:
       propertyPath: isPickup
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
+        type: 3}
+      propertyPath: WeaponDamage
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6718133261770744682, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
       propertyPath: MaxDistance
@@ -6295,6 +6287,11 @@ PrefabInstance:
       propertyPath: canPassThrough
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
+        type: 3}
+      propertyPath: WeaponDamage
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5039901719583900119, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
       propertyPath: m_IsTrigger
@@ -7216,6 +7213,11 @@ PrefabInstance:
       propertyPath: BulletDestoryTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
+        type: 3}
+      propertyPath: WeaponDamage
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6718133261770744682, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
       propertyPath: MaxDistance
@@ -7974,7 +7976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 1
-  offset: {x: 0, y: 10, z: -10}
+  offset: {x: 0, y: 10, z: -7}
 --- !u!81 &1472686050
 AudioListener:
   m_ObjectHideFlags: 0

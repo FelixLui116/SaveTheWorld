@@ -212,6 +212,7 @@ MonoBehaviour:
   health_max: 100
   _name: Enemy
   _coin: 5
+  weaponList: []
   baseGun: {fileID: 6243593319503446010}
   holdGunPos: {fileID: 0}
   SecGunPositon: {fileID: 0}
@@ -259,18 +260,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7183815e83391204e9ceacd697b134a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AmmoColor: 0
   trailColor: 0
   Shooting_point:
   - {fileID: 8368283999883699414}
   Bullet: {fileID: 55685470609121626, guid: 5e483af3efe004cb0bc543bd44292747, type: 3}
   FireFlash: {fileID: 0}
   Holder: Enemy
-  AmmoColor: 0
+  weaponTpye: 0
   isKeepShooting: 0
   WeaponDamage: 10
   FireRate: 4
   BulletSpeed: 20
-  BulletRange: 2
+  BulletRange: 0
   BulletDestoryTime: 10
   canPassThrough: 0
   TotalAmmo: 2
@@ -279,6 +281,7 @@ MonoBehaviour:
   isPickup: 0
   BulletLimit: 0
   Ammo: 100
+  popupPrefab: {fileID: 0}
   Crosshair: {fileID: 0}
   WeaponImg: {fileID: 0}
   WeaponImg_Disable: {fileID: 0}

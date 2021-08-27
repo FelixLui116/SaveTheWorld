@@ -245,7 +245,7 @@ public class BaseCharacter : MonoBehaviour
         }
     }
     protected void WeaponDrop(int weaponNum ,GameObject obj , BaseGun _baseGun ){
-        // Debug.Log("=== : " + weaponList[weaponNum].name);
+        // drop hand Gun 
         ResetGunPosition(weaponList[weaponNum] , LevelController.Instance.SceneBuilding.transform , gameObject.transform );
            
         // HoldWeaponCount--;
@@ -257,9 +257,10 @@ public class BaseCharacter : MonoBehaviour
 
         // WeaponGet(obj);
         GetWeapon_onHold(); 
-        ResetGunPosition( obj , holdGunPos.transform );
+        ResetGunPosition( obj , holdGunPos.transform ); // pickup Gun
         
         baseGun = _baseGun;
+        PoolSystem.Instance.KillBulletPool(currentWeapon );
         Debug.Log("  weaponList.Count " + weaponList.Count );
         
         // weaponNum

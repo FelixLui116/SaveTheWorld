@@ -58,6 +58,9 @@ public class PlayerCollider : MonoBehaviour
         if(other.gameObject.tag == "Weapon"){
             Debug.Log("=== TriggerExit Weapon");
             playerCharacterController.WeaponTriggerExit();
+
+            BaseGun baseGun = other.gameObject.GetComponent<BaseGun>();
+            baseGun.ClosePopupGunInfo();
             // playerCharacterController.baseGun.PopupGunInfo();
         } 
     }

@@ -160,7 +160,7 @@ public class EnemyCharacterController : BaseCharacter
 
     }
     protected override void CheckHp(){
-        if (Current_health == 0)
+        if (Current_health <= 0)
         {
             CreateCoin();
             Debug.Log(" enemy is die need to destory !!!");

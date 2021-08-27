@@ -8,13 +8,13 @@ public class GunInfoPanel : BasePanel
     // Start is called before the first frame update
     [SerializeField] private Text typeName;
     [SerializeField] private Text damage;
-    [SerializeField] private float DestroyTime = 3.0f;
+    private float DestroyTime = 0.2f; // delay
     void Start()
     {
         // Vector3 Offset = new Vector3(0,2,0);
         // transform.localPosition += Offset; 
 
-        DestroyTimer();
+        // DestroyTimer();
     }
 
     // Update is called once per frame

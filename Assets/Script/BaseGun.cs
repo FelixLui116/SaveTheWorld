@@ -66,6 +66,7 @@ public class BaseGun : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private GunInfoPanel popupInfoPanel;
     
     public void shooting_func(){
         if(CanFire){
@@ -201,6 +202,8 @@ public class BaseGun : MonoBehaviour
     }
 
     public void pickupGun_cloneBullet(){
+
+        ClosePopupGunInfo();
         //use pool system
         // PoolSystem.Instance.CreatePoolForBullet(Holder , this.name);
         poolObject = null;
@@ -275,10 +278,17 @@ public class BaseGun : MonoBehaviour
         FireFlash.SetActive(false);
     }
     
-    private void OnTriggerExit(Collider other){
-        if(other.gameObject.tag == "Player"){
-            
-        } 
+    // private void OnTriggerExit(Collider other){
+        // if(other.gameObject.tag == "Player"){
+        //     popupInfoPanel.DestroyTimer();
+        // } 
+    // }
+
+    public void ClosePopupGunInfo(){
+        if (popupInfoPanel !=null)
+        {
+            popupInfoPanel.DestroyTimer();
+        }
     }
 
     private Color trailColor_map(){
@@ -297,6 +307,9 @@ public class BaseGun : MonoBehaviour
         // GameObject instance = Instantiate(popupPrefab , transform.position , Quaternion.identity, transform);
         GameObject popupInfo_Clone = Instantiate(popupPrefab ,dialogLayer.transform );
         GunInfoPanel gunInfoPanel = popupInfo_Clone.GetComponent<GunInfoPanel>();
+
+        popupInfoPanel = gunInfoPanel;
+
         gunInfoPanel.updateInfoText( weaponTpye.ToString() , WeaponDamage.ToString() );
 
 

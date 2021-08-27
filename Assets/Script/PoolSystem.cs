@@ -72,6 +72,11 @@ public class PoolSystem : MonoBehaviour
         obj.transform.SetParent(DestroyAcre.transform);
     }
 
+    public void KillBulletPool ( int currentWeaponPool ){
+        
+        Destroy(playerAcre.transform.GetChild(currentWeaponPool).gameObject );
+    }
+
     // public GameObject CreatePoolSkill(GameObject taegetObject, Transform targetTF , Vector3 addPosV3){
 
     //     GameObject obj_top = new GameObject();
