@@ -202,21 +202,22 @@ public class PlayerCharacterController : BaseCharacter
     
 
     /// Switch Weapon 
-    public void SwitchWeapon_click (Button btn ){
-        StartCoroutine( SwitchWeapon_func(btn) );
+    public void SwitchWeapon_click (Button btn , Button interacteBtn){
+        StartCoroutine( SwitchWeapon_func(btn , interacteBtn) );
     }
-    private IEnumerator SwitchWeapon_func ( Button btn ){
-        if (weaponList.Count == 0)
-        {
+    private IEnumerator SwitchWeapon_func ( Button btn , Button interacteBtn){
+        if (weaponList.Count == 0){
             yield break;
         }
 
         if (CanSwitchWeapon)
         {  
             CanSwitchWeapon = false;
+            interacteBtn.interactable = false; // block sametime press Btn
             // canDodging = true;
             yield return Button_Loading(btn ,SwitchWeapon_timer );
             CanSwitchWeapon = true;
+            interacteBtn.interactable = true; // block sametime press Btn
 
             switchingWeapon_func();
         }

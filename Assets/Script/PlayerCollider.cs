@@ -80,8 +80,11 @@ public class PlayerCollider : MonoBehaviour
     private void Health_trigger(GameObject obj ){
         
         MedKit MedKit_obj = obj.GetComponent<MedKit>();
-       
-        playerCharacterController.Current_health += MedKit_obj.HealingNum; 
+
+        if (  (playerCharacterController.Current_health + MedKit_obj.HealingNum) < playerCharacterController.Health_max )
+        {
+            playerCharacterController.Current_health += MedKit_obj.HealingNum; 
+        }
 
         ApplyChangeHPAction?.Invoke();
 

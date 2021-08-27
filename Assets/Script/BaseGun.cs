@@ -35,7 +35,6 @@ public class BaseGun : MonoBehaviour
     [Range(0f, 1000f)]  public float BulletSpeed = 0f;
     [Range(0, 180.0f)]  public float BulletRange = 0f;  // Not shooting the midden //  if 5(Y Rotota) == <-(-5 angle) midden (5 angle) ->
     [Range(0f, 100f)]    public float BulletDestoryTime = 0f;
-    public bool canPassThrough = false;
     private bool CanFire = true;
     private bool Reloading = false;
     public int TotalAmmo = 0;   // gun can have totalAmmo
@@ -55,6 +54,9 @@ public class BaseGun : MonoBehaviour
     [SerializeField] protected AudioClip reloadAudio;
     [SerializeField] protected AudioClip fireAudio;
 
+
+    [Header("Abitily")]
+    public bool canPassThrough = false;
     private AudioSource audioSource;
     // public bool isPlayGun = false;
     public bool CanFire_get

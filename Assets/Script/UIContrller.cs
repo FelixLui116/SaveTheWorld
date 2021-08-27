@@ -42,9 +42,9 @@ public class UIContrller : MonoBehaviour
             shootingButton = ShootBtn.gameObject.GetComponent<ShootingButton>();
         }
         if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
-        if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
+        if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn ,InteractionsBtn) );
         if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
-        if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
+        // if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         
 
         BtnGetGun = new UnityAction(() =>{ 

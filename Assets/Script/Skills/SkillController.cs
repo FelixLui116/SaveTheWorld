@@ -5,11 +5,17 @@ using UnityEngine;
 public class SkillController : MonoBehaviour
 {
     // Start is called before the first frame update
+    
+    [Header("Player Skill")]
     [SerializeField] protected GameObject SkillPos_Hand; 
     [SerializeField] protected GameObject Skill1; 
     [SerializeField] protected GameObject Skill2; 
     [SerializeField] protected GameObject Skill3; 
     // [SerializeField] protected GameObject [] Skills; 
+
+    [Header("Gun Skill")]
+
+    [SerializeField] protected GameObject GunSkill; 
     void Start()
     {
         
