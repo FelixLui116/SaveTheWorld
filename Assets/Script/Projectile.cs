@@ -24,6 +24,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        // Debug.Log("=== 111" + other.gameObject.tag);
+        // if (other.gameObject.tag == "Wall")  // Enemy / Player tag in their Collider
+        // {
+        //     Destroy(gameObject);
+        // }
+
         // if (hitEffect != null)
         // {
         //     if (other.gameObject.GetComponent<Enemy>() != null)
@@ -49,7 +55,18 @@ public class Projectile : MonoBehaviour
         // else if(other.collider.name == "wall"){
         //     Debug.Log(" is enter the wall!!!");
         // }
+
     }
+
+    private void OnTriggerEnter(Collider other) {
+        // Debug.Log("Bullet other: "+ other.gameObject.tag );
+        if (other.gameObject.tag == "Wall")  // Enemy / Player tag in their Collider
+        {
+        Debug.Log("Bullet other: "+ other.gameObject.tag );
+            Destroy(gameObject);
+        }
+    }
+
 
     public async void Fire(float bulletSpeed ,float  bulletRange, float bulletDestory , Vector3 pos , Quaternion rotation , float damage , Color trailColor , bool passThrough){
         

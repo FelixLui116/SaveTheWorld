@@ -26,7 +26,7 @@ public class EnemyCollider : MonoBehaviour
 
         // }
         if(other.gameObject.tag == "PlayerHit"){
-            EnmeyGetHit(other.transform.parent.gameObject);
+            EnmeyGetHit(other.transform.gameObject);
         } 
         
         // AudioPlayer(); 

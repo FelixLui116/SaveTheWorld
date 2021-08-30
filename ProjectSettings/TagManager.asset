@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - PlayerHit
   - EnemyHit
+  - Wall
   layers:
   - Default
   - TransparentFX
