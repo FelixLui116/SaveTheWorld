@@ -26,6 +26,7 @@ public class UIContrller : MonoBehaviour
     [Header("== Button ==")]
     [SerializeField] private SkillController playerSkills;
     public Button[] skillBtn;
+    public Button[] gunSkillBtn;
     private ShootingButton shootingButton; // base shooting
     public Button ShootBtn;
     public Button dodgeBtn; // base shooting
@@ -35,7 +36,7 @@ public class UIContrller : MonoBehaviour
     // public PoolSystem poolSystem;
 
     /// Action Btn 
-    private UnityAction BtnGetGun;
+    private UnityAction BtnGetGun , BtnGunSkill;
 
     private void Awake() {
         if (ShootBtn != null){
@@ -46,12 +47,16 @@ public class UIContrller : MonoBehaviour
         if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
         // if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         
+        // if (gunSkillBtn != null)
 
         BtnGetGun = new UnityAction(() =>{ 
             playerCharacterController.WeaponGet(playerCharacterController.SelectedGun);
             PlayerBtnGetGun_Remove();
         });
-        
+        BtnGunSkill = new UnityAction(() =>{ 
+            // playerCharacterController.WeaponGet(playerCharacterController.SelectedGun);
+            // PlayerBtnGetGun_Remove();
+        });
         // if (InteractionsBtn != null)   InteractionsBtn.onClick.AddListener(() =>  );
         // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
         // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => null );
@@ -67,7 +72,13 @@ public class UIContrller : MonoBehaviour
 
         playerCharacterController.ApplyPlayerDie = PlayerDie_Panel;
         playerCharacterController.ApplyBtnGetGun = PlayerBtnListenerGetGun_Add;
+        // GetGun Btn
         playerCharacterController.ApplyBtnRemoveGun = PlayerBtnGetGun_Remove;
+
+        // Skill Btn
+        // playerCharacterController.    = GunSkillBtnListener_Add;
+        // playerCharacterController. = GunSkillBtnListener_Remove;
+
         PlayerHealth_text_update();
         PlayerCoin_text_update();
         // Skill_Btn();
@@ -142,6 +153,14 @@ public class UIContrller : MonoBehaviour
         Debug.Log("removing WeaponGet from button"); 
         InteractionsBtn.onClick.RemoveListener(BtnGetGun);
         // InteractionsBtn.onClick.RemoveListener( );
+    }
+
+    private void GunSkillBtnListener_Add(){
+        InteractionsBtn.onClick.AddListener(BtnGunSkill);
+    }
+    private void GunSkillBtnListener_Remove(){
+        Debug.Log("removing GunSkillBtn from button"); 
+        InteractionsBtn.onClick.RemoveListener(BtnGunSkill);
     }
 
     // public void Skill_Btn(){

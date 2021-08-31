@@ -40,7 +40,7 @@ public class BaseGun : MonoBehaviour
     public int TotalAmmo = 0;   // gun can have totalAmmo
     public int CurrentAmmo  = 0;
     public float ReloadWeapon_time = 0;  // float 0.2 = 3s  (60/ (xx * 100) )
-    public bool isPickup = false;
+    // public bool isPickup = false;
     public bool BulletLimit = true;
 
     public int Ammo  = 100;   // 00/XXX
@@ -53,12 +53,12 @@ public class BaseGun : MonoBehaviour
     [Header("AudioClip")]
     [SerializeField] protected AudioClip reloadAudio;
     [SerializeField] protected AudioClip fireAudio;
+    private AudioSource audioSource;
 
 
     [Header("Abitily")]
     public bool canPassThrough = false;
-    private AudioSource audioSource;
-    // public bool isPlayGun = false;
+    
     public bool CanFire_get
     {
         get => CanFire;
@@ -201,6 +201,7 @@ public class BaseGun : MonoBehaviour
     protected void Start()
     {
         CurrentAmmo = TotalAmmo;   
+
     }
 
     public void pickupGun_cloneBullet(){
@@ -342,4 +343,24 @@ public class BaseGun : MonoBehaviour
         
     }
 
+    // protected void seletedSkill( WeaponSkillTpye type = skillTpye){
+    //     // Debug.Log("===: " + type);
+    //     switch ( type )
+    //     {
+    //         case type.SpeedUp: 
+                
+    //             Debug.Log("APPLE");
+    //         break;
+    //         case type.DamageUp:
+    //             Debug.Log("BANANA");
+    //             break;
+    //         case type.ShootThrough:
+    //             Debug.Log("CANAPLE");
+    //             break;
+    //         default:
+    //             Debug.Log("NOTHING");
+    //             break;
+    //         default:
+    //     }
+    // }
 }

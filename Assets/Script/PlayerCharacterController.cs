@@ -106,33 +106,11 @@ public class PlayerCharacterController : BaseCharacter
 
         ResetGunPosition(weaponList[current_Weapon] , weaponPos );
         ResetGunPosition(weaponList[lastWeapon] , SecweaponPos );
-
+        
         GetWeapon_onHold(); // switch Base Gun Sprite in base character
 
     }
     
-    protected override void GetWeapon_onHold()
-    {
-        if(holdGunPos == null) return;
-        if(holdGunPos.transform.childCount == 0) return;
-
-        baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
-    
-        // baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
-
-        /*
-        if(holdGunPos.transform.childCount == 0){ 
-            return;
-        }
-        else if(holdGunPos.transform.childCount == 1){     // have gun in hand get more Gun!!
-            
-            baseGun = holdGunPos.transform.GetChild().GetComponent<BaseGun>();
-        }
-        else{
-            baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
-        }
-        */
-    }
 
     public void dodge_click (Button btn ){
         StartCoroutine( dodge_func(btn) );
@@ -203,7 +181,11 @@ public class PlayerCharacterController : BaseCharacter
 
     /// Switch Weapon 
     public void SwitchWeapon_click (Button btn , Button interacteBtn){
-        StartCoroutine( SwitchWeapon_func(btn , interacteBtn) );
+        // Debug.Log(" SwitchWeapon_click HoldWeaponCount: "+HoldWeaponCount + " || current: " +currentWeapon);
+        if (HoldWeaponCount > 1) // MaxGun already Get two Gun
+        {    
+            StartCoroutine( SwitchWeapon_func(btn , interacteBtn) );
+        }
     }
     private IEnumerator SwitchWeapon_func ( Button btn , Button interacteBtn){
         if (weaponList.Count == 0){
@@ -286,5 +268,10 @@ public class PlayerCharacterController : BaseCharacter
         SelectedGun = null;
         // baseGun.PopupGunInfo();
         ApplyBtnRemoveGun?.Invoke();
+    }
+
+
+    public void GunSkill_func(){
+        
     }
 }

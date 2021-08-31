@@ -129,99 +129,37 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void GetHit(){
         Debug.Log(" Fk i get Hits!!!");
     }
-    protected virtual void GetWeapon_onHold(){
+    protected  void GetWeapon_onHold(){
+        Debug.Log(" GetWeapon_onHold" +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);  
+        // Debug.Log(" GetWeapon_onHold" +holdGunPos + " || HoldWeaponCount: "+holdGunPos.transform.childCount);   
+
         if(holdGunPos == null) return;
         if(holdGunPos.transform.childCount == 0) return;
 
-        baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
-    
+        // baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
+        baseGun = weaponList[currentWeapon].GetComponent<BaseGun>();
+
+        // Apply Skill to Btn
+        // baseGun.ApplySkillBtn();
     }
-    
-    // protected IEnumerator Move_func(  Vector3 target , float Speed , float MovingTime = 100f){
-    //     // Vector3 forward = transform.TransformDirection(Vector3.forward);
-    //     // // characterController.Move(forward * Speed);
-        
-    //     //  for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
-    //     // {
-    //     //     characterController.Move(forward * Speed);
-    //     //     yield return null;
-    //     // }
-
-    //     /// /////
-    //     // var cc = GetComponent<CharacterController>();
-    //     for (var t = 0f; t < 1; t += Time.deltaTime / MovingTime)      //for (var t = 0f; t < 1; t += Time.deltaTime)
-    //     {
-    //         var offset = target - transform.position;
-    //         //Get the difference.
-    //         if(offset.magnitude > .1f) {    // .1f
-    //             offset = offset.normalized * Speed;
-    //             // offset = offset.normalized;
-    //             characterController.Move(offset * Time.deltaTime);
-    //         }else{
-    //             Debug.Log(" break ");
-    //             yield break;
-    //         } 
-    //             // Debug.Log(" yield return null; ");
-    //         yield return null;
-    //     }
-    // }
-
-    //     // thisObj.transform.Rotate( 0 , RotateRange *Time.deltaTime , 0 );
-    //     // t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
-    // protected IEnumerator Rotate_func(Vector3 byAngles, float inTime)
-    //  {
-    //     var fromAngle = transform.rotation;
-    //     var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
-    //     for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
-    //     {
-    //         transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
-    //         yield return null;
-    //     }
-    // }
-
-    // pick Gun is working
-    // public void  OnControllerColliderHit(ControllerColliderHit hit){
-    //     if (hit.gameObject.tag == "Weapon"){
-    //         // // BaseGun -> isPick = trun (default: false)
-    //         // // maybe stop some anim floating
-    //         GameObject weapon = hit.gameObject;
-    //         bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
-    //         if( !pickup_bool ){
-    //             pickup_bool = true;
-    //             weapon.transform.SetParent( holdGunPos.transform );  // holdGun.transform 
-    //             weapon.transform.localPosition = Vector3.zero;  // reset position
-    //             weapon.transform.localEulerAngles = Vector3.zero;               // reset rotation
-                
-    //             weapon.GetComponent<BaseGun>().Holder = "Player";
-    //             GetWeapon_onHold();
-    //             // weapon.Add(other.gameObject);   // add weapon
-
-    //             // changeWeapon_func( weapons.Lenght );
-    //         }
-    //     }
-    // }
-
-    // public void WeaponGet_Select(GameObject obj ){
-    //     GameObject weapon = obj;
-    //     BaseGun baseGun = weapon.GetComponent<BaseGun>();
-    //     baseGun.PopupGunInfo();
-    // }
 
     public virtual void WeaponGet(GameObject obj){
         GameObject weapon = obj;
         // bool pickup_bool = weapon.GetComponent<BaseGun>().isPickup;
         BaseGun baseGun = weapon.GetComponent<BaseGun>();
-        bool pickup_bool = baseGun.isPickup;
+        // bool pickup_bool = baseGun.isPickup;
 
         // baseGun.PopupGunInfo();
-
-        if( !pickup_bool ){
+        // if( !pickup_bool ){
+            Debug.Log(" is Full weapon : currentWeapon " +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);
             
+
+
             baseGun.pickupGun_cloneBullet();
             if (HoldWeaponCount < MaxHoldWeapon)    // can Holding Gun total number
             {
                 HoldWeaponCount ++;
-                pickup_bool = true;
+                // pickup_bool = true;
                 weaponList.Add(obj);
 
                 // weapon.transform.SetParent( holdGunPos.transform );  // holdGun.transform 
@@ -242,7 +180,7 @@ public class BaseCharacter : MonoBehaviour
                 WeaponDrop(currentWeapon , obj , baseGun);
             }
             // changeWeapon_func( weapons.Lenght );
-        }
+        // }
     }
     protected void WeaponDrop(int weaponNum ,GameObject obj , BaseGun _baseGun ){
         // drop hand Gun 
@@ -251,11 +189,10 @@ public class BaseCharacter : MonoBehaviour
         // HoldWeaponCount--;
         Debug.Log(" is Full weapon : currentWeapon " +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);
         
-        _baseGun.isPickup =true;
+        // _baseGun.isPickup =false;
 
         weaponList[currentWeapon] = obj;
 
-        // WeaponGet(obj);
         GetWeapon_onHold(); 
         ResetGunPosition( obj , holdGunPos.transform ); // pickup Gun
         

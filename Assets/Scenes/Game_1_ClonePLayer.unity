@@ -2510,7 +2510,6 @@ MonoBehaviour:
   TotalAmmo: 2
   CurrentAmmo: 0
   ReloadWeapon_time: 0
-  isPickup: 0
   BulletLimit: 1
   Ammo: 100
   popupPrefab: {fileID: 0}
@@ -2967,7 +2966,7 @@ GameObject:
   - component: {fileID: 599228637}
   - component: {fileID: 599228636}
   m_Layer: 5
-  m_Name: Skill_1
+  m_Name: PlayerSkill_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4176,7 +4175,7 @@ GameObject:
   - component: {fileID: 864367599}
   - component: {fileID: 864367598}
   m_Layer: 5
-  m_Name: Skill_2
+  m_Name: PlayerSkill_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7148,7 +7147,8 @@ PrefabInstance:
       propertyPath: MaxDistance
       value: 1.000001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6758340563782951031, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: efc3256d7acac2b40b61bef021f0c366, type: 3}
 --- !u!4 &1340991635 stripped
 Transform:
@@ -8626,7 +8626,7 @@ GameObject:
   - component: {fileID: 1631372319}
   - component: {fileID: 1631372318}
   m_Layer: 5
-  m_Name: Skill_3
+  m_Name: GunSkill_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9963,6 +9963,7 @@ MonoBehaviour:
   skillBtn:
   - {fileID: 599228636}
   - {fileID: 864367598}
+  gunSkillBtn:
   - {fileID: 1631372318}
   ShootBtn: {fileID: 2033602012}
   dodgeBtn: {fileID: 1596829145}

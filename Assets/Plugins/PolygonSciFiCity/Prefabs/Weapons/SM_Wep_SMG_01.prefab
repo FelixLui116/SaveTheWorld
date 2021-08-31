@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4789264981027820}
   - component: {fileID: 4437507076840101838}
+  - component: {fileID: 4649394642815361227}
   - component: {fileID: 6718133261770744682}
   - component: {fileID: 3895072598910737183}
   - component: {fileID: 33260270479798186}
@@ -53,24 +54,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7183815e83391204e9ceacd697b134a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AmmoColor: 0
   trailColor: 3
   Shooting_point:
   - {fileID: 2873999803534540437}
   Bullet: {fileID: 55685470609121626, guid: 235aa15ffd772114fa48a84a1eacc69b, type: 3}
   FireFlash: {fileID: 6606547280681494253}
   Holder: Player
-  AmmoColor: 0
+  weaponTpye: 0
   isKeepShooting: 0
   WeaponDamage: 10
   FireRate: 4
   BulletSpeed: 50
   BulletRange: 2
   BulletDestoryTime: 1
-  canPassThrough: 0
   TotalAmmo: 28
   CurrentAmmo: 0
   ReloadWeapon_time: 2
-  isPickup: 0
   BulletLimit: 0
   Ammo: 50
   popupPrefab: {fileID: 1272861574893498752, guid: 858a6496d9efe4ce3bdfa8d48bdba857,
@@ -80,6 +80,20 @@ MonoBehaviour:
   WeaponImg_Disable: {fileID: 0}
   reloadAudio: {fileID: 8300000, guid: d05afd8e39b29445abd37415a539cc0b, type: 3}
   fireAudio: {fileID: 8300000, guid: 205f98d3cf1d80a4f8015c78c3cc0147, type: 3}
+  canPassThrough: 0
+--- !u!114 &4649394642815361227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175671737170456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610c15174118a4635a03b35061e85638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTpye: 0
 --- !u!82 &6718133261770744682
 AudioSource:
   m_ObjectHideFlags: 0
