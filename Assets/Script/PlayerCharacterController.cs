@@ -12,6 +12,7 @@ public class PlayerCharacterController : BaseCharacter
     // [SerializeField] public SkillController skill;
     
     public UnityAction ApplyPlayerDie , ApplyBtnGetGun , ApplyBtnRemoveGun;
+    // , ApplyBtnGunSkill_Add , ApplyBtnGunSkill_Remove;
     private int lastWeapon;    
     public PlayerCollider  playerCollider;
 
@@ -111,6 +112,20 @@ public class PlayerCharacterController : BaseCharacter
 
     }
     
+    protected override void GetWeapon_onHold()
+    {
+        // if(holdGunPos == null) return;
+        // if(holdGunPos.transform.childCount == 0) return;
+        
+        // baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
+        // Debug.Log(" GetWeapon_onHold" +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);     
+        base.GetWeapon_onHold();
+        baseGun = weaponList[currentWeapon].GetComponent<BaseGun>();   
+        
+        // Apply Skill to Btn
+        // baseGun.ApplySkillBtn(); 
+        // GunSkill_func_Add();   
+    }
 
     public void dodge_click (Button btn ){
         StartCoroutine( dodge_func(btn) );
@@ -270,8 +285,22 @@ public class PlayerCharacterController : BaseCharacter
         ApplyBtnRemoveGun?.Invoke();
     }
 
-
-    public void GunSkill_func(){
-        
+    public void WeaponSkill_press(Button Btn){
+        // base.skillElement;
+        if (baseGun != null)
+        {
+            // baseGun.ActiveGunSkill(Btn);
+            SkillElement skillElement = baseGun.gameObject.GetComponent<SkillElement>();
+            skillElement.GunSkill_click(Btn);
+        }
     }
+
+    // private void GunSkill_func_Add(){
+
+    //     ApplyBtnGunSkill_Add?.Invoke();
+    // }
+    // private void GunSkill_func_Remove(){
+
+    //     ApplyBtnGunSkill_Remove?.Invoke();
+    // }
 }

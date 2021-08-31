@@ -80,6 +80,7 @@ MonoBehaviour:
   WeaponImg_Disable: {fileID: 0}
   reloadAudio: {fileID: 8300000, guid: d05afd8e39b29445abd37415a539cc0b, type: 3}
   fireAudio: {fileID: 8300000, guid: 205f98d3cf1d80a4f8015c78c3cc0147, type: 3}
+  skillElement: {fileID: 4649394642815361227}
   canPassThrough: 0
 --- !u!114 &4649394642815361227
 MonoBehaviour:
@@ -94,6 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTpye: 0
+  skillTimer: 2
+  ShotingSpeed: 0
 --- !u!82 &6718133261770744682
 AudioSource:
   m_ObjectHideFlags: 0

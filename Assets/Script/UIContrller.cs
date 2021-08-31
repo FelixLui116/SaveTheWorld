@@ -47,16 +47,18 @@ public class UIContrller : MonoBehaviour
         if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
         // if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         
-        // if (gunSkillBtn != null)
+        if (gunSkillBtn[0] != null)  gunSkillBtn[0].onClick.AddListener(() => playerCharacterController.WeaponSkill_press(gunSkillBtn[0]) );
 
         BtnGetGun = new UnityAction(() =>{ 
             playerCharacterController.WeaponGet(playerCharacterController.SelectedGun);
             PlayerBtnGetGun_Remove();
         });
-        BtnGunSkill = new UnityAction(() =>{ 
-            // playerCharacterController.WeaponGet(playerCharacterController.SelectedGun);
-            // PlayerBtnGetGun_Remove();
-        });
+        // BtnGunSkill = new UnityAction(() =>{ 
+        //     Debug.Log(" UnityAction BtnGunSkill");
+        //     // playerCharacterController.WeaponGet(playerCharacterController.SelectedGun);
+        //     // PlayerBtnGetGun_Remove();
+        // });
+
         // if (InteractionsBtn != null)   InteractionsBtn.onClick.AddListener(() =>  );
         // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
         // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => null );
@@ -76,8 +78,8 @@ public class UIContrller : MonoBehaviour
         playerCharacterController.ApplyBtnRemoveGun = PlayerBtnGetGun_Remove;
 
         // Skill Btn
-        // playerCharacterController.    = GunSkillBtnListener_Add;
-        // playerCharacterController. = GunSkillBtnListener_Remove;
+        // playerCharacterController.ApplyBtnGunSkill_Add    = GunSkillBtnListener_Add;
+        // playerCharacterController.ApplyBtnGunSkill_Remove = GunSkillBtnListener_Remove;
 
         PlayerHealth_text_update();
         PlayerCoin_text_update();
@@ -155,13 +157,13 @@ public class UIContrller : MonoBehaviour
         // InteractionsBtn.onClick.RemoveListener( );
     }
 
-    private void GunSkillBtnListener_Add(){
-        InteractionsBtn.onClick.AddListener(BtnGunSkill);
-    }
-    private void GunSkillBtnListener_Remove(){
-        Debug.Log("removing GunSkillBtn from button"); 
-        InteractionsBtn.onClick.RemoveListener(BtnGunSkill);
-    }
+    // private void GunSkillBtnListener_Add(){
+    //     InteractionsBtn.onClick.AddListener(BtnGunSkill);
+    // }
+    // private void GunSkillBtnListener_Remove(){
+    //     Debug.Log("removing GunSkillBtn from button"); 
+    //     InteractionsBtn.onClick.RemoveListener(BtnGunSkill);
+    // }
 
     // public void Skill_Btn(){
     //     // for (int i = 0; i < skillBtn.length; i++)

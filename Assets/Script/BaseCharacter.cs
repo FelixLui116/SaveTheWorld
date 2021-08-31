@@ -129,18 +129,15 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void GetHit(){
         Debug.Log(" Fk i get Hits!!!");
     }
-    protected  void GetWeapon_onHold(){
-        Debug.Log(" GetWeapon_onHold" +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);  
+    protected virtual void GetWeapon_onHold(){
+        // Debug.Log(" GetWeapon_onHold" +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);  
         // Debug.Log(" GetWeapon_onHold" +holdGunPos + " || HoldWeaponCount: "+holdGunPos.transform.childCount);   
 
         if(holdGunPos == null) return;
         if(holdGunPos.transform.childCount == 0) return;
 
         // baseGun = holdGunPos.transform.GetChild(0).GetComponent<BaseGun>();
-        baseGun = weaponList[currentWeapon].GetComponent<BaseGun>();
-
-        // Apply Skill to Btn
-        // baseGun.ApplySkillBtn();
+        // baseGun = weaponList[currentWeapon].GetComponent<BaseGun>();
     }
 
     public virtual void WeaponGet(GameObject obj){

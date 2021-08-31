@@ -1,16 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class SkillElement : MonoBehaviour{
-    enum WeaponSkillTpye { SpeedUp, DamageUp , ShootThrough }   
-    [SerializeField] WeaponSkillTpye skillTpye;
+    public enum WeaponSkillTpye { SpeedUp, DamageUp , ShootThrough }   
+    public WeaponSkillTpye weaponSkillTpye;
+    public float cooldownTime = 1;
+    public float shotingSpeed = 0.0f;
+    public float damageUp = 0.0f;
+    private bool canGunSkill = true;
 
-    public float ShotingSpeed = 0.0f;
+    private GunDefault gunDefault;
+
+    private BaseGun baseGun;
     // public float trytry = 0.0f;
+    private void Awake() {
+        baseGun = this.gameObject.GetComponent<BaseGun>();
+        baseGun.skill_text = weaponSkillTpye.ToString(); 
+        gunDefault = new GunDefault();
+        StartCoroutine( SkillReset(false) );
+    }
     public void PowerUp(){
 
     }
@@ -18,7 +31,85 @@ public class SkillElement : MonoBehaviour{
 
     }
 
+    public void GunSkill_click (Button btn ){
+        StartCoroutine( GunSkill_func(btn) );
+    }
+    private IEnumerator GunSkill_func ( Button btn ){
+        if (canGunSkill)
+        {  
+            canGunSkill = false;
+            StartCoroutine( SkillHit() );
+            
+            yield return Button_Loading(btn , cooldownTime);
+            canGunSkill = true;
+            StartCoroutine( SkillReset() );
+        }
+    }
 
+    private IEnumerator SkillHit(){
+         Debug.Log(" skillElement.skillTpye: "+ weaponSkillTpye); // SpeedUp, DamageUp , ShootThrough
+        switch (weaponSkillTpye)
+        {
+            case WeaponSkillTpye.SpeedUp:
+                baseGun.FireRate += shotingSpeed;
+            // Debug.Log("== A ==");
+                break;
+            case WeaponSkillTpye.DamageUp:
+                baseGun.WeaponDamage += damageUp;
+                // Debug.Log("== B ==");
+                break;
+            case WeaponSkillTpye.ShootThrough:
+            // Debug.Log("== C ==");
+                break;
+            default:
+                break;
+        }
+        yield return new WaitForSeconds(0.01f);
+    }
+
+    private IEnumerator Button_Loading(Button btn , float countTimer ){
+        var LoadingBar = btn.transform.GetChild(0).GetComponent<Image>();
+        float Timer = 1;
+        LoadingBar.fillAmount = 1;
+        // while (Timer > 0)
+        while (LoadingBar.fillAmount > 0)
+        {
+            float deltaTime = Time.fixedDeltaTime / countTimer;
+            LoadingBar.fillAmount -= deltaTime;
+            if (LoadingBar.fillAmount < 0){
+                LoadingBar.fillAmount = 0;
+                yield break;            
+            }
+            Timer -= deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+    }
+    private IEnumerator SkillReset(bool isReset = true){
+        yield return new WaitForFixedUpdate();
+        if (isReset)
+        {
+            baseGun.WeaponDamage    = gunDefault.WeaponDamage ;
+            baseGun.FireRate        = gunDefault.FireRate  ;
+            baseGun.BulletSpeed     = gunDefault.BulletSpeed  ;
+            baseGun.BulletRange     = gunDefault.BulletRange  ;
+            baseGun.BulletDestoryTime = gunDefault.BulletDestoryTime;
+            baseGun.canPassThrough  = gunDefault.canPassThrough;
+        }else{      // set default value
+            gunDefault.WeaponDamage = baseGun.WeaponDamage;
+            gunDefault.FireRate     = baseGun.FireRate;
+            gunDefault.BulletSpeed  = baseGun.BulletSpeed;
+            gunDefault.BulletRange  = baseGun.BulletRange;
+            gunDefault.BulletDestoryTime=baseGun.BulletDestoryTime;
+            gunDefault.canPassThrough = baseGun.canPassThrough;
+        }
+    }
+}
+
+public class GunDefault {
+    public float WeaponDamage, FireRate , 
+    BulletSpeed ,BulletRange,
+    BulletDestoryTime;
+    public bool canPassThrough =false;
 }
 // #if UNITY_EDITOR
 //     [CustomEditor(typeof(SkillElement))]

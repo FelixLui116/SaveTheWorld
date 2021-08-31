@@ -35,11 +35,11 @@ public class BaseGun : MonoBehaviour
     [Range(0f, 1000f)]  public float BulletSpeed = 0f;
     [Range(0, 180.0f)]  public float BulletRange = 0f;  // Not shooting the midden //  if 5(Y Rotota) == <-(-5 angle) midden (5 angle) ->
     [Range(0f, 100f)]    public float BulletDestoryTime = 0f;
+    public float ReloadWeapon_time = 0;  // float 0.2 = 3s  (60/ (xx * 100) )
     private bool CanFire = true;
     private bool Reloading = false;
     public int TotalAmmo = 0;   // gun can have totalAmmo
     public int CurrentAmmo  = 0;
-    public float ReloadWeapon_time = 0;  // float 0.2 = 3s  (60/ (xx * 100) )
     // public bool isPickup = false;
     public bool BulletLimit = true;
 
@@ -56,7 +56,9 @@ public class BaseGun : MonoBehaviour
     private AudioSource audioSource;
 
 
-    [Header("Abitily")]
+    [Header("Skill")]
+    public String skill_text = "";
+    // public SkillElement skillElement;
     public bool canPassThrough = false;
     
     public bool CanFire_get
@@ -328,6 +330,27 @@ public class BaseGun : MonoBehaviour
         // instance.transform.position = screenPosition;
         // instance.SetText(text);
     }
+
+    // public void ActiveGunSkill(Button Btn){
+        // skillElement.GunSkill_click(Btn);
+        // Debug.Log(" skillElement.skillTpye: "+skillElement.skillTpye); // SpeedUp, DamageUp , ShootThrough
+        // switch (skillElement.skillTpye.ToString())
+        // {
+        //     case "SpeedUp":
+        //         FireRate += skillElement.shotingSpeed;
+        //     // Debug.Log("== A ==");
+        //         break;
+        //     case "DamageUp":
+        //         WeaponDamage += skillElement.damageUp;
+        //         // Debug.Log("== B ==");
+        //         break;
+        //     case "ShootThrough":
+        //     // Debug.Log("== C ==");
+        //         break;
+        //     default:
+        //         break;
+        // }
+    // }
 
     public void Test_Func(){
         // float bulletRange = 5f;
