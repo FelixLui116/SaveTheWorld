@@ -9,10 +9,12 @@ using UnityEditor;
 public class SkillElement : MonoBehaviour{
     public enum WeaponSkillTpye { SpeedUp, DamageUp , ShootThrough }   
     public WeaponSkillTpye weaponSkillTpye;
-    public float cooldownTime = 1;
+    [SerializeField] private float cooldownTime = 5;
+    [SerializeField] private float holdTime = 2.0f;
     public float shotingSpeed = 0.0f;
     public float damageUp = 0.0f;
-    private bool canGunSkill = true;
+    private bool canGunSkill = true;    
+    // public bool gunSkill_on = false;
 
     private GunDefault gunDefault;
 
@@ -22,7 +24,8 @@ public class SkillElement : MonoBehaviour{
         baseGun = this.gameObject.GetComponent<BaseGun>();
         baseGun.skill_text = weaponSkillTpye.ToString(); 
         gunDefault = new GunDefault();
-        StartCoroutine( SkillReset(false) );
+        SkillReset(false);
+
     }
     public void PowerUp(){
 
@@ -38,16 +41,18 @@ public class SkillElement : MonoBehaviour{
         if (canGunSkill)
         {  
             canGunSkill = false;
+            baseGun.gunSkill_on = true;
             StartCoroutine( SkillHit() );
             
             yield return Button_Loading(btn , cooldownTime);
             canGunSkill = true;
-            StartCoroutine( SkillReset() );
+            // StartCoroutine( SkillReset() );
+            // SkillReset()
         }
     }
 
     private IEnumerator SkillHit(){
-         Debug.Log(" skillElement.skillTpye: "+ weaponSkillTpye); // SpeedUp, DamageUp , ShootThrough
+        // Debug.Log(" skillElement.skillTpye: "+ weaponSkillTpye); // SpeedUp, DamageUp , ShootThrough
         switch (weaponSkillTpye)
         {
             case WeaponSkillTpye.SpeedUp:
@@ -60,11 +65,15 @@ public class SkillElement : MonoBehaviour{
                 break;
             case WeaponSkillTpye.ShootThrough:
             // Debug.Log("== C ==");
+                baseGun.canPassThrough = true;
                 break;
             default:
                 break;
         }
-        yield return new WaitForSeconds(0.01f);
+        
+        yield return new WaitForSeconds(holdTime);
+        baseGun.gunSkill_on = false;
+        SkillReset();
     }
 
     private IEnumerator Button_Loading(Button btn , float countTimer ){
@@ -84,8 +93,9 @@ public class SkillElement : MonoBehaviour{
             yield return new WaitForFixedUpdate();
         }
     }
-    private IEnumerator SkillReset(bool isReset = true){
-        yield return new WaitForFixedUpdate();
+    private void SkillReset(bool isReset = true){
+        // yield return new WaitForFixedUpdate();
+        Debug.Log("SkillReset: " + isReset);
         if (isReset)
         {
             baseGun.WeaponDamage    = gunDefault.WeaponDamage ;

@@ -59,8 +59,9 @@ public class BaseGun : MonoBehaviour
     [Header("Skill")]
     public String skill_text = "";
     // public SkillElement skillElement;
-    public bool canPassThrough = false;
-    
+    public bool canPassThrough = false; // Change in SkillElemnet
+    public bool gunSkill_on = false;
+
     public bool CanFire_get
     {
         get => CanFire;
@@ -315,8 +316,8 @@ public class BaseGun : MonoBehaviour
 
         popupInfoPanel = gunInfoPanel;
 
-        gunInfoPanel.updateInfoText( weaponTpye.ToString() , WeaponDamage.ToString() );
-
+        gunInfoPanel.updateInfoText( weaponTpye.ToString() , WeaponDamage.ToString() , skill_text );
+        
 
         // GameObject popupClone = Instantiate(popupPrefab);
         // Vector2 screenPosition = Camera.main.WorldToScreenPoint(new Vector2(gameObject.transform.position.x , gameObject.transform.position.y) );

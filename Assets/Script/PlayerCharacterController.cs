@@ -292,6 +292,8 @@ public class PlayerCharacterController : BaseCharacter
             // baseGun.ActiveGunSkill(Btn);
             SkillElement skillElement = baseGun.gameObject.GetComponent<SkillElement>();
             skillElement.GunSkill_click(Btn);
+
+            Debug.Log("baseGun.gunSkill_on : "+baseGun.gunSkill_on );
         }
     }
 

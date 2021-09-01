@@ -148,9 +148,9 @@ MonoBehaviour:
   BulletSpeed: 25
   BulletRange: 0
   BulletDestoryTime: 1
+  ReloadWeapon_time: 0.5
   TotalAmmo: 5
   CurrentAmmo: 5
-  ReloadWeapon_time: 0.5
   BulletLimit: 0
   Ammo: 0
   popupPrefab: {fileID: 1272861574893498752, guid: 858a6496d9efe4ce3bdfa8d48bdba857,
@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSkillTpye: 1
-  cooldownTime: 1
+  cooldownTime: 5
+  holdTime: 2
   shotingSpeed: 0
   damageUp: 10
 --- !u!33 &33793614483825686

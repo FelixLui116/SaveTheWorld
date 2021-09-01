@@ -47,8 +47,10 @@ public class UIContrller : MonoBehaviour
         if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
         // if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
         
-        if (gunSkillBtn[0] != null)  gunSkillBtn[0].onClick.AddListener(() => playerCharacterController.WeaponSkill_press(gunSkillBtn[0]) );
-
+        if (gunSkillBtn[0] != null){
+            gunSkillBtn[0].onClick.AddListener(() => playerCharacterController.WeaponSkill_press(gunSkillBtn[0]) );
+        }
+        
         BtnGetGun = new UnityAction(() =>{ 
             playerCharacterController.WeaponGet(playerCharacterController.SelectedGun);
             PlayerBtnGetGun_Remove();

@@ -68,9 +68,9 @@ MonoBehaviour:
   BulletSpeed: 50
   BulletRange: 2
   BulletDestoryTime: 1
+  ReloadWeapon_time: 2
   TotalAmmo: 28
   CurrentAmmo: 0
-  ReloadWeapon_time: 2
   BulletLimit: 0
   Ammo: 50
   popupPrefab: {fileID: 1272861574893498752, guid: 858a6496d9efe4ce3bdfa8d48bdba857,
@@ -80,8 +80,9 @@ MonoBehaviour:
   WeaponImg_Disable: {fileID: 0}
   reloadAudio: {fileID: 8300000, guid: d05afd8e39b29445abd37415a539cc0b, type: 3}
   fireAudio: {fileID: 8300000, guid: 205f98d3cf1d80a4f8015c78c3cc0147, type: 3}
-  skillElement: {fileID: 4649394642815361227}
+  skill_text: 
   canPassThrough: 0
+  gunSkill_on: 0
 --- !u!114 &4649394642815361227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,9 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610c15174118a4635a03b35061e85638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillTpye: 0
-  skillTimer: 2
-  ShotingSpeed: 0
+  weaponSkillTpye: 0
+  cooldownTime: 5
+  holdTime: 2
+  shotingSpeed: 2
+  damageUp: 0
 --- !u!82 &6718133261770744682
 AudioSource:
   m_ObjectHideFlags: 0

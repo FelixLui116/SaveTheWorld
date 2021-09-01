@@ -9,6 +9,8 @@ public class GunInfoPanel : BasePanel
     [SerializeField] private Text typeName;
     [SerializeField] private Text damage;
     private float DestroyTime = 0.2f; // delay
+    [SerializeField] private Transform AbiliyParent;
+    [SerializeField] private GameObject elementClone;
     void Start()
     {
         // Vector3 Offset = new Vector3(0,2,0);
@@ -23,11 +25,24 @@ public class GunInfoPanel : BasePanel
         
     }
 
-    public void updateInfoText(string typeName_ = "" , string damage_ = ""){
+    public void updateInfoText(string typeName_ = "" , string damage_ = "" , string skill_text = ""){
         typeName.text = typeName_;
         damage.text = damage_;
+
+            // Instantiate( elementClone , AbiliyParent);
+        // if (skill_text != ""){
+            
+            GameObject elementClone_Obj = Instantiate( elementClone , AbiliyParent );
+            elementClone_Obj.SetActive(true);
+            Text element_txt = elementClone_Obj.GetComponent<Text>();
+            element_txt.text = skill_text;
+        // }
     }
     public void DestroyTimer(){
         Destroy( gameObject , DestroyTime);
+    }
+
+    public void elementClone_text(){
+        
     }
 }

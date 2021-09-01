@@ -621,7 +621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 158}
+  m_AnchoredPosition: {x: -291.99988, y: 61.99997}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92377473
@@ -2507,9 +2507,9 @@ MonoBehaviour:
   BulletSpeed: 50
   BulletRange: 2
   BulletDestoryTime: 1
+  ReloadWeapon_time: 0
   TotalAmmo: 2
   CurrentAmmo: 0
-  ReloadWeapon_time: 0
   BulletLimit: 1
   Ammo: 100
   popupPrefab: {fileID: 0}
@@ -2520,6 +2520,7 @@ MonoBehaviour:
   fireAudio: {fileID: 0}
   skill_text: 
   canPassThrough: 0
+  gunSkill_on: 0
 --- !u!114 &496861140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2990,7 +2991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -403, y: -125}
+  m_AnchoredPosition: {x: -170, y: -98}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599228636
@@ -4199,7 +4200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -206, y: 221}
+  m_AnchoredPosition: {x: -80, y: 120}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864367598
@@ -4849,7 +4850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: 144}
+  m_AnchoredPosition: {x: -16, y: 135}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955258930
@@ -6209,13 +6210,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
-      propertyPath: canPassThrough
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
-        type: 3}
       propertyPath: WeaponDamage
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649394642815361227, guid: efc3256d7acac2b40b61bef021f0c366,
+        type: 3}
+      propertyPath: weaponSkillTpye
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5039901719583900119, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
@@ -6754,6 +6755,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 433668497}
     m_Modifications:
+    - target: {fileID: 1041538993, guid: 1ecf46c084aa348bebd8a0a3384a0d03, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041538993, guid: 1ecf46c084aa348bebd8a0a3384a0d03, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041538993, guid: 1ecf46c084aa348bebd8a0a3384a0d03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1420
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761275452, guid: 1ecf46c084aa348bebd8a0a3384a0d03, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761275452, guid: 1ecf46c084aa348bebd8a0a3384a0d03, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761275452, guid: 1ecf46c084aa348bebd8a0a3384a0d03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1420
+      objectReference: {fileID: 0}
     - target: {fileID: 481835589849233782, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6874,10 +6899,55 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1187009345581913524, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187009345581913524, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187009345581913524, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2580527328287364331, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032657200517898596, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032657200517898596, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032657200517898596, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -720
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964593813199166261, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964593813199166261, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964593813199166261, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1020
       objectReference: {fileID: 0}
     - target: {fileID: 6479032809769341885, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
         type: 3}
@@ -6889,11 +6959,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8245981043229464842, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+    - target: {fileID: 8323397332393829004, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
         type: 3}
-      propertyPath: callPanelBtn
-      value: 
-      objectReference: {fileID: 2080271931}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323397332393829004, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323397332393829004, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.2999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323397332393829004, guid: 1ecf46c084aa348bebd8a0a3384a0d03,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -720
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ecf46c084aa348bebd8a0a3384a0d03, type: 3}
 --- !u!224 &1319648686 stripped
@@ -8485,7 +8570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -630, y: 13.790588}
+  m_AnchoredPosition: {x: -630, y: 4.7905884}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596829145
@@ -8725,7 +8810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108, y: 343}
+  m_AnchoredPosition: {x: 140, y: 234}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631372318
@@ -9344,7 +9429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -159, y: -17}
+  m_AnchoredPosition: {x: -400, y: -113}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1760991997
@@ -10331,7 +10416,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PlayerSkill 2
+  m_Text: Skill 2
 --- !u!222 &1876935295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11681,7 +11766,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PlayerSkill 1
+  m_Text: Skill 1
 --- !u!222 &2106003476
 CanvasRenderer:
   m_ObjectHideFlags: 0
