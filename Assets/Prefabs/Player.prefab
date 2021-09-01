@@ -467,6 +467,7 @@ Transform:
   - {fileID: 2007129215842396097}
   - {fileID: 4117973672346943176}
   - {fileID: 8367282955150611887}
+  - {fileID: 5825618779968456629}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -486,6 +487,7 @@ MonoBehaviour:
   health_max: 100
   _name: 
   _coin: 0
+  weaponList: []
   baseGun: {fileID: 0}
   holdGunPos: {fileID: 1094179075481322616}
   SecGunPositon: {fileID: 3922943613871199516}
@@ -493,6 +495,7 @@ MonoBehaviour:
   putGunPos: {fileID: 2490965969666115562}
   DestroyOjbectTimer: 0
   HitAudio: {fileID: 8952574158538689662}
+  effectPos: {fileID: 5825618779968456629}
   DetectRange: 30
   playerCollider: {fileID: 871114565393609327}
   SwitchWeapon_timer: 0.5
@@ -933,6 +936,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8137309911529747909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5825618779968456629}
+  m_Layer: 0
+  m_Name: Effect_pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5825618779968456629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137309911529747909}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7823042624405600494}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9158334555559554019
 GameObject:
   m_ObjectHideFlags: 0

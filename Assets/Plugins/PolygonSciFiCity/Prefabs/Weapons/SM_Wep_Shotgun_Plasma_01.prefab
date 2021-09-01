@@ -143,7 +143,7 @@ MonoBehaviour:
   Holder: Player
   weaponTpye: 1
   isKeepShooting: 0
-  WeaponDamage: 0
+  WeaponDamage: 2.5
   FireRate: 1
   BulletSpeed: 25
   BulletRange: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   fireAudio: {fileID: 0}
   skill_text: 
   canPassThrough: 0
+  gunSkill_on: 0
 --- !u!114 &3066922093002028774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +179,7 @@ MonoBehaviour:
   cooldownTime: 5
   holdTime: 2
   shotingSpeed: 0
-  damageUp: 10
+  damageUp: 2
 --- !u!33 &33793614483825686
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -135,6 +135,9 @@ public class UIContrller : MonoBehaviour
         healthBarSlider.value = _Hp;
         Debug.Log("=== _Hp: " + healthBarSlider.value );
 
+        // Effect
+        // playerCharacterController.effectPos
+
     }
 
     private void PlayerCoin_text_update(){

@@ -37,6 +37,7 @@ public class PlayerCharacterController : BaseCharacter
     }
 
     // [Header("LockTraget")]
+        
     // [SerializeField] private float A
     // [SerializeField] private float slidSpeed = 1f;
     private bool canDodging = true;
@@ -291,9 +292,13 @@ public class PlayerCharacterController : BaseCharacter
         {
             // baseGun.ActiveGunSkill(Btn);
             SkillElement skillElement = baseGun.gameObject.GetComponent<SkillElement>();
+            Debug.Log("baseGun.gunSkill_on : "+baseGun.gunSkill_on + " || CanGunSkill: "+skillElement.CanGunSkill );
+            if (!baseGun.gunSkill_on && skillElement.CanGunSkill){
+                EffectController.Instance.CreateEffect(skillElement.weaponSkillTpye.ToString(), effectPos , skillElement.HoldTime );
+            }
+
             skillElement.GunSkill_click(Btn);
 
-            Debug.Log("baseGun.gunSkill_on : "+baseGun.gunSkill_on );
         }
     }
 

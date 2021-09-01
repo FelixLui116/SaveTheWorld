@@ -88,6 +88,8 @@ public class PlayerCollider : MonoBehaviour
 
         ApplyChangeHPAction?.Invoke();
 
+        EffectController.Instance.CreateEffect("MedKit", playerCharacterController.effectPos );
+        
         Debug.Log(" Yes Get Health_: " + MedKit_obj.HealingNum + " || "+ playerCharacterController.Current_health );
 
     }

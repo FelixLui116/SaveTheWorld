@@ -27,6 +27,7 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected float DestroyOjbectTimer = 0.0f;
     // public LevelController levelController;  
     [SerializeField] protected AudioSource HitAudio;
+    public Transform effectPos;
 
     [Header("LockTraget")]
     [SerializeField] protected  float DetectRange = 10f;

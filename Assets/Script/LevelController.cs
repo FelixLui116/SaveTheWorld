@@ -54,21 +54,21 @@ public class LevelController : MonoBehaviour
     }
 
     // // like this Ammo_text_update(1,28, 1000); 
-    public void Ammo_text_update(int CurrentAmmo ,int TotalAmmo ,int Ammo){
-    //     // something like this dispaly
-    //     //  0/28
-    //     //  200
-            AmmoText.text = BulletText( CurrentAmmo, TotalAmmo , Ammo );
-    }
-    private string BulletText(int CurrentAmmo ,int TotalAmmo ,int Ammo) // CurrentAmmo/ TotalAmmo  (new line) Ammo
-    {
-        if (Ammo!= null){
+    // public void Ammo_text_update(int CurrentAmmo ,int TotalAmmo ,int Ammo){
+    // //     // something like this dispaly
+    // //     //  0/28
+    // //     //  200
+    //         AmmoText.text = BulletText( CurrentAmmo, TotalAmmo , Ammo );
+    // }
+    // private string BulletText(int CurrentAmmo ,int TotalAmmo ,int Ammo) // CurrentAmmo/ TotalAmmo  (new line) Ammo
+    // {
+    //     if (Ammo!= null){
             
-        }else{
+    //     }else{
         
-        }
-        return  CurrentAmmo +"/"+ TotalAmmo + "\n" + Ammo;
-    }
+    //     }
+    //     return  CurrentAmmo +"/"+ TotalAmmo + "\n" + Ammo;
+    // }
 
     
     

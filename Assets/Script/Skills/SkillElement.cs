@@ -14,7 +14,17 @@ public class SkillElement : MonoBehaviour{
     public float shotingSpeed = 0.0f;
     public float damageUp = 0.0f;
     private bool canGunSkill = true;    
-    // public bool gunSkill_on = false;
+    public bool CanGunSkill
+    {
+        get => canGunSkill;
+        set { canGunSkill = value; }
+    }
+
+    public float HoldTime
+    {
+        get => holdTime;
+        // set { holdTime = value; }
+    }
 
     private GunDefault gunDefault;
 
@@ -38,14 +48,15 @@ public class SkillElement : MonoBehaviour{
         StartCoroutine( GunSkill_func(btn) );
     }
     private IEnumerator GunSkill_func ( Button btn ){
-        if (canGunSkill)
+        
+        if (CanGunSkill)
         {  
-            canGunSkill = false;
+            CanGunSkill = false;
             baseGun.gunSkill_on = true;
             StartCoroutine( SkillHit() );
-            
+            StartCoroutine( BtnIsOn(btn , holdTime) );
             yield return Button_Loading(btn , cooldownTime);
-            canGunSkill = true;
+            CanGunSkill = true;
             // StartCoroutine( SkillReset() );
             // SkillReset()
         }
@@ -111,6 +122,25 @@ public class SkillElement : MonoBehaviour{
             gunDefault.BulletRange  = baseGun.BulletRange;
             gunDefault.BulletDestoryTime=baseGun.BulletDestoryTime;
             gunDefault.canPassThrough = baseGun.canPassThrough;
+        }
+    }
+
+    private IEnumerator BtnIsOn(Button btn , float countTimer){
+        // Button isOnBtn = btn.gameObject.GetChild(2).GetComponent<Button>(); // GunSkill 3 isOn object
+        var LoadingBar = btn.transform.GetChild(2).GetComponent<Image>();
+        float Timer = 1;
+        LoadingBar.fillAmount = 1;
+        // while (Timer > 0)
+        while (LoadingBar.fillAmount > 0)
+        {
+            float deltaTime = Time.fixedDeltaTime / countTimer;
+            LoadingBar.fillAmount -= deltaTime;
+            if (LoadingBar.fillAmount < 0){
+                LoadingBar.fillAmount = 0;
+                yield break;            
+            }
+            Timer -= deltaTime;
+            yield return new WaitForFixedUpdate();
         }
     }
 }
