@@ -12,6 +12,8 @@ public class MainController : MonoBehaviour
     public Button howToPlayBtn;
     public Button quitBtn;
     public Button settingBtn;
+    
+    [SerializeField] private Button testScene;
 
     public string [] SceneName;
     
@@ -22,12 +24,15 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        startBtn.onClick.AddListener(() => ToScene( SceneName[0] , true ));
-        continueBtn.onClick.AddListener(() => ToScene( SceneName[0] , false ));
+        startBtn.onClick.AddListener(() => ToScene( SceneName[1] , true ));
+        continueBtn.onClick.AddListener(() => ToScene( SceneName[1] , false ));
         howToPlayBtn.onClick.AddListener(() => HowToPlayPanel_func() );
         quitBtn.onClick.AddListener(() => Quit_func() );
 
         settingBtn.onClick.AddListener(() =>  Setting_func() );
+
+
+        testScene.onClick.AddListener(() => ToScene( SceneName[0] , true ));
     }
 
     // Update is called once per frame

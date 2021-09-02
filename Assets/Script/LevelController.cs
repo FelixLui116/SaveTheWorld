@@ -19,7 +19,6 @@ public class LevelController : MonoBehaviour
     public Text Debug_Text;
     public Image GunUI_Image = null;  // baseCharacter.baseGun. ( WeaponImg , WeaponImg_Disable)
     public Text AmmoText;
-
     private void Awake() {
         if (Instance == null)
         {
@@ -30,6 +29,7 @@ public class LevelController : MonoBehaviour
         {
             GameObject playerPrefabs = Instantiate(PlayerPrefabs);
             playerObject = playerPrefabs;
+            Debug.Log("=== 1: "+ playerObject.transform.position );
             playerPrefabs.name = "Player";
         }
 
@@ -39,6 +39,9 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // playerObject.transform.position = PlayerStartingPoint.position;
+        // Debug.Log("=== : "+ playerObject.transform.position + " || " + PlayerStartingPoint.position);
+            
     }
 
     // Update is called once per frame
