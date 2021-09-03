@@ -221,8 +221,9 @@ public class BaseCharacter : MonoBehaviour
 
     public void CreateFolatingText(string _string = ""){
         GameObject floatingTextClone = Instantiate(floatingText, transform.position , Quaternion.identity, PoolSystem.Instance.DestroyAcre.transform );
-       
+        
         floatingTextClone.transform.position = transform.position;
+        // floatingTextClone.transform.position =  new Vector2 (transform.position.x + Random.Range(-0.5f, 0.5f) , transform.position.y  );
         floatingTextClone.GetComponent<FloatingText>().SetText(_string);
     }
 
