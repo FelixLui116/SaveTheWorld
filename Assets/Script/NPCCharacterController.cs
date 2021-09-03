@@ -10,14 +10,15 @@ public class NPCCharacterController : BaseCharacter
     }
     void Start()
     {
-        
         targetPlayer = LevelController.Instance.playerObject.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // if (Input.GetKeyDown("space"))      // Test Function
+        // {
+        // }
     }
     private void FixedUpdate() {
         // DetectTarget();
@@ -44,7 +45,13 @@ public class NPCCharacterController : BaseCharacter
             } 
         }
     }
-
+    void OnMouseDown()
+    {
+        // FloatingTextController.Initialize();
+        // FloatingTextController.CreateFloatingText( "123", this.transform);
+        // FloatingTextController.Instance.CreateFloatingText( "Hello", transform);
+        // Debug.LogFormat("{0} was dealt {1} damage", gameObject.name, "Hello");
+    }
     // private void DetectTarget(){
     //     Vector3 targetPlayer_V3  = new Vector3(targetPlayer.position.x ,targetPlayer.position.y , targetPlayer.position.z );
     //     Vector3 thisObj_V3 = new Vector3( transform.position.x ,transform.position.y , transform.position.z);

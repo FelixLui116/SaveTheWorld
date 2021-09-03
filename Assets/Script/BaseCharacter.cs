@@ -28,6 +28,7 @@ public class BaseCharacter : MonoBehaviour
     // public LevelController levelController;  
     [SerializeField] protected AudioSource HitAudio;
     public Transform effectPos;
+    [SerializeField] protected GameObject floatingText;
 
     [Header("LockTraget")]
     [SerializeField] protected  float DetectRange = 10f;
@@ -216,6 +217,13 @@ public class BaseCharacter : MonoBehaviour
 
     protected void DestroyOjbect (float timer = 0.0f) {
         Destroy(this.gameObject);  
+    }
+
+    public void CreateFolatingText(string _string = ""){
+        GameObject floatingTextClone = Instantiate(floatingText, transform.position , Quaternion.identity, PoolSystem.Instance.DestroyAcre.transform );
+       
+        floatingTextClone.transform.position = transform.position;
+        floatingTextClone.GetComponent<FloatingText>().SetText(_string);
     }
 
 }

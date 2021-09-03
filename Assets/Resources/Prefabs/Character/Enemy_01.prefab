@@ -221,6 +221,8 @@ MonoBehaviour:
   DestroyOjbectTimer: 0
   HitAudio: {fileID: 3817688678072778751}
   effectPos: {fileID: 0}
+  floatingText: {fileID: 399165787065122965, guid: 76525a0f920a34fd6aadf31d7dd41dfc,
+    type: 3}
   DetectRange: 12
   enemyCollider: {fileID: 2407652295036930815}
   movePath: {fileID: 4235110599463979560}

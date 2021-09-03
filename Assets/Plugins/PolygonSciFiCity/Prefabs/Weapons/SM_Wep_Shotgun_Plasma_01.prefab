@@ -159,7 +159,7 @@ MonoBehaviour:
   Crosshair: {fileID: 0}
   WeaponImg: {fileID: 0}
   WeaponImg_Disable: {fileID: 0}
-  reloadAudio: {fileID: 0}
+  reloadAudio: {fileID: 8300000, guid: 8554871af7293410293c7e1abff5cc18, type: 3}
   fireAudio: {fileID: 0}
   skill_text: 
   canPassThrough: 0
@@ -237,10 +237,11 @@ AudioSource:
   m_GameObject: {fileID: 1590080179936372}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2914026840848328381, guid: 33ea07f53077a45a182322a061ae8b82,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.143
   m_Pitch: 1
   Loop: 0
   Mute: 0

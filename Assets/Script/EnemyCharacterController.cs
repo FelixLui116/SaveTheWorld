@@ -124,6 +124,7 @@ public class EnemyCharacterController : BaseCharacter
         if (Input.GetKeyDown("space"))      // Test Function
         {
             baseGun.shooting_func();
+            // FloatingTextController.CreateFloatingText( "Hello" , transform);
         }
     }
 
