@@ -17,7 +17,7 @@ public class SettingController : BasePanel
 
         currMusicVol = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         currSfxVol = PlayerPrefs.GetFloat("SfxVolume", 0.5f);
-        Debug.Log("curr Music: " + currMusicVol+" || " +currSfxVol);
+        // Debug.Log("curr Music: " + currMusicVol+" || " +currSfxVol);
         sfxSlider.value = currSfxVol;
         musicSlider.value = currMusicVol;
         // musicToggle.onValueChanged.AddListener( () => {
