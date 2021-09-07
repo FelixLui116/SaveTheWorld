@@ -15,7 +15,9 @@ public class PlayerCharacterController : BaseCharacter
     // , ApplyBtnGunSkill_Add , ApplyBtnGunSkill_Remove;
     private int lastWeapon;    
     public PlayerCollider  playerCollider;
-
+    
+    [SerializeField] private Animator animator;
+    [SerializeField] private Transform CharacterModel;
     [SerializeField] private float SwitchWeapon_timer = 0.5f;
     [SerializeField] private JoystickPlayerExample joystickPlayerScript;
     
@@ -75,7 +77,13 @@ public class PlayerCharacterController : BaseCharacter
     }
     void Start()
     {
-        
+        if (animator != null)
+        {
+            joystickPlayerScript.ApplyMovingAction = MovingAnim;
+            joystickPlayerScript.ApplyStopAction = StopMovingAnim;
+            
+        }
+
     }
 
     public void switchingWeapon_func(){
@@ -300,6 +308,16 @@ public class PlayerCharacterController : BaseCharacter
             skillElement.GunSkill_click(Btn);
 
         }
+    }
+
+    public void MovingAnim(){
+        // CharacterModel.position = new Vector3(0,-1,0);
+        animator.SetBool( "IsMoving" , true);
+
+    }
+    public void StopMovingAnim(){
+        // CharacterModel.position = new Vector3(0,-1,0);
+        animator.SetBool( "IsMoving" , false);
     }
 
     // private void GunSkill_func_Add(){

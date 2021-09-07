@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class JoystickPlayerExample : MonoBehaviour
 {
+    public UnityAction ApplyMovingAction , ApplyStopAction;
     public float speed;
     public VariableJoystick variableJoystick;
     public Rigidbody rb;
@@ -53,7 +55,9 @@ public class JoystickPlayerExample : MonoBehaviour
         Vector3 direction = new Vector3(variableJoystick.Horizontal ,gravity_,   variableJoystick.Vertical ).normalized;
         if(direction.magnitude >= 0.1f){
             playerController.Move(direction * speed * Time.deltaTime);
-
+            ApplyMovingAction?.Invoke();
+        }else{
+            ApplyStopAction?.Invoke();
         }
 
          /// /// rotate

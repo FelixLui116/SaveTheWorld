@@ -266,7 +266,7 @@ MonoBehaviour:
   bulletDamage: 0
   canPassThrough_bullet: 0
   _destroyTime: 0
-  hitParticles: {fileID: 6557533101307416677, guid: be456dd8ad10544c9be0ca66f94235b5,
+  hitParticles: {fileID: 2116394157279721788, guid: be53fca00b6d7411993d9654ed53d2fe,
     type: 3}
   trail: {fileID: 2203919965977855999}
 --- !u!135 &2533394854733785952

@@ -23,7 +23,7 @@ public class BaseCharacter : MonoBehaviour
     protected int currentWeapon = 0;
 
     public CharacterController characterController;
-    [SerializeField] protected Transform putGunPos;
+    // [SerializeField] protected Transform putGunPos;
     [SerializeField] protected float DestroyOjbectTimer = 0.0f;
     // public LevelController levelController;  
     [SerializeField] protected AudioSource HitAudio;
