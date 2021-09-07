@@ -42,14 +42,20 @@ public class MusicController : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         Debug.Log("SetMusicVolume: " +Mathf.Log(volume) * 20);
-        audioMixer.SetFloat("MusicVolume", Mathf.Log(volume) * 20);
+
+        if(volume > 0.001f){
+            audioMixer.SetFloat("MusicVolume", Mathf.Log(volume) * 20);
+        }
         // audioMixer.SetFloat("MusicVolume", volume);
     }
 
     public void SetSfxVolume(float volume)
     {
         Debug.Log("SetSfxVolume: " +Mathf.Log(volume) * 20);
-        audioMixer.SetFloat("SfxVolume", Mathf.Log(volume) * 20);
+        
+        if(volume > 0.001f){
+            audioMixer.SetFloat("SfxVolume", Mathf.Log(volume) * 20);
+        }
         // audioMixer.SetFloat("SfxVolume", volume);
     }
 
