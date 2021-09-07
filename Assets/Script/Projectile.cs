@@ -119,21 +119,26 @@ public class Projectile : MonoBehaviour
     }
 
     public void DestroyObj(){
-
+        Debug.Log("Projectile: DestroyObj ");
         if (hitParticles != null){
             CreateHitParaticle();
         }
         Destroy(gameObject);
     }
 
-    private IEnumerator  CreateHitParaticle(float timer = 2f){
+    // private IEnumerator  CreateHitParaticle(float timer = 2f){
+    //     GameObject hitObj = Instantiate(hitParticles);
+    //     hitObj.transform.position = transform.position;
+    //     hitObj.transform.rotation = transform.rotation; 
+
+    //     yield return new WaitForSeconds(timer);
+        
+    //     Destroy(hitObj);
+    // }
+    private void CreateHitParaticle(){
         GameObject hitObj = Instantiate(hitParticles);
         hitObj.transform.position = transform.position;
         hitObj.transform.rotation = transform.rotation; 
-
-        yield return new WaitForSeconds(timer);
-        
-        Destroy(hitObj);
     }
 
     private void Update() {

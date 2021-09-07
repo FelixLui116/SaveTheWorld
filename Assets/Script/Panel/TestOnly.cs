@@ -21,4 +21,8 @@ public class TestOnly : MonoBehaviour
             pistolShoot.shooting_func();
         }
     }
+
+    void OnMouseDown() {
+        
+    }
 }
