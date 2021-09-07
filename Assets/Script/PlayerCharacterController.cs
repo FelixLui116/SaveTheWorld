@@ -319,12 +319,12 @@ public class PlayerCharacterController : BaseCharacter
     public void StopMovingAnim(){
         // CharacterModel.position = new Vector3(0,-1,0);
 
-        if (baseGun != null) // have Gun
-        {
-            // animator.SetBool( "IdleGun" , true);
-        }else{
+        // if (baseGun != null) // have Gun
+        // {
+        //     // animator.SetBool( "IdleGun" , true);
+        // }else{
             animator.SetBool( "IsMoving" , false);
-        }
+        // }
         
     }
 
