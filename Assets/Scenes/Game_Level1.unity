@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestPlayer: 1
-  PlayerPrefabs: {fileID: 7823042624405600497, guid: 89a0256973c344174aee0c9d72001626,
+  PlayerPrefabs: {fileID: 7823042624405600497, guid: 6d4935883e79be446b3630c632093273,
     type: 3}
   playerObject: {fileID: 0}
   enemyType:
@@ -18301,7 +18301,7 @@ PrefabInstance:
     - target: {fileID: 7231245237452663841, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231245237452663841, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}

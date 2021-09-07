@@ -131,6 +131,7 @@ public class PlayerCharacterController : BaseCharacter
         base.GetWeapon_onHold();
         baseGun = weaponList[currentWeapon].GetComponent<BaseGun>();   
         
+        // animator.SetBool( "Idle_Gun" , true);
         // Apply Skill to Btn
         // baseGun.ApplySkillBtn(); 
         // GunSkill_func_Add();   
@@ -317,7 +318,14 @@ public class PlayerCharacterController : BaseCharacter
     }
     public void StopMovingAnim(){
         // CharacterModel.position = new Vector3(0,-1,0);
-        animator.SetBool( "IsMoving" , false);
+
+        if (baseGun != null) // have Gun
+        {
+            // animator.SetBool( "IdleGun" , true);
+        }else{
+            animator.SetBool( "IsMoving" , false);
+        }
+        
     }
 
     // private void GunSkill_func_Add(){

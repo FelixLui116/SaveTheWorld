@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 4366321559428582652}
   - component: {fileID: 5138443425419876127}
   - component: {fileID: 2407652295036930815}
-  - component: {fileID: 3817688678072778751}
+  - component: {fileID: 4409332535269963790}
   m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Enemy
@@ -309,9 +309,9 @@ MonoBehaviour:
   holdGunPos: {fileID: 0}
   SecGunPositon: {fileID: 0}
   characterController: {fileID: 1845190760121851918}
-  putGunPos: {fileID: 0}
   DestroyOjbectTimer: 0
-  HitAudio: {fileID: 3817688678072778751}
+  audioSource: {fileID: 4409332535269963790}
+  HitAudio: {fileID: 8300000, guid: 6a771c206f546423489b4255903e606e, type: 3}
   effectPos: {fileID: 0}
   floatingText: {fileID: 399165787065122965, guid: 76525a0f920a34fd6aadf31d7dd41dfc,
     type: 3}
@@ -368,7 +368,7 @@ MonoBehaviour:
   FireRate: 4
   BulletSpeed: 20
   BulletRange: 0
-  BulletDestoryTime: 10
+  BulletDestoryTime: 2
   ReloadWeapon_time: 0
   TotalAmmo: 2
   CurrentAmmo: 2
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCharacter: {fileID: 4486088077759979496}
---- !u!82 &3817688678072778751
+--- !u!82 &4409332535269963790
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -439,7 +439,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2914026840848328381, guid: 33ea07f53077a45a182322a061ae8b82,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6a771c206f546423489b4255903e606e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 188c555a8c7af49029c176caba893f25, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -449,8 +449,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 1.0406876
+  MaxDistance: 1.0406885
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

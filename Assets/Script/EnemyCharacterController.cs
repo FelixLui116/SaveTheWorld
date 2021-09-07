@@ -147,7 +147,8 @@ public class EnemyCharacterController : BaseCharacter
     } 
 
     protected override void GetHit(){
-        HitAudio.Play();
+        audioSource.clip =HitAudio;
+        audioSource.Play();
     }
 
     protected void CreateCoin(){

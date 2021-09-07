@@ -26,7 +26,9 @@ public class BaseCharacter : MonoBehaviour
     // [SerializeField] protected Transform putGunPos;
     [SerializeField] protected float DestroyOjbectTimer = 0.0f;
     // public LevelController levelController;  
-    [SerializeField] protected AudioSource HitAudio;
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip HitAudio;
+    // [SerializeField] protected AudioClip HitAudioClip;
     public Transform effectPos;
     [SerializeField] protected GameObject floatingText;
 
@@ -129,7 +131,10 @@ public class BaseCharacter : MonoBehaviour
 
 
     protected virtual void GetHit(){
-        Debug.Log(" Fk i get Hits!!!");
+        // Debug.Log("");
+
+        audioSource.clip = HitAudio;
+        audioSource.Play();
     }
     protected virtual void GetWeapon_onHold(){
         // Debug.Log(" GetWeapon_onHold" +currentWeapon + " || HoldWeaponCount: "+HoldWeaponCount);  
