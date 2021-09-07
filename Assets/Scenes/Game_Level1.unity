@@ -12622,7 +12622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 1
-  offset: {x: 0, y: 10, z: -7}
+  offset: {x: 0, y: 6, z: -6}
 --- !u!81 &1472686050
 AudioListener:
   m_ObjectHideFlags: 0
