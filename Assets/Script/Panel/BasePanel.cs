@@ -39,8 +39,9 @@ public class BasePanel : MonoBehaviour
     }
 
     protected void BackToMain(string sceneName){
-        LevelController.Instance.savePoint();
-        StartCoroutine(GlobalManager.Instance.loadSceneAsync(sceneName));
+        // LevelController.Instance.savePoint();
+        // StartCoroutine(GlobalManager.Instance.loadSceneAsync(sceneName));
+        GlobalManager.Instance.loadSceneAsync(sceneName);
 
     }
 

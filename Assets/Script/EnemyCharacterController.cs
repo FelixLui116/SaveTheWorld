@@ -51,7 +51,7 @@ public class EnemyCharacterController : BaseCharacter
 
         baseGun.pickupGun_cloneBullet();
 
-        targetPlayer = LevelController.Instance.playerObject.transform;
+        if(LevelController.Instance != null) targetPlayer = LevelController.Instance.playerObject.transform;
     
         movePath.ApplyShoot = ChangeStateToShoot;
     }

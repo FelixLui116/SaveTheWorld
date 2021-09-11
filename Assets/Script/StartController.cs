@@ -21,7 +21,9 @@ public class StartController : MonoBehaviour
         
     }
     public void ToScene(string gameScene){
-        StartCoroutine(GlobalManager.Instance.loadSceneAsync(gameScene));
+        // StartCoroutine(GlobalManager.Instance.loadSceneAsync(gameScene));
+        GlobalManager.Instance.loadSceneAsync(gameScene);
+
 
         // newGame
     }

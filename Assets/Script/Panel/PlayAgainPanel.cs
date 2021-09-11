@@ -9,6 +9,8 @@ public class PlayAgainPanel : BasePanel
     public string sceneName = "MainScenes";
     private void Awake() {
         NoBtn.onClick.AddListener(() => BackToMain(sceneName) );
+        YesBtn.onClick.AddListener(() => BackToMain(sceneName) );
+        CancelBtn.onClick.AddListener(() => BackToMain(sceneName) );
 
     }
     void Start()

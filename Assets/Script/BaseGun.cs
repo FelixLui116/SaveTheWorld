@@ -213,12 +213,17 @@ public class BaseGun : MonoBehaviour
         //use pool system
         // PoolSystem.Instance.CreatePoolForBullet(Holder , this.name);
         poolObject = null;
-        poolObject = PoolSystem.Instance.CreatePoolForBullet(Holder ,this.name);//this.name
-        
-        for (int i = 0; i < CurrentAmmo; i++)
-        {
-            PoolSystem.Instance.SpawnToPool(Bullet , Holder , poolObject );
+        if(PoolSystem.Instance != null){
+            poolObject = PoolSystem.Instance.CreatePoolForBullet(Holder ,this.name);//this.name
+            
+            for (int i = 0; i < CurrentAmmo; i++)
+            {
+                PoolSystem.Instance.SpawnToPool(Bullet , Holder , poolObject );
+            }
+
         }
+        
+        
     }
 
 

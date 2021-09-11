@@ -41,10 +41,14 @@ public class GlobalManager : MonoBehaviour
         
     }
 
-    public IEnumerator loadSceneAsync(string sceneName){
+    // public IEnumerator loadSceneAsync(string sceneName){
+    //     Debug.Log("load sceneName : " + sceneName);
+    //     SceneManager.LoadScene(sceneName , LoadSceneMode.Single);
+    //     yield return null;
+    // }
+    public void loadSceneAsync(string sceneName){
         Debug.Log("load sceneName : " + sceneName);
         SceneManager.LoadScene(sceneName , LoadSceneMode.Single);
-        yield return null;
     }
 
     public void ClonePanel (){
