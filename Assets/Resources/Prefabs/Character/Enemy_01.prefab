@@ -379,7 +379,7 @@ MonoBehaviour:
   WeaponImg: {fileID: 0}
   WeaponImg_Disable: {fileID: 0}
   reloadAudio: {fileID: 0}
-  fireAudio: {fileID: 0}
+  fireAudio: {fileID: 8300000, guid: 205f98d3cf1d80a4f8015c78c3cc0147, type: 3}
   skill_text: 
   canPassThrough: 0
   gunSkill_on: 0

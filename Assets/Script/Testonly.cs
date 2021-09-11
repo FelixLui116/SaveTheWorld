@@ -10,6 +10,9 @@ public class Testonly : MonoBehaviour
     // Start is called before the first frame update
     public Rigidbody rb;
     public int bulletSpeed = 100;
+
+    public Camera canvas;
+    public Transform TextImage;
     void Start()
     {
     }
@@ -17,21 +20,40 @@ public class Testonly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log("Space key was pressed.");
-            Test();
+            // Test();
             // Test2();
+            // CloneText();
 
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Debug.Log("Z key was pressed.");
 
-            rb.velocity = Vector3.zero;
+            // rb.velocity = Vector3.zero;
         }
-
     }
+
+    public void CloneText(){
+        FloatingText popupText = null;
+        // canvas = GameObject.Find("Canvas");
+        if (!popupText){
+            popupText = Resources.Load<FloatingText>("Prefabs/FloatingText");
+        }
+    
+        // FloatingText instance = Instantiate(popupText);
+        Vector2 screenPosition = canvas.WorldToScreenPoint(transform.position);
+        Debug.Log( (screenPosition.x  )+ " !! "+ screenPosition.y);
+        TextImage.position = screenPosition;
+
+        // instance.transform.SetParent(canvas.transform, false);
+        // instance.transform.position = screenPosition;
+        // instance.SetText("123");
+    
+    }
+
     public void Test(){
         // rb.AddForce(transform.forward * bulletSpeed);   // working  move forward only
 

@@ -83,9 +83,10 @@ public class PlayerCharacterController : BaseCharacter
             joystickPlayerScript.ApplyStopAction = StopMovingAnim;
             
         }
-
+        
     }
 
+    
     public void switchingWeapon_func(){
         if(HoldWeaponCount == 0) return;    // no gun
 

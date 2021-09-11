@@ -81,7 +81,7 @@ public class BaseGun : MonoBehaviour
                 // CurrentAmmo -= Shooting_point.Length;
 
                 if(audioSource != null){
-                    audioSource.clip =fireAudio;
+                    audioSource.clip = fireAudio;
                     audioSource.Play();
                 }
                 

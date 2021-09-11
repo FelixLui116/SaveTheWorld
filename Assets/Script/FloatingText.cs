@@ -4,10 +4,16 @@ using UnityEngine.UI;
 
 public class FloatingText : MonoBehaviour {
     [SerializeField] private TextMesh textMesh;
+    [SerializeField] private Text _text;
     // private Text damageText;
+    private Camera camera;
 
     private void Awake() {
         // damageText = animator.GetComponent<Text>();
+    }
+    void Start()
+    {
+        
     }
     void OnEnable()
     {
@@ -19,8 +25,12 @@ public class FloatingText : MonoBehaviour {
 
     public void SetText(string text)
     {
-        textMesh.text =  text;
-        Destroy(gameObject , 1.0f );
+        _text.text =  text;
+
+        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        Vector2 screenPosition = camera.WorldToScreenPoint(transform.position);
+        transform.position = screenPosition;
+        Destroy(gameObject , 0.5f );
         // damageText.text = text;
         // transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x , transform.position.y ) );
         // Debug.Log(" WorldToScreenPoint: " + transform.position);

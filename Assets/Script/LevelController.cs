@@ -10,8 +10,8 @@ public class LevelController : MonoBehaviour
 
     public GameObject playerObject;
 
-    public GameObject[] enemyType;
-    public PlayerCharacterController player; 
+    // public GameObject[] enemyType;
+    // public PlayerCharacterController player; 
     public GameObject SceneBuilding;
 
     public static LevelController Instance { get; private set; }
@@ -29,19 +29,31 @@ public class LevelController : MonoBehaviour
         {
             GameObject playerPrefabs = Instantiate(PlayerPrefabs);
             playerObject = playerPrefabs;
-            Debug.Log("=== 1: "+ playerObject.transform.position );
+            // playerObject.transform.position = new Vector3(10,0,10);
+            // Debug.Log("=== 1: "+ playerObject.transform.position );
             playerPrefabs.name = "Player";
         }
 
         
     }
     
+    // private void OnMouseDown()
+    // {
+    //     Debug.Log("=== 1: "+ playerObject.transform.position );
+    //     playerObject.transform.position = new Vector3(10,0,10);
+    // }
     // Start is called before the first frame update
     void Start()
     {
         // playerObject.transform.position = PlayerStartingPoint.position;
         // Debug.Log("=== : "+ playerObject.transform.position + " || " + PlayerStartingPoint.position);
-            
+            testBtn();
+    }
+    
+    void testBtn (){
+
+        playerObject.transform.position = new Vector3(10f,0f, 0f);
+        Debug.Log("=== position: "+ playerObject.transform.position );
     }
 
     // Update is called once per frame

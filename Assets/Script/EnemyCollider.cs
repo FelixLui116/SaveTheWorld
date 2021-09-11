@@ -47,7 +47,7 @@ public class EnemyCollider : MonoBehaviour
         }
         enemyCharacter.Current_health -=  (int)projectile.bulletDamage;
         
-        // enemyCharacter.CreateFolatingText(projectile.bulletDamage.ToString()); // is working
+        enemyCharacter.CreateFolatingText(projectile.bulletDamage.ToString()); // is working
        
         ApplyChangeHPAction?.Invoke();
     }

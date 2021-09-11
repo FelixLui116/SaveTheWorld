@@ -62,8 +62,8 @@ public class UIContrller : MonoBehaviour
         // });
 
         // if (InteractionsBtn != null)   InteractionsBtn.onClick.AddListener(() =>  );
-        // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => null );
-        // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => null );
+        // if (skillBtn[1] != null)   skillBtn[1].onClick.AddListener(() => testBtn() );
+        // if (skillBtn[2] != null)   skillBtn[2].onClick.AddListener(() => testBtn );
         
         playerCharacterController= GameObject.Find("Player").GetComponent<PlayerCharacterController>();
          
@@ -89,6 +89,7 @@ public class UIContrller : MonoBehaviour
         // Hp_Text();
         // SkillController playerSkills = playerCharacterController.skill;
     }
+
 
     // Update is called once per frame
     void Update()
