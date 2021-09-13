@@ -19,6 +19,9 @@ public class LevelController : MonoBehaviour
     public Text Debug_Text;
     public Image GunUI_Image = null;  // baseCharacter.baseGun. ( WeaponImg , WeaponImg_Disable)
     public Text AmmoText;
+
+    public Transform StartPlayerPos;
+
     private void Awake() {
         if (Instance == null)
         {
@@ -47,13 +50,13 @@ public class LevelController : MonoBehaviour
     {
         // playerObject.transform.position = PlayerStartingPoint.position;
         // Debug.Log("=== : "+ playerObject.transform.position + " || " + PlayerStartingPoint.position);
-            testBtn();
     }
     
-    void testBtn (){
+    public Transform ResetStartPosition (){
 
-        playerObject.transform.position = new Vector3(10f,0f, 0f);
-        Debug.Log("=== position: "+ playerObject.transform.position );
+        // playerObject.transform.position = new Vector3(10f,0f, 0f);
+        // Debug.Log("=== position: "+ playerObject.transform.position );
+        return StartPlayerPos;
     }
 
     // Update is called once per frame

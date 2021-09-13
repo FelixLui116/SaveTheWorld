@@ -719,7 +719,7 @@ MonoBehaviour:
   SecGunPositon: {fileID: 7357098673494239387}
   characterController: {fileID: 1788315427571248073}
   DestroyOjbectTimer: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 8952574158538689662}
   HitAudio: {fileID: 8952574158538689662}
   effectPos: {fileID: 5825618779968456629}
   floatingText: {fileID: 0}

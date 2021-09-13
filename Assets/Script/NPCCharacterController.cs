@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class NPCCharacterController : BaseCharacter
 {
+    // [Header("Dialog")]
+    // private Camera camera;
+    // private GameObject dialogBox;
+    // private Transform dialogBoxParent;
+    private GameObject dialogBoxClone;
+    // private int offsetY = 50;
+
     private bool isPlayer = false;
     private void Awake() {
-        
+        // camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        // dialogBoxParent = GameObject.Find("DialogLayer").GetComponent<Transform>();
+        // dialogBox = Resources.Load<GameObject>("Prefabs/GameObject/DialogBox");
     }
     void Start()
     {
         targetPlayer = LevelController.Instance.playerObject.transform;
+        
     }
 
     // Update is called once per frame
@@ -19,9 +29,20 @@ public class NPCCharacterController : BaseCharacter
         // if (Input.GetKeyDown("space"))      // Test Function
         // {
         // }
+        // if (dialogBoxClone != null)
+        // {
+        //     Vector2 screenPosition = GetComponent<Camera>().WorldToScreenPoint(transform.position);
+        //     // Vector2 screenPosition = camera.WorldToScreenPoint( new Vector2( (transform.position.x), (transform.position.y)  ));
+        //     screenPosition.y += offsetY;
+        //     dialogBoxClone.transform.position = screenPosition;
+        // }
     }
+
     private void FixedUpdate() {
         // DetectTarget();
+        
+        
+  
     }
     private void OnTriggerEnter(Collider other) {
         // Neet get parent
@@ -30,6 +51,8 @@ public class NPCCharacterController : BaseCharacter
             if(other.gameObject.tag == "Player"){
                 Debug.Log("is Player~~~");
                 isPlayer = true;
+                dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc("Hello, Welcome");
+                // dialogBoxClone = Instantiate(dialogBox , dialogBoxParent);
             } 
         }
         
@@ -42,6 +65,8 @@ public class NPCCharacterController : BaseCharacter
             if(other.gameObject.tag == "Player"){
                 Debug.Log("Not Player~~~");
                 isPlayer = false;
+
+                Destroy(dialogBoxClone);
             } 
         }
     }

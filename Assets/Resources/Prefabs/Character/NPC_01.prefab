@@ -73,11 +73,14 @@ MonoBehaviour:
   holdGunPos: {fileID: 0}
   SecGunPositon: {fileID: 0}
   characterController: {fileID: 0}
-  putGunPos: {fileID: 0}
   DestroyOjbectTimer: 0
+  audioSource: {fileID: 0}
   HitAudio: {fileID: 0}
   effectPos: {fileID: 0}
+  floatingText: {fileID: 0}
   DetectRange: 5
+  camera: {fileID: 0}
+  dialogBox: {fileID: 0}
 --- !u!65 &6764770189253401457
 BoxCollider:
   m_ObjectHideFlags: 0

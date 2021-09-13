@@ -81,9 +81,17 @@ public class PlayerCharacterController : BaseCharacter
         {
             joystickPlayerScript.ApplyMovingAction = MovingAnim;
             joystickPlayerScript.ApplyStopAction = StopMovingAnim;
-            
         }
+        StartCoroutine( ResetPos() );
+    
+    }
+
+    private IEnumerator ResetPos(){
         
+        yield return new WaitForFixedUpdate();
+        if(LevelController.Instance != null && LevelController.Instance.StartPlayerPos != null) {
+            this.transform.position =  LevelController.Instance.StartPlayerPos.position;
+        }
     }
 
     
