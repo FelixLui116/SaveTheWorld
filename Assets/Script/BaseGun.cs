@@ -82,6 +82,7 @@ public class BaseGun : MonoBehaviour
 
                 if(audioSource != null){
                     audioSource.clip = fireAudio;
+                    Debug.Log("===audioSource play !!! ");
                     audioSource.Play();
                 }
                 
@@ -100,8 +101,10 @@ public class BaseGun : MonoBehaviour
                 if (CurrentAmmo == 0)   // No Ammo Auto reload
                 {
                     StartCoroutine( ReloadWeapon_func() );
-                    audioSource.clip = reloadAudio;
-                    audioSource.Play();
+                    if(reloadAudio != null){
+                        audioSource.clip = reloadAudio;
+                        audioSource.Play();
+                    }
                 }
             }
             else{
