@@ -2813,6 +2813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0ff6ba6c749854b8a717b012eeb135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogBoxClone: {fileID: 0}
 --- !u!4 &337241999
 Transform:
   m_ObjectHideFlags: 0
@@ -20450,8 +20451,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6189846795525562664, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}
+      propertyPath: TextList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189846795525562664, guid: 7ba56116b1ed24e3b906e29703a26be8,
+        type: 3}
+      propertyPath: sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189846795525562664, guid: 7ba56116b1ed24e3b906e29703a26be8,
+        type: 3}
       propertyPath: TextImage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189846795525562664, guid: 7ba56116b1ed24e3b906e29703a26be8,
+        type: 3}
+      propertyPath: sentences.Array.data[0]
+      value: Hello, welcome Human
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189846795525562664, guid: 7ba56116b1ed24e3b906e29703a26be8,
+        type: 3}
+      propertyPath: sentences.Array.data[1]
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189846795525562664, guid: 7ba56116b1ed24e3b906e29703a26be8,
+        type: 3}
+      propertyPath: sentences.Array.data[2]
+      value: 456
       objectReference: {fileID: 0}
     - target: {fileID: 7231245237452663840, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}

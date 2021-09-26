@@ -10,7 +10,7 @@ public class DialogBoxSystem : MonoBehaviour
     private Camera camera;
     private GameObject dialogBox;
     private Transform dialogBoxParent;
-    private GameObject dialogBoxClone;
+     [SerializeField] private GameObject dialogBoxClone;
     private int offsetY = 50;
 
     private int[] dialogList;
@@ -40,10 +40,21 @@ public class DialogBoxSystem : MonoBehaviour
         }
     }
 
-    public GameObject CloneDialogFunc(string text){
+    public GameObject CloneDialogFunc(string text , int timer){
         dialogBoxClone = Instantiate(dialogBox , dialogBoxParent);
+
+        // Fix bug the Clone positon Not update in first frame
+        Vector2 screenPosition = camera.WorldToScreenPoint(transform.position);
+        screenPosition.y += offsetY;
+        dialogBoxClone.transform.position = screenPosition;
+        //
+
         DialogBox _dialogBox = dialogBoxClone.GetComponent<DialogBox>(); 
         _dialogBox.text.text = text.ToString();
+        _dialogBox.timer = timer;
+
+        
+
         return dialogBoxClone;
     }
     // public void DestroyDialogFun(){

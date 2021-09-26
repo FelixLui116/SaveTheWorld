@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCCharacterController : BaseCharacter
 {
@@ -8,7 +9,10 @@ public class NPCCharacterController : BaseCharacter
     // private Camera camera;
     // private GameObject dialogBox;
     // private Transform dialogBoxParent;
-    private GameObject dialogBoxClone;
+     private GameObject dialogBoxClone;
+    [SerializeField] private string[] sentences;
+    private int sentencesCount = 0;
+
     // private int offsetY = 50;
 
     private bool isPlayer = false;
@@ -49,15 +53,25 @@ public class NPCCharacterController : BaseCharacter
         if (!isPlayer)
         {
             if(other.gameObject.tag == "Player"){
-                Debug.Log("is Player~~~");
+                // Debug.Log("is Player~~~");
                 isPlayer = true;
-                dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc("Hello, Welcome");
+
+                StartCoroutine( DialogAll_sentences() );
+
+                // for (var i = 0; i < sentences.Length; i++)
+                // {
+                    // dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc(sentences[sentencesCount] );
+                    // sentencesCount++;
+
+                    // if(sentencesCount == sentences.Length) sentencesCount = 0;
+                // }
+                
+
                 // dialogBoxClone = Instantiate(dialogBox , dialogBoxParent);
             } 
         }
-        
-        
     }
+
     private void OnTriggerExit(Collider other) {
         // Neet get parent
         if (isPlayer)
@@ -66,10 +80,50 @@ public class NPCCharacterController : BaseCharacter
                 Debug.Log("Not Player~~~");
                 isPlayer = false;
 
+                StopCoroutine( DialogAll_sentences() );
                 Destroy(dialogBoxClone);
             } 
         }
     }
+
+    IEnumerator DialogAll_sentences()
+    {
+        int BoxDestroyTimer = 3;
+        // int sentencesToShow = (sentences.Length - sentencesCount);
+        // Debug.Log("sentencesToShow " + sentencesToShow);
+        // for (var i = 0; i < (sentences.Length) ; i++)
+        // {
+        //     if (isPlayer)
+        //     {
+        //         dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc(sentences[sentencesCount] , BoxDestroyTimer );
+        //         sentencesCount++;
+        //         if(sentencesCount == sentences.Length) sentencesCount = 0;
+        //         yield return new WaitForSeconds(BoxDestroyTimer);
+        //         yield return new WaitForSeconds(0.25f);
+        //     }else{
+        //         StopCoroutine( DialogAll_sentences() );
+
+        //     }
+        // }
+        if (isPlayer)
+        {
+            dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc(sentences[sentencesCount] , BoxDestroyTimer );
+            sentencesCount++;
+            if(sentencesCount == sentences.Length){
+                sentencesCount = 0;
+            } else{
+                
+                yield return new WaitForSeconds(BoxDestroyTimer);
+                yield return new WaitForSeconds(0.25f);
+                StartCoroutine( DialogAll_sentences() );
+            }
+        }
+        // else{
+        //     StopCoroutine( DialogAll_sentences() );
+        // }
+                
+    }
+
     void OnMouseDown()
     {
         // FloatingTextController.Initialize();
