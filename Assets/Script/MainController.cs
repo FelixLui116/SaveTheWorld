@@ -19,12 +19,14 @@ public class MainController : MonoBehaviour
     
     [Header("== Panel ==")]
     
-    [SerializeField] private GameObject HowToPlayPanel;
-    [SerializeField] private GameObject SettingPanel;
+    [SerializeField] private GameObject [] BoxPanel; // 0 =startPanel ,1 =HelpPanel, 2 =SettingPanel
+    // [SerializeField] private GameObject HowToPlayPanel;
+    // [SerializeField] private GameObject SettingPanel;
+    [SerializeField] private Button [] StartLevelBox;
     // Start is called before the first frame update
     protected void Start()
     {
-        startBtn.onClick.AddListener(() => ToScene( SceneName[1] , true ));
+        startBtn.onClick.AddListener(() => StartPanel_func() );
         continueBtn.onClick.AddListener(() => ToScene( SceneName[1] , false ));
         howToPlayBtn.onClick.AddListener(() => HowToPlayPanel_func() );
         quitBtn.onClick.AddListener(() => Quit_func() );
@@ -54,10 +56,33 @@ public class MainController : MonoBehaviour
     public void ChangePlayinfo(){      // is working
         GlobalManager.Instance._PlayerData.money = 22222;
     }
-    public void HowToPlayPanel_func(){      // is working
-        HowToPlayPanel.SetActive(true);
+    private void StartPanel_func( ){      // is working
+        ResetBoxPanel();
+        BoxPanel[0].SetActive(true);
     }
-    public void Setting_func(){      // is working
-        SettingPanel.SetActive(true);
+
+    public void EneterLevel_func(int level){      // is working
+    Debug.Log(" Level: " + SceneName[level]);
+        ToScene( SceneName[level] , false );
+    }
+
+    private void HowToPlayPanel_func(){      // is working
+        ResetBoxPanel();
+        // HowToPlayPanel.SetActive(true);
+        BoxPanel[1].SetActive(true);
+    }
+    private void Setting_func(){      // is working
+        ResetBoxPanel();
+        // SettingPanel.SetActive(true);
+        BoxPanel[2].SetActive(true);
+    }
+
+    // ToScene( SceneName[1] , true)
+
+    private void ResetBoxPanel(){
+        for (var i = 0; i < BoxPanel.Length; i++)
+        {
+            BoxPanel[i].SetActive(false);
+        }
     }
 }
