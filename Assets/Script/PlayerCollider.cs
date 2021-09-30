@@ -21,7 +21,7 @@ public class PlayerCollider : MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(" in OnTriggerEnter: " + other.gameObject.tag);
+        Debug.Log("PlayerCollider OnTriggerEnter: " + other.gameObject.tag);
         // Neet get parent
         if(other.gameObject.tag == "Coin"){
             Coin_trigger(other.transform.parent.gameObject);

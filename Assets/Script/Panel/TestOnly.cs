@@ -10,7 +10,7 @@ public class TestOnly : MonoBehaviour
     {
         // pistolShoot.Start();
 
-        pistolShoot.pickupGun_cloneBullet();
+        // pistolShoot.pickupGun_cloneBullet();
     }
 
     // Update is called once per frame
@@ -23,6 +23,10 @@ public class TestOnly : MonoBehaviour
     }
 
     void OnMouseDown() {
+        
+    }
+    private void OnTriggerEnter(Collider other) {
+            Debug.Log("Projectile OnTriggerEnter: "+ other.gameObject.tag );
         
     }
 }
