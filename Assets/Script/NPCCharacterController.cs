@@ -81,6 +81,10 @@ public class NPCCharacterController : BaseCharacter
                 isPlayer = false;
 
                 StopCoroutine( DialogAll_sentences() );
+                
+                if(sentencesCount == sentences.Length){
+                    sentencesCount = 0;
+                }
                 Destroy(dialogBoxClone);
             } 
         }
