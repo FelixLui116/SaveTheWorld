@@ -15,6 +15,7 @@ TagManager:
   - EnemyHit
   - Wall
   - NPC
+  - EndPoint
   layers:
   - Default
   - TransparentFX

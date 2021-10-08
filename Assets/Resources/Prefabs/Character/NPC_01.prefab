@@ -28,8 +28,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7231245237452663841}
-  - component: {fileID: 6189846795525562664}
   - component: {fileID: 6764770189253401457}
+  - component: {fileID: 2974032763097354917}
+  - component: {fileID: 8648434733408810303}
   m_Layer: 0
   m_Name: NPC_01
   m_TagString: NPC
@@ -52,34 +53,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &6189846795525562664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7231245237452663840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154858da8883549d0872dd3801d44fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  current_health: 0
-  health_max: 0
-  _name: NPC_1
-  _coin: 0
-  weaponList: []
-  baseGun: {fileID: 0}
-  holdGunPos: {fileID: 0}
-  SecGunPositon: {fileID: 0}
-  characterController: {fileID: 0}
-  DestroyOjbectTimer: 0
-  audioSource: {fileID: 0}
-  HitAudio: {fileID: 0}
-  effectPos: {fileID: 0}
-  floatingText: {fileID: 0}
-  DetectRange: 5
-  sentences: []
 --- !u!65 &6764770189253401457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,6 +66,46 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5269083, y: 1.9659152, z: 2.8293493}
   m_Center: {x: 0.000000059604638, y: -0.44565928, z: 0.91984415}
+--- !u!114 &2974032763097354917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7231245237452663840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf5f5bc88b3274428b805dc631bb8c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current_health: 0
+  health_max: 0
+  _name: 
+  _coin: 0
+  weaponList: []
+  baseGun: {fileID: 0}
+  holdGunPos: {fileID: 0}
+  SecGunPositon: {fileID: 0}
+  characterController: {fileID: 0}
+  DestroyOjbectTimer: 0
+  audioSource: {fileID: 0}
+  HitAudio: {fileID: 0}
+  effectPos: {fileID: 0}
+  floatingText: {fileID: 0}
+  DetectRange: 10
+--- !u!114 &8648434733408810303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7231245237452663840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3049a5d621bc34040af4708d477ac1b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences: []
 --- !u!1001 &4162208099980731574
 PrefabInstance:
   m_ObjectHideFlags: 0

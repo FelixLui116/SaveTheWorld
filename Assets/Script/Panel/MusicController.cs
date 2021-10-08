@@ -46,6 +46,9 @@ public class MusicController : MonoBehaviour
         if(volume > 0.001f){
             audioMixer.SetFloat("MusicVolume", Mathf.Log(volume) * 20);
         }
+        else{
+            audioMixer.SetFloat("MusicVolume", -80);
+        }
         // audioMixer.SetFloat("MusicVolume", volume);
     }
 
