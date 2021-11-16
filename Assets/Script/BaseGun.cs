@@ -35,6 +35,7 @@ public class BaseGun : MonoBehaviour
     [Range(0f, 1000f)]  public float BulletSpeed = 0f;
     [Range(0, 180.0f)]  public float BulletRange = 0f;  // Not shooting the midden //  if 5(Y Rotota) == <-(-5 angle) midden (5 angle) ->
     [Range(0f, 100f)]    public float BulletDestoryTime = 0f;
+    [Range(0f, 10f)]    public float FireDelay = 0f;
     public float ReloadWeapon_time = 0;  // float 0.2 = 3s  (60/ (xx * 100) )
     private bool CanFire = true;
     private bool Reloading = false;

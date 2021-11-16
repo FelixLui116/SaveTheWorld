@@ -97,7 +97,7 @@ public class EffectController : MonoBehaviour
                 break;
             case "MedKit":
                 particleSystem = MedKitEffect;
-                _color = Color.red; 
+                _color = Color.green; 
                 break;
             case "DamageUp":
                 particleSystem = GunSkill_DamageUpEffect;
