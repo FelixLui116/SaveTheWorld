@@ -46,6 +46,9 @@ public class BaseGun : MonoBehaviour
 
     public int Ammo  = 100;   // 00/XXX
 
+    [Header("Shooting Effect")]
+    public GameObject Eff_PowerDraw; 
+
     [Header("UI")]
     [SerializeField] protected GameObject popupPrefab;
     public Image Crosshair;
@@ -77,7 +80,9 @@ public class BaseGun : MonoBehaviour
     public void shooting_func(){
         if(CanFire){
             if(CurrentAmmo > 0){
+                
                 Debug.Log("=== shootingBullet!!! ");
+        StartCoroutine(WaitForFire());
                 // CurrentAmmo--; 
                 // CurrentAmmo -= Shooting_point.Length;
 
@@ -119,17 +124,28 @@ public class BaseGun : MonoBehaviour
         
         // cooldown
         CanFire = false;
-        StartCoroutine(WaitForFire());
     }
     private IEnumerator WaitForFire()
     {
-        yield return new WaitForSeconds(60 / (FireRate * 60));
+        // yield return new WaitForSeconds(60 / (FireRate * 60));
+        CloneDelayEffect();
+        yield return new WaitForSeconds(FireRate);
         CanFire = true;
+
+        // yield return new WaitForSeconds(FireDelay);
 
         if (isKeepShooting)
         {
             shooting_func();
         }
+    }
+
+
+    private void CloneDelayEffect(){
+        GameObject Eff_clone = Instantiate(Eff_PowerDraw ,Shooting_point[0].transform );
+        ParticleSystem Eff_clone_PS = Eff_clone.GetComponent<ParticleSystem>();
+        var main = Eff_clone_PS.main;
+        main.loop = false;
     }
 
     public IEnumerator ReloadWeapon_func(){ 

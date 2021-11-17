@@ -98,8 +98,14 @@ public class EnemyCharacterController : BaseCharacter
                 baseGun.shooting_func();
                 detected_Target = false;
 
-                CurrentState = EnemyState.Idle;
-                // DetectTarget();
+                
+                DetectTarget();
+                if (detected_Target == false)   // end of shooting check the target in the side
+                {
+                    CurrentState = EnemyState.Idle;  
+                }else{
+
+                }
                 
                 break;
             case EnemyState.Idle:
@@ -107,8 +113,11 @@ public class EnemyCharacterController : BaseCharacter
                 
                 movePath.KillAllAction();
                 
-                CurrentState = EnemyState.Moving;  
-
+                // if (detected_Target == false && CurrentState != EnemyState.Shooting)
+                // {
+                    // Debug.Log("detected_Target = " + detected_Target + "|| CurrentState: " + CurrentState);
+                    CurrentState = EnemyState.Moving;  
+                // }
                 break;
             default:
                 break;
