@@ -63,15 +63,17 @@ MonoBehaviour:
   weaponTpye: 0
   isKeepShooting: 0
   WeaponDamage: 10
-  FireRate: 4
+  FireRate: 0.5
   BulletSpeed: 50
   BulletRange: 2
   BulletDestoryTime: 1
+  FireDelay: 0
   ReloadWeapon_time: 2
   TotalAmmo: 28
   CurrentAmmo: 0
   BulletLimit: 0
   Ammo: 50
+  Eff_PowerDraw: {fileID: 0}
   popupPrefab: {fileID: 1272861574893498752, guid: 858a6496d9efe4ce3bdfa8d48bdba857,
     type: 3}
   Crosshair: {fileID: 0}

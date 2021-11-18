@@ -46,14 +46,14 @@ public class ShootingButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     //按下按鈕
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("PressDown");
+        // Debug.Log("PressDown");
         PressDown = true;
     }
 
     //按鈕彈起
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("PressUp");
+        // Debug.Log("PressUp");
         if (PressDownTimer > 0 && PressDownTimer < DoTimeSetting.HoldTime)
         {
             OnShortClick?.Invoke();
