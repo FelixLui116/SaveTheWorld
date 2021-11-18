@@ -142,6 +142,9 @@ public class BaseGun : MonoBehaviour
 
 
     private void CloneDelayEffect(){
+        if (Eff_PowerDraw == null){
+            return;
+        }
         GameObject Eff_clone = Instantiate(Eff_PowerDraw ,Shooting_point[0].transform );
         ParticleSystem Eff_clone_PS = Eff_clone.GetComponent<ParticleSystem>();
         var main = Eff_clone_PS.main;
