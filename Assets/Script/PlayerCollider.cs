@@ -108,6 +108,9 @@ public class PlayerCollider : MonoBehaviour
             projectile.DestroyObj();
         }
 
+        
+        // playerCharacterController.CreateFolatingText(projectile.bulletDamage.ToString()); // is working
+
         ApplyChangeHPAction?.Invoke();
         
     }

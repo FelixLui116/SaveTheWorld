@@ -226,6 +226,7 @@ public class BaseCharacter : MonoBehaviour
 
     public void CreateFolatingText(string _string = ""){
         var canvas = GameObject.Find("Canvas");
+        Debug.LogFormat("{0}, {1}, {2}, {3}" , floatingText, transform.position , Quaternion.identity, canvas.transform);
         GameObject floatingTextClone = Instantiate(floatingText, transform.position , Quaternion.identity, canvas.transform); //  PoolSystem.Instance.DestroyAcre.transform 
         
         floatingTextClone.transform.position = transform.position;

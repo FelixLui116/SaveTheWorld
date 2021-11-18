@@ -852,7 +852,8 @@ MonoBehaviour:
   audioSource: {fileID: 8952574158538689662}
   HitAudio: {fileID: 8952574158538689662}
   effectPos: {fileID: 5825618779968456629}
-  floatingText: {fileID: 0}
+  floatingText: {fileID: 399165787065122965, guid: 76525a0f920a34fd6aadf31d7dd41dfc,
+    type: 3}
   DetectRange: 30
   playerCollider: {fileID: 871114565393609327}
   animator: {fileID: 5595343537221686380}

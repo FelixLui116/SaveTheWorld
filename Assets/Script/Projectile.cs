@@ -81,7 +81,7 @@ public class Projectile : MonoBehaviour
 
         if (trail!= null ){
             trail.enabled = true;
-            // SetTrailColor(trailColor);
+            SetTrailColor(trailColor);
         }
         
         

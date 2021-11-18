@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmmoColor: 0
-  trailColor: 3
+  trailColor: 2
   Shooting_point:
   - {fileID: 2873999803534540437}
   Bullet: {fileID: 55685470609121626, guid: 235aa15ffd772114fa48a84a1eacc69b, type: 3}

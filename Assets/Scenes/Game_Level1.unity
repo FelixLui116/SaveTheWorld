@@ -13285,11 +13285,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
         type: 3}
-      propertyPath: trailColor
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4437507076840101838, guid: efc3256d7acac2b40b61bef021f0c366,
-        type: 3}
       propertyPath: BulletSpeed
       value: 10
       objectReference: {fileID: 0}

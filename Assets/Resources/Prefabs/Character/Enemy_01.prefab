@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmmoColor: 0
-  trailColor: 0
+  trailColor: 3
   Shooting_point:
   - {fileID: 8368283999883699414}
   Bullet: {fileID: 55685470609121626, guid: 5e483af3efe004cb0bc543bd44292747, type: 3}
@@ -369,11 +369,13 @@ MonoBehaviour:
   BulletSpeed: 20
   BulletRange: 0
   BulletDestoryTime: 2
+  FireDelay: 0
   ReloadWeapon_time: 0
   TotalAmmo: 2
   CurrentAmmo: 2
   BulletLimit: 0
   Ammo: 100
+  Eff_PowerDraw: {fileID: 0}
   popupPrefab: {fileID: 0}
   Crosshair: {fileID: 0}
   WeaponImg: {fileID: 0}

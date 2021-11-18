@@ -12,7 +12,7 @@ public class BaseGun : MonoBehaviour
     /// /// Not Using
     public enum AmmoTpye { Blue, green, yellow, red }    
     public AmmoTpye AmmoColor;
-    public enum TrailColor { blue,green,yellow,red}
+    public enum TrailColor { blue,green,yellow,red , lightBlue }
     public TrailColor trailColor;
 
     ///  ///
@@ -329,6 +329,7 @@ public class BaseGun : MonoBehaviour
         Color i = trailColor == TrailColor.blue   ? Color.blue :
                 trailColor == TrailColor.green  ? Color.green :
                 trailColor == TrailColor.yellow ? Color.yellow :
+                trailColor == TrailColor.lightBlue ? new Color(0, 255, 255):
                 trailColor == TrailColor.red    ? Color.red : Color.blue;
         return i;
     }
