@@ -1644,6 +1644,7 @@ MonoBehaviour:
   GunUI_Image: {fileID: 0}
   AmmoText: {fileID: 0}
   StartPlayerPos: {fileID: 748363012}
+  uIContrller: {fileID: 1821298217}
 --- !u!114 &144344933
 MonoBehaviour:
   m_ObjectHideFlags: 0

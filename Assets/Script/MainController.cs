@@ -27,7 +27,8 @@ public class MainController : MonoBehaviour
     protected void Start()
     {
         startBtn.onClick.AddListener(() => StartPanel_func() );
-        continueBtn.onClick.AddListener(() => ToScene( SceneName[1] , false ));
+        continueBtn.onClick.AddListener(() => ContinuePanel_func() );
+        // continueBtn.onClick.AddListener(() => ToScene( SceneName[1] , false ));
         howToPlayBtn.onClick.AddListener(() => HowToPlayPanel_func() );
         quitBtn.onClick.AddListener(() => Quit_func() );
 
@@ -60,6 +61,10 @@ public class MainController : MonoBehaviour
         ResetBoxPanel();
         BoxPanel[0].SetActive(true);
     }
+    private void ContinuePanel_func( ){      // is working
+        ResetBoxPanel();
+        BoxPanel[1].SetActive(true);
+    }
 
     public void EneterLevel_func(int level){      // is working
     Debug.Log(" Level: " + SceneName[level]);
@@ -69,12 +74,12 @@ public class MainController : MonoBehaviour
     private void HowToPlayPanel_func(){      // is working
         ResetBoxPanel();
         // HowToPlayPanel.SetActive(true);
-        BoxPanel[1].SetActive(true);
+        BoxPanel[2].SetActive(true);
     }
     private void Setting_func(){      // is working
         ResetBoxPanel();
         // SettingPanel.SetActive(true);
-        BoxPanel[2].SetActive(true);
+        BoxPanel[3].SetActive(true);
     }
 
     // ToScene( SceneName[1] , true)

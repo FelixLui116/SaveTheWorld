@@ -22,7 +22,10 @@ public class LevelController : MonoBehaviour
 
     public Transform StartPlayerPos;
 
+    public UIContrller uIContrller;
+
     private void Awake() {
+
         if (Instance == null)
         {
             // DontDestroyOnLoad(notifications);
@@ -37,7 +40,6 @@ public class LevelController : MonoBehaviour
             playerPrefabs.name = "Player";
         }
 
-        
     }
     
     // private void OnMouseDown()
@@ -48,6 +50,14 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // if (newGame){
+            
+        // }
+        // else{
+            // old game
+            Load_SaveData();
+        // }
+
         // playerObject.transform.position = PlayerStartingPoint.position;
         // Debug.Log("=== : "+ playerObject.transform.position + " || " + PlayerStartingPoint.position);
     }
@@ -66,9 +76,17 @@ public class LevelController : MonoBehaviour
     }
 
     public void  savePoint(){
-        GlobalManager.Instance._PlayerData.money = 1111;
+        GlobalManager.Instance._PlayerData.money = 12;
 
         GlobalManager.Instance.SaveIntoJson();
+    }
+
+    public void Load_SaveData(){
+        GlobalManager.Instance.LoadJson();
+        var PlayerData = GlobalManager.Instance._PlayerData;
+        uIContrller.playerCharacterController.Coin = PlayerData.money;
+
+        uIContrller.playerCharacterController.Current_health = PlayerData.playerHP;
     }
 
     // // like this Ammo_text_update(1,28, 1000); 

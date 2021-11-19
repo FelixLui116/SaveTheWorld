@@ -92,12 +92,13 @@ public class GlobalManager : MonoBehaviour
 
     [System.Serializable]
         public class PlayerData{
-        public float playerHP;
-        public float money;
+        public int playerHP;
+        public int money;
         public string player_Level;
         public List<Skill> skill = new List<Skill>();
         public List<Effect> effect = new List<Effect>();
         public List<Effect> level = new List<Effect>();
+        public float time;
     }
 
     [System.Serializable]
