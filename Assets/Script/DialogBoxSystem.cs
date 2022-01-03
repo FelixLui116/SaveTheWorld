@@ -40,7 +40,25 @@ public class DialogBoxSystem : MonoBehaviour
         }
     }
 
-    public GameObject CloneDialogFunc(string text , int timer){
+    // public GameObject CloneDialogFunc(string text , int timer){
+    //     dialogBoxClone = Instantiate(dialogBox , dialogBoxParent);
+
+    //     // Fix bug the Clone positon Not update in first frame
+    //     Vector2 screenPosition = camera.WorldToScreenPoint(transform.position);
+    //     screenPosition.y += offsetY;
+    //     dialogBoxClone.transform.position = screenPosition;
+    //     //
+
+    //     DialogBox _dialogBox = dialogBoxClone.GetComponent<DialogBox>(); 
+    //     _dialogBox.text.text = text.ToString();
+    //     _dialogBox.timer = timer;
+
+        
+
+    //     return dialogBoxClone;
+    // }
+
+    public GameObject CloneDialogFunc(string[] text , int timer){
         dialogBoxClone = Instantiate(dialogBox , dialogBoxParent);
 
         // Fix bug the Clone positon Not update in first frame
@@ -50,12 +68,20 @@ public class DialogBoxSystem : MonoBehaviour
         //
 
         DialogBox _dialogBox = dialogBoxClone.GetComponent<DialogBox>(); 
-        _dialogBox.text.text = text.ToString();
-        _dialogBox.timer = timer;
 
-        
+        _dialogBox.listText = text;
+        // _dialogBox.text.text = text.ToString();
+        // _dialogBox.timer = timer;
 
         return dialogBoxClone;
+    }
+
+    public void testfunction_list(string[]  stringList){
+        for (var i = 0; i < stringList.Length; i++)
+        {
+            Debug.Log(stringList[i]);
+            
+        }
     }
     // public void DestroyDialogFun(){
     //     // Destroy(dialogBoxClone);

@@ -7,7 +7,7 @@ public class TextDialog : MonoBehaviour
     // Start is called before the first frame update
      private GameObject dialogBoxClone;
     [SerializeField] private string[] sentences;
-    private int sentencesCount = 0;
+    // private int sentencesCount = 0;
     
     private bool isPlayer = false;
     void Start()
@@ -53,9 +53,9 @@ public class TextDialog : MonoBehaviour
 
                 StopCoroutine( DialogAll_sentences() );
                 
-                if(sentencesCount == sentences.Length){
-                    sentencesCount = 0;
-                }
+                // if(sentencesCount == sentences.Length){
+                //     sentencesCount = 0;
+                // }
                 Destroy(dialogBoxClone);
             } 
         }
@@ -82,16 +82,25 @@ public class TextDialog : MonoBehaviour
         // }
         if (isPlayer)
         {
-            dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc(sentences[sentencesCount] , BoxDestroyTimer );
-            sentencesCount++;
-            if(sentencesCount == sentences.Length){
-                sentencesCount = 0;
-            } else{
+            // DialogBoxSystem.Instance.testfunction_list(sentences);
+            dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc(sentences, BoxDestroyTimer * sentences.Length );
+
+            // yield return new WaitForSeconds(BoxDestroyTimer * sentences.Length);
+            yield return null;
+
+
+
+
+            // dialogBoxClone = DialogBoxSystem.Instance.CloneDialogFunc(sentences[sentencesCount] , BoxDestroyTimer );
+            // sentencesCount++;
+            // if(sentencesCount == sentences.Length){
+            //     sentencesCount = 0;
+            // } else{
                 
-                yield return new WaitForSeconds(BoxDestroyTimer);
-                yield return new WaitForSeconds(0.25f);
-                StartCoroutine( DialogAll_sentences() );
-            }
+            //     yield return new WaitForSeconds(BoxDestroyTimer);
+            //     yield return new WaitForSeconds(0.25f);
+            //     StartCoroutine( DialogAll_sentences() );
+            // }
         }
         // else{
         //     StopCoroutine( DialogAll_sentences() );
