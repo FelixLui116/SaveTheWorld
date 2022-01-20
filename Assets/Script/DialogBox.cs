@@ -53,26 +53,33 @@ public class DialogBox : MonoBehaviour
     // }
 
     public IEnumerator DocCounting(){  // isShowText
-        text.text = listText[textCount].ToString();
-        for (var i = 0; i < timer; i++)
-        {
-            GameObject obj = doc.GetChild(i).gameObject;
-            obj.SetActive(false);
-            yield return new WaitForSeconds(1);
-        }
 
-        for (var k = 0; k < timer; k++) // Reset doc
-        {
-            GameObject obj = doc.GetChild(k).gameObject;
-            obj.SetActive(true);
-        }
-        textCount++;
-        if (textCount < listText.Length)
-        {
-        StartCoroutine( DocCounting() );
-        }else
-        {
-            Destroy(gameObject);
+        // Debug.Log("textCount: " + listText.Length);
+        if (listText.Length == 0){
+            Destroy(gameObject); /// destory log with no Sentencse
+            yield return null;
+        }else{
+            text.text = listText[textCount].ToString();
+            for (var i = 0; i < timer; i++)
+            {
+                GameObject obj = doc.GetChild(i).gameObject;
+                obj.SetActive(false);
+                yield return new WaitForSeconds(1);
+            }
+
+            for (var k = 0; k < timer; k++) // Reset doc
+            {
+                GameObject obj = doc.GetChild(k).gameObject;
+                obj.SetActive(true);
+            }
+            textCount++;
+            if (textCount < listText.Length)
+            {
+            StartCoroutine( DocCounting() );
+            }else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
