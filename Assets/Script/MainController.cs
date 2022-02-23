@@ -68,7 +68,15 @@ public class MainController : MonoBehaviour
 
     public void EneterLevel_func(int level){      // is working
     Debug.Log(" Level: " + SceneName[level]);
-        ToScene( SceneName[level] , false );
+
+        if (SceneName[level] == "")
+        {
+            Debug.Log("Scene Name string = null ");
+            
+        }
+        else{
+            ToScene( SceneName[level] , false );
+        }
     }
 
     private void HowToPlayPanel_func(){      // is working
