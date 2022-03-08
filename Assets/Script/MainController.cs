@@ -14,6 +14,7 @@ public class MainController : MonoBehaviour
     public Button settingBtn;
     
     [SerializeField] private Button testScene;
+    [SerializeField] private Canvas canvas;
 
     public string [] SceneName;
     
@@ -73,6 +74,9 @@ public class MainController : MonoBehaviour
         {
             Debug.Log("Scene Name string = null ");
             
+            GameObject popuptext_panel = Instantiate(Resources.Load("Prefabs/GameObject/PopupTextPanel") as GameObject, canvas.transform);
+            PopupTextPanel popuptextpanel = popuptext_panel.GetComponent<PopupTextPanel>();
+            popuptextpanel.PanelSetting("Sorry is coming soon" ," Close ");
         }
         else{
             ToScene( SceneName[level] , false );

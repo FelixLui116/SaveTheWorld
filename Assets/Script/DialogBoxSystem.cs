@@ -11,7 +11,7 @@ public class DialogBoxSystem : MonoBehaviour
     private GameObject dialogBox;
     private Transform dialogBoxParent;
      [SerializeField] private GameObject dialogBoxClone;
-    private int offsetY = 50;
+    private int offsetY = 25;
 
     private int[] dialogList;
 

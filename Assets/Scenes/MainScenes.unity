@@ -16196,6 +16196,7 @@ MonoBehaviour:
   quitBtn: {fileID: 372029733}
   settingBtn: {fileID: 1216493045}
   testScene: {fileID: 1133280300}
+  canvas: {fileID: 2052492320}
   SceneName:
   - Game_Level1
   - 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopupTextPanel : MonoBehaviour
+public class PopupTextPanel : BasePanel
 {
     [SerializeField] private Text text;
     [SerializeField] private Text button_text;
@@ -24,8 +24,8 @@ public class PopupTextPanel : MonoBehaviour
     public void Cloase_panel(){ 
         Destroy(this.gameObject);
     }
-    public void PanelSetting( Text txt, Text txt_Btn ){
-        text = txt;
-        button_text = txt_Btn;
+    public void PanelSetting( string txt, string txt_Btn ){
+        text.text = txt;
+        button_text.text = txt_Btn;
     }
 }

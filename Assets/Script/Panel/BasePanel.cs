@@ -32,6 +32,8 @@ public class BasePanel : MonoBehaviour
     
     protected void Cancel_func(){
         this.gameObject.SetActive(false);
+        
+        // Destroy(this.gameObject);
     }
     
     public void OpenPanel_func(){
