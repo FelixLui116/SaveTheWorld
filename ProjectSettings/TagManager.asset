@@ -16,6 +16,7 @@ TagManager:
   - Wall
   - NPC
   - EndPoint
+  - SavePoint
   layers:
   - Default
   - TransparentFX
