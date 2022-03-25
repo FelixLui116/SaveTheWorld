@@ -115,6 +115,14 @@ public class GlobalManager : MonoBehaviour
     public class level{
         public int level_;
         public int star;
+    }  
+    
+    // save data 
+    [System.Serializable]
+    public class Save_Point{
+        public int money;
+        public string player_Level;
+        public int playerHP;
     }
 
 }

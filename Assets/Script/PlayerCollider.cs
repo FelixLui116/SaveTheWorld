@@ -48,7 +48,15 @@ public class PlayerCollider : MonoBehaviour
         if(other.gameObject.tag == "EnemyHit"){
             PlayerGetHit(other.transform.gameObject);
         } 
+        if(other.gameObject.tag == "SavePoint"){
+            Debug.Log("touch the SavePoint");
+            // save player data and enemy number/ position
+        } 
         
+        if(other.gameObject.tag == "EndPoint"){
+            Debug.Log("touch the EndPoint");
+            // save player data and enemy number/ position
+        } 
         // AudioPlayer(); 
         // DestroyItem();
     }
