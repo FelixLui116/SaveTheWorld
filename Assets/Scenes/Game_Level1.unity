@@ -4548,6 +4548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec633f3fe756ef4c96475bba1f9ccef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleport_type: 0
+  ToPosition: {fileID: 501762634}
+  ToScene: MainScenes
 --- !u!1001 &470677720
 PrefabInstance:
   m_ObjectHideFlags: 0
