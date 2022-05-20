@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour
 
      private void Awake() {
         // target = GameObject.Find("PlayerController").GetComponent<Transform>();
+        offset.Set(0 , 8 , -8);
     }
     void Start()
     {
