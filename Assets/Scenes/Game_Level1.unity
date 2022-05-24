@@ -553,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 8648434733408810303, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}
       propertyPath: sentences.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8648434733408810303, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}
@@ -563,12 +563,12 @@ PrefabInstance:
     - target: {fileID: 8648434733408810303, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}
       propertyPath: sentences.Array.data[1]
-      value: 
+      value: I can do it all day
       objectReference: {fileID: 0}
     - target: {fileID: 8648434733408810303, guid: 7ba56116b1ed24e3b906e29703a26be8,
         type: 3}
       propertyPath: sentences.Array.data[2]
-      value: 
+      value: Please...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba56116b1ed24e3b906e29703a26be8, type: 3}

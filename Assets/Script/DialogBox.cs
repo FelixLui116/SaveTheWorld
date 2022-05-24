@@ -11,6 +11,8 @@ public class DialogBox : MonoBehaviour
 
     public string[] listText;
     private int textCount = 0; 
+    
+    public Text lineCount;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +62,9 @@ public class DialogBox : MonoBehaviour
             yield return null;
         }else{
             text.text = listText[textCount].ToString();
+            
+            lineCount_func(textCount);
+
             for (var i = 0; i < timer; i++)
             {
                 GameObject obj = doc.GetChild(i).gameObject;
@@ -93,5 +98,10 @@ public class DialogBox : MonoBehaviour
         }
         
         Destroy(gameObject);
+    }
+    
+    private void lineCount_func(int textCount){
+        textCount++; // fix start Length ==0
+        lineCount.text = textCount.ToString() + "/" + listText.Length;
     }
 }

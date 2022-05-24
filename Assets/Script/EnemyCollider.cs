@@ -7,6 +7,8 @@ public class EnemyCollider : MonoBehaviour
 {
     public UnityAction ApplyChangeHPAction;
     [SerializeField] private BaseCharacter enemyCharacter;
+    
+    private float display_timer = 0.5f;
     void Start()
     {
         
