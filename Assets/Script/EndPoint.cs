@@ -11,8 +11,23 @@ public class EndPoint : MonoBehaviour
     public string ToScene = "MainScenes";
     public static GlobalManager GlobalManager_Instance;
 
+    [SerializeField] private GameObject [] effect;
+
     void Start()
-    {
+    {   
+        // change color
+        switch(teleport_type) 
+        {
+            case TeleportType.teleportPosition:
+                effect[0].SetActive(true);
+                break;
+            case TeleportType.toScene:
+                effect[1].SetActive(true);
+                break;
+            default:
+                break;
+        }
+
     }
 
     // Update is called once per frame
@@ -53,8 +68,12 @@ public class EndPoint : MonoBehaviour
                 if (ToPosition.position == null){
                     return;
                 }
-                // not working
-                other.gameObject.transform.position = ToPosition.position;
+                // characterController enable move debug 
+                CharacterController characterController =  other.gameObject.GetComponent<CharacterController>();
+                characterController.enabled = false;
+                // other.gameObject.transform.position = ToPosition.position;
+                other.gameObject.transform.position = new Vector3( ToPosition.position.x , other.gameObject.transform.position.y,  ToPosition.position.z);
+                characterController.enabled = true;
                 Debug.Log("teleport.Position:" +other.gameObject.transform.position +" || " +ToPosition.position );
                
                 break;

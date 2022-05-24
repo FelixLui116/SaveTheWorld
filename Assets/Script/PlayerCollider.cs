@@ -53,8 +53,8 @@ public class PlayerCollider : MonoBehaviour
             // save player data and enemy number/ position
         } 
         
-        if(other.gameObject.tag == "EndPoint"){
-            Debug.Log("touch the EndPoint");
+        if(other.gameObject.tag == "TeleportPoint"){
+            Debug.Log("touch the TeleportPoint");
             // save player data and enemy number/ position
         } 
         // AudioPlayer(); 

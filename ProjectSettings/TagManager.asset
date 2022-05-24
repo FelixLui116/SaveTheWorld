@@ -15,8 +15,8 @@ TagManager:
   - EnemyHit
   - Wall
   - NPC
-  - EndPoint
   - SavePoint
+  - TeleportPoint
   layers:
   - Default
   - TransparentFX
