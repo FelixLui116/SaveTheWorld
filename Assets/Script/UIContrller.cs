@@ -45,7 +45,7 @@ public class UIContrller : MonoBehaviour
         if (dodgeBtn != null)   dodgeBtn.onClick.AddListener(() => playerCharacterController.dodge_click(dodgeBtn) );
         if (SwitchGunBtn != null)   SwitchGunBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn ,InteractionsBtn) );
         if (skillBtn[0] != null)   skillBtn[0].onClick.AddListener(() => playerSkills.Controll_skill_1(playerCharacterController.gameObject.transform) );
-        // if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.SwitchWeapon_click(SwitchGunBtn) );
+        if (LockTragetBtn != null)   LockTragetBtn.onClick.AddListener(() => playerCharacterController.LockTarget_click() );
         
         if (gunSkillBtn[0] != null){
             gunSkillBtn[0].onClick.AddListener(() => playerCharacterController.WeaponSkill_press(gunSkillBtn[0]) );
@@ -77,6 +77,9 @@ public class UIContrller : MonoBehaviour
         playerCharacterController.ApplyPlayerDie = PlayerDie_Panel;
         playerCharacterController.ApplyBtnGetGun = PlayerBtnListenerGetGun_Add;
         // GetGun Btn
+        playerCharacterController.ApplyBtnRemoveGun = PlayerBtnGetGun_Remove;
+        
+        // Locktarget Btn
         playerCharacterController.ApplyBtnRemoveGun = PlayerBtnGetGun_Remove;
 
         // Skill Btn

@@ -211,7 +211,11 @@ public class PlayerCharacterController : BaseCharacter
         }
     }
     
-    
+    /// LockTarget_Click
+    public void LockTarget_click(){
+        FindClosestEnemy( target_object );
+    }
+
 
     /// Switch Weapon 
     public void SwitchWeapon_click (Button btn , Button interacteBtn){
@@ -240,9 +244,6 @@ public class PlayerCharacterController : BaseCharacter
     }
 
 
-    private void LockTraget_func(){
-        
-    }
 
 
     public override void WeaponGet(GameObject obj)
@@ -336,6 +337,8 @@ public class PlayerCharacterController : BaseCharacter
         // }
         
     }
+
+
 
     // private void GunSkill_func_Add(){
 

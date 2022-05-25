@@ -34,7 +34,7 @@ public class BaseCharacter : MonoBehaviour
 
     [Header("LockTraget")]
     [SerializeField] protected  float DetectRange = 10f;
-    protected Transform targetPlayer;
+    protected Transform target_object;
     
     protected bool detected_Target = false;
 
@@ -105,6 +105,27 @@ public class BaseCharacter : MonoBehaviour
                 }
             }
         }
+    }
+
+    protected void FindClosestEnemy( Transform target_object)
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        target_object = closest.transform;
+        Debug.Log(" !! closest " + target_object.name);
     }
 
     // can be  oneFunction 

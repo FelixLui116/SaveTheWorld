@@ -23,7 +23,7 @@ public class NPCCharacterController : BaseCharacter
     }
     void Start()
     {
-        targetPlayer = LevelController.Instance.playerObject.transform;
+        target_object = LevelController.Instance.playerObject.transform;
         
     }
 
@@ -160,16 +160,16 @@ public class NPCCharacterController : BaseCharacter
         // Debug.LogFormat("{0} was dealt {1} damage", gameObject.name, "Hello");
     }
     // private void DetectTarget(){
-    //     Vector3 targetPlayer_V3  = new Vector3(targetPlayer.position.x ,targetPlayer.position.y , targetPlayer.position.z );
+    //     Vector3 target_object_V3  = new Vector3(target_object.position.x ,target_object.position.y , target_object.position.z );
     //     Vector3 thisObj_V3 = new Vector3( transform.position.x ,transform.position.y , transform.position.z);
 
-    //     if(Vector3.Distance(thisObj_V3, targetPlayer_V3) < DetectRange)
+    //     if(Vector3.Distance(thisObj_V3, target_object_V3) < DetectRange)
     //     {
     //         //Do something
     //         detected_Target = true;
     //         Debug.Log(" Is Player- NPC");
     //         // CurrentState = EnemyState.GetTarget;   // movePath.StopCoroutines();
-    //         // movePath.Base_moveToTarget( targetPlayer );
+    //         // movePath.Base_moveToTarget( target_object );
 
     //     }else{
     //         detected_Target = false;

@@ -24,7 +24,7 @@ public class EnemyCharacterController : BaseCharacter
     
     // private bool detected_Target = false;
     // [SerializeField] protected  float DetectRange = 10f;
-    // protected Transform targetPlayer;
+    // protected Transform target_object;
     private EnemyState _currentState = EnemyState.Idle;
     protected EnemyState CurrentState
     {
@@ -51,7 +51,7 @@ public class EnemyCharacterController : BaseCharacter
 
         baseGun.pickupGun_cloneBullet();
 
-        if(LevelController.Instance != null) targetPlayer = LevelController.Instance.playerObject.transform;
+        if(LevelController.Instance != null) target_object = LevelController.Instance.playerObject.transform;
     
         movePath.ApplyShoot = ChangeStateToShoot;
     }
@@ -88,7 +88,7 @@ public class EnemyCharacterController : BaseCharacter
                 // movePath.StopCoroutines();
 
                 movePath.KillAllAction();
-                movePath.ToRotateTarget(targetPlayer);
+                movePath.ToRotateTarget(target_object);
                 
                 // CurrentState = EnemyState.Shooting;  // == ChangeStateToShoot()
 
@@ -125,7 +125,7 @@ public class EnemyCharacterController : BaseCharacter
     }
     
     private void FixedUpdate() {
-        if (targetPlayer != null && !detected_Target && (CurrentState == EnemyState.Moving))
+        if (target_object != null && !detected_Target && (CurrentState == EnemyState.Moving))
         {
             DetectTarget();
         }
@@ -138,16 +138,16 @@ public class EnemyCharacterController : BaseCharacter
     }
 
     private void DetectTarget(){
-        Vector3 targetPlayer_V3  = new Vector3(targetPlayer.position.x ,targetPlayer.position.y , targetPlayer.position.z );
+        Vector3 target_object_V3  = new Vector3(target_object.position.x ,target_object.position.y , target_object.position.z );
         Vector3 thisObj_V3 = new Vector3( transform.position.x ,transform.position.y , transform.position.z);
 
-        if(Vector3.Distance(thisObj_V3, targetPlayer_V3) < DetectRange)
+        if(Vector3.Distance(thisObj_V3, target_object_V3) < DetectRange)
         {
             //Do something
             detected_Target = true;
             
             CurrentState = EnemyState.GetTarget;   // movePath.StopCoroutines();
-            // movePath.Base_moveToTarget( targetPlayer );
+            // movePath.Base_moveToTarget( target_object );
 
         }else{
             detected_Target = false;
