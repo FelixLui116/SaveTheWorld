@@ -110,9 +110,9 @@ public class Projectile : MonoBehaviour
     public IEnumerator DestroyTimer(float seconds)
     {
         _destroyTime = seconds;
-        Debug.Log("before bulletDestory: " + seconds);
+        // Debug.Log("before bulletDestory: " + seconds);
         yield return new WaitForSeconds(seconds);
-        Debug.Log("after bulletDestory: " );
+        // Debug.Log("after bulletDestory: " );
         // ResetVelocity();
         // poolSystem.poolDictionary[bulletName].Enqueue(gameObject);
         gameObject.SetActive(false);
@@ -120,7 +120,7 @@ public class Projectile : MonoBehaviour
     }
 
     public void DestroyObj(){
-        Debug.Log("Projectile: DestroyObj ");
+        // Debug.Log("Projectile: DestroyObj ");
         if (hitParticles != null){
             CreateHitParaticle();
         }

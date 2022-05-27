@@ -21,6 +21,8 @@ public class EnemyCharacterController : BaseCharacter
     [SerializeField] protected EnemyCollider enemyCollider;
     [SerializeField] private MovePath movePath;
     [SerializeField] protected GameObject coinPrefab;
+
+    [SerializeField] private GameObject lockimage;
     
     // private bool detected_Target = false;
     // [SerializeField] protected  float DetectRange = 10f;
@@ -177,5 +179,9 @@ public class EnemyCharacterController : BaseCharacter
             Debug.Log(" enemy is die need to destory !!!");
             DestroyOjbect(DestroyOjbectTimer);
         }
+    }
+
+    public void Lockimage_Active(bool _On){
+        lockimage.SetActive(_On);
     }
 }

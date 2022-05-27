@@ -213,7 +213,13 @@ public class PlayerCharacterController : BaseCharacter
     
     /// LockTarget_Click
     public void LockTarget_click(){
-        FindClosestEnemy( target_object );
+        // FindClosestEnemy( target_object );
+        // joystickPlayerScript.get_CanRotate = false;
+        // target_object = FindClosestEnemy(target_object);
+        // joystickPlayerScript.get_CanRotate = joystickRotateOject();
+        bool CanRotate = true;
+        FindClosestEnemy(out target_object , out CanRotate );
+        joystickPlayerScript.get_CanRotate = CanRotate;
     }
 
 
@@ -265,6 +271,14 @@ public class PlayerCharacterController : BaseCharacter
             
         }
 
+    }
+
+    private void FixedUpdate() {
+        
+        if (detected_Target == true && target_object != null){
+            Debug.Log("--- Player lock target");
+            RotateToTarget( target_object );
+        }
     }
 
     public void ChangeState(State changeState ){
@@ -338,7 +352,18 @@ public class PlayerCharacterController : BaseCharacter
         
     }
 
-
+   IEnumerator CheckTarget_lock ()
+      {
+        //   while(true){ //makes unity freeze 
+        //       // updatePath = Vector3.Distance(transform.position, target.position) < .3f) ? false : true // Uncomment this line if you want it to stop at a certain distance (.3f). 
+        //       if (updatePath == true) {
+        //           yield return new WaitForSeconds (.2f); // Wait for .2 seconds or 200 miliseconds
+        //           navAgent.SetDestination (target.position);
+        //           Debug.Log ("NavAgent called");
+        //       }
+          yield return null; //So that unity doesn't crash
+        //   }
+      }
 
     // private void GunSkill_func_Add(){
 

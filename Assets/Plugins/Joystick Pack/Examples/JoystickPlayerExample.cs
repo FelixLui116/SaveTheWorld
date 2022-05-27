@@ -20,8 +20,6 @@ public class JoystickPlayerExample : MonoBehaviour
         set 
         {
             enabled = value;
-
-        Debug.Log("~~~ " + value);
             if (enabled)
             {
                 this.enabled = true;
@@ -30,10 +28,28 @@ public class JoystickPlayerExample : MonoBehaviour
             }
         }
     }
+
+    private bool CanRotate = true;
+    public bool get_CanRotate
+    {
+        get => CanRotate;
+        set 
+        {
+            CanRotate = value;
+            Debug.Log("=== CanRotate: " + CanRotate);
+            // if (CanRotate)
+            // {
+            //     CanRotate = true;
+            // }else{
+            //     CanRotate= false;
+            // }
+        }
+    }
+
     private Touch initTouch = new Touch();
 
     private void Awake() {
-         variableJoystick = GameObject.Find("Joystick_L").GetComponent<VariableJoystick>();
+        variableJoystick = GameObject.Find("Joystick_L").GetComponent<VariableJoystick>();
         // variableJoystick = Joystick_L_obj.GetComponent<VariableJoystick>() ;
     }
     public void FixedUpdate()
@@ -67,11 +83,15 @@ public class JoystickPlayerExample : MonoBehaviour
         Angle = Mathf.Rad2Deg * Angle;
         // Angle += MainCamera.eulerAngles.y;
 
-        TargetRotation = Quaternion.Euler(0, Angle, 0);
-        // Debug.Log("TargetRotation: " + TargetRotation);
-        if( !(TargetRotation.x == 0 &&TargetRotation.y == 0 &&TargetRotation.z ==0) ){
-             transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation, rotatespeed * Time.deltaTime);
-       
+        if (CanRotate)
+        {
+            TargetRotation = Quaternion.Euler(0, Angle, 0);
+            // Debug.Log("TargetRotation: " + TargetRotation);
+            if( !(TargetRotation.x == 0 &&TargetRotation.y == 0 &&TargetRotation.z ==0) ){
+                transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation, rotatespeed * Time.deltaTime);
+        
+            }
+            
         }
 
         /// /// rotate

@@ -137,7 +137,7 @@ public class UIContrller : MonoBehaviour
         health_text.text = health_.ToString() + " / "+ health_max.ToString();
         healthBar.color = _hpColor;
         healthBarSlider.value = _Hp;
-        Debug.Log("=== _Hp: " + healthBarSlider.value );
+        // Debug.Log("=== _Hp: " + healthBarSlider.value );
 
         // Effect
         // playerCharacterController.effectPos

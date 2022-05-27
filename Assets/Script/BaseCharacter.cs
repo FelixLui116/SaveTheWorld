@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BaseCharacter : MonoBehaviour
 {
@@ -106,13 +107,25 @@ public class BaseCharacter : MonoBehaviour
             }
         }
     }
-
-    protected void FindClosestEnemy( Transform target_object)
+    // protected bool joystickRotateOject(){
+    //     bool isRotate = true;
+    //     if (true)
+    //     {
+            
+    //     }
+    //     return isRotate;
+    // }
+    protected void FindClosestEnemy(out Transform target_object , out bool isRotate)
     {
+        // Transform target_object = null;
+        target_object = null;
+        isRotate = true;
+
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closest = null;
-        float distance = Mathf.Infinity;
+        // float distance = Mathf.Infinity;
+        float distance = DetectRange;
         Vector3 position = transform.position;
         foreach (GameObject go in gos)
         {
@@ -123,9 +136,25 @@ public class BaseCharacter : MonoBehaviour
                 closest = go;
                 distance = curDistance;
             }
+            // else{
+            //     Debug.Log("== closest " + target_object.name);
+            //     detected_Target = false;
+            // }
         }
-        target_object = closest.transform;
-        Debug.Log(" !! closest " + target_object.name);
+        if ( closest == null){  // || detected_Target == false
+            Debug.Log("== Not target ");
+            detected_Target = false;
+            target_object = null;
+            isRotate = true;
+        }else{
+            Debug.Log("== have target ");
+            detected_Target = true;
+            target_object = closest.transform;
+            Debug.Log("== closest " + target_object.name);
+            
+            isRotate = false;
+            // return target_object;
+        }
     }
 
     // can be  oneFunction 
@@ -253,6 +282,10 @@ public class BaseCharacter : MonoBehaviour
         floatingTextClone.transform.position = transform.position;
         // floatingTextClone.transform.position =  new Vector2 (transform.position.x + Random.Range(-0.5f, 0.5f) , transform.position.y  );
         floatingTextClone.GetComponent<FloatingText>().SetText(_string);
+    }
+    
+    public void RotateToTarget( Transform _target , float rotateSpeed  = 1.0f){
+        Tween t = this.gameObject.transform.DOLookAt(new Vector3(_target.position.x, _target.position.y, _target.position.z), rotateSpeed , AxisConstraint.Y , Vector3.up);
     }
 
 }
