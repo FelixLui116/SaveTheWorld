@@ -37,6 +37,8 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected  float DetectRange = 10f;
     protected Transform target_object;
     
+    protected Transform target_object_last;
+    
     protected bool detected_Target = false;
 
     public int Current_health
@@ -142,16 +144,25 @@ public class BaseCharacter : MonoBehaviour
             // }
         }
         if ( closest == null){  // || detected_Target == false
-            Debug.Log("== Not target ");
             detected_Target = false;
-            target_object = null;
+            
+            if (target_object_last != null){
+                Debug.Log("==== A ");
+                EnemyCharacterController ec = target_object.gameObject.GetComponent<EnemyCharacterController>();
+                ec.Lockimage_Active(false);
+            }else{
+                Debug.Log("==== B ");
+                target_object_last = null;
+            }
             isRotate = true;
         }else{
-            Debug.Log("== have target ");
+            // Debug.Log("== have target ");
             detected_Target = true;
             target_object = closest.transform;
+            EnemyCharacterController ec = target_object.GetComponent<EnemyCharacterController>();
+            ec.Lockimage_Active(true);
             Debug.Log("== closest " + target_object.name);
-            
+            target_object_last = target_object;
             isRotate = false;
             // return target_object;
         }

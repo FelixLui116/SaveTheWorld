@@ -402,7 +402,7 @@ MonoBehaviour:
   movePath: {fileID: 4235110599463979560}
   coinPrefab: {fileID: 1490024841198276204, guid: 6a0f01df6fd749b4ead8025d94c107a0,
     type: 3}
-  lockimage: {fileID: 0}
+  lockimage: {fileID: 4399262907660070778}
 --- !u!114 &4235110599463979560
 MonoBehaviour:
   m_ObjectHideFlags: 0

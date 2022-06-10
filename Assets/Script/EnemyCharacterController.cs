@@ -182,6 +182,8 @@ public class EnemyCharacterController : BaseCharacter
     }
 
     public void Lockimage_Active(bool _On){
+        if (lockimage == null){ return; }
+        Debug.Log("== in lockimage Active: " + _On);
         lockimage.SetActive(_On);
     }
 }

@@ -220,6 +220,7 @@ public class PlayerCharacterController : BaseCharacter
         bool CanRotate = true;
         FindClosestEnemy(out target_object , out CanRotate );
         joystickPlayerScript.get_CanRotate = CanRotate;
+        
     }
 
 
@@ -276,7 +277,7 @@ public class PlayerCharacterController : BaseCharacter
     private void FixedUpdate() {
         
         if (detected_Target == true && target_object != null){
-            Debug.Log("--- Player lock target");
+            // Debug.Log("--- Player lock target");
             RotateToTarget( target_object );
         }
     }
