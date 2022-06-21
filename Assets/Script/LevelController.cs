@@ -81,6 +81,18 @@ public class LevelController : MonoBehaviour
         GlobalManager.Instance.SaveIntoJson();
     }
 
+    public void savePoint_BasePlayerInform ( ){
+        PlayerCharacterController pc = playerObject.GetComponent<PlayerCharacterController>();
+        
+        GlobalManager.Instance._PlayerData.player_Position = playerObject.transform.position;
+        GlobalManager.Instance._PlayerData.money = pc.Coin;
+        GlobalManager.Instance._PlayerData.playerHP = pc.Current_health;
+
+        Debug.Log("PC position:" + playerObject.transform.position +" || "+pc.Coin+" || "+ pc.Current_health);
+        GlobalManager.Instance.SaveIntoJson();
+    }
+
+
     public void Load_SaveData(){
         GlobalManager.Instance.LoadJson();
         var PlayerData = GlobalManager.Instance._PlayerData;

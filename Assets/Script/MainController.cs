@@ -55,6 +55,9 @@ public class MainController : MonoBehaviour
         // newGame
     }
 
+    public void SavePlayinfo_Test(){      // is working
+        GlobalManager.Instance.SaveIntoJson();
+    }
     public void ChangePlayinfo(){      // is working
         GlobalManager.Instance._PlayerData.money = 22222;
     }

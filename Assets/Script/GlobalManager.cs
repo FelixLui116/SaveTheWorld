@@ -59,6 +59,8 @@ public class GlobalManager : MonoBehaviour
     [SerializeField] public PlayerData _PlayerData = new PlayerData();
 
     public void SaveIntoJson(){
+        // Debug.Log( "PC: "+ _PlayerData.playerHP);
+        // Debug.Log( "PC: "+ _PlayerData.money);
         string potion = JsonUtility.ToJson(_PlayerData);
         System.IO.File.WriteAllText(Application.dataPath + path, potion);
         // System.IO.File.WriteAllText(Application.dataPath+"/JSON/SaveDate.json", potion);
@@ -80,6 +82,7 @@ public class GlobalManager : MonoBehaviour
         JsonUtility.FromJsonOverwrite(jsonString, _PlayerData);
         Debug.Log( "playerHP: "+ _PlayerData.playerHP);
         Debug.Log( "playerMoney: "+ _PlayerData.money);
+        Debug.Log( "player position: "+ _PlayerData.player_Position);
      
     }
 
@@ -95,6 +98,7 @@ public class GlobalManager : MonoBehaviour
         public int playerHP;
         public int money;
         public string player_Level;
+        public Vector3 player_Position;
         public List<Skill> skill = new List<Skill>();
         public List<Effect> effect = new List<Effect>();
         public List<Effect> level = new List<Effect>();
