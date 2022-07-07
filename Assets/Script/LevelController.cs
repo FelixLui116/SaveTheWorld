@@ -84,6 +84,9 @@ public class LevelController : MonoBehaviour
     public void savePoint_BasePlayerInform ( ){
         PlayerCharacterController pc = playerObject.GetComponent<PlayerCharacterController>();
         
+        if (GlobalManager.Instance == null){    Debug.LogError("Error: GlobalManager_Instance");
+            return;
+        }
         GlobalManager.Instance._PlayerData.player_Position = playerObject.transform.position;
         GlobalManager.Instance._PlayerData.money = pc.Coin;
         GlobalManager.Instance._PlayerData.playerHP = pc.Current_health;
@@ -94,6 +97,9 @@ public class LevelController : MonoBehaviour
 
 
     public void Load_SaveData(){
+        if (GlobalManager.Instance == null){    Debug.LogError("Error: GlobalManager_Instance");
+            return; 
+        }
         GlobalManager.Instance.LoadJson();
         var PlayerData = GlobalManager.Instance._PlayerData;
         uIContrller.playerCharacterController.Coin = PlayerData.money;

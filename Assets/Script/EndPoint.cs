@@ -79,7 +79,8 @@ public class EndPoint : MonoBehaviour
                 break;
             case TeleportType.toScene:
                 Debug.Log(" TeleportType.toScene");
-                if (ToScene == null){
+                if (ToScene == null || GlobalManager_Instance == null){
+                    Debug.LogError(" No ToScene ||  GlobalManager_Instance");
                     return;
                 }
                 GlobalManager_Instance.loadSceneAsync(ToScene);
