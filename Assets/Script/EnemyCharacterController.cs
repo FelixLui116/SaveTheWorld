@@ -105,6 +105,7 @@ public class EnemyCharacterController : BaseCharacter
                 if (detected_Target == false)   // end of shooting check the target in the side
                 {
                     CurrentState = EnemyState.Idle;  
+                    baseGun.Cancel_GunEff();
                 }else{
 
                 }

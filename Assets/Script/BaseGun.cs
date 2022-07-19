@@ -48,6 +48,8 @@ public class BaseGun : MonoBehaviour
 
     [Header("Shooting Effect")]
     public GameObject Eff_PowerDraw; 
+    [SerializeField] protected float start_delay;
+    [SerializeField] protected float eff_duration;
 
     [Header("UI")]
     [SerializeField] protected GameObject popupPrefab;
@@ -82,7 +84,7 @@ public class BaseGun : MonoBehaviour
             if(CurrentAmmo > 0){
                 
                 Debug.Log("=== shootingBullet!!! ");
-        StartCoroutine(WaitForFire());
+                StartCoroutine(WaitForFire());
                 // CurrentAmmo--; 
                 // CurrentAmmo -= Shooting_point.Length;
 
@@ -128,6 +130,7 @@ public class BaseGun : MonoBehaviour
     private IEnumerator WaitForFire()
     {
         // yield return new WaitForSeconds(60 / (FireRate * 60));
+        
         CloneDelayEffect();
         yield return new WaitForSeconds(FireRate);
         CanFire = true;
@@ -145,9 +148,16 @@ public class BaseGun : MonoBehaviour
         if (Eff_PowerDraw == null){
             return;
         }
+
         GameObject Eff_clone = Instantiate(Eff_PowerDraw ,Shooting_point[0].transform );
+        Eff_clone.name = "GunFireEffect";
         ParticleSystem Eff_clone_PS = Eff_clone.GetComponent<ParticleSystem>();
         var main = Eff_clone_PS.main;
+        main.startDelay = start_delay;
+        if(eff_duration != 0){
+            main.duration = eff_duration;
+        }
+
         main.loop = false;
     }
 
@@ -322,6 +332,14 @@ public class BaseGun : MonoBehaviour
         if (popupInfoPanel !=null)
         {
             popupInfoPanel.DestroyTimer();
+        }
+    }
+
+    public void Cancel_GunEff(){
+        for (int i = 0; i < Shooting_point[0].transform.childCount ; i++)
+        {
+            // Shooting_point[0].transform.GetChild(i).gameObject;
+            Destroy(Shooting_point[0].transform.GetChild(i).gameObject);
         }
     }
 
