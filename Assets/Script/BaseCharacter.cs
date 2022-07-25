@@ -25,7 +25,7 @@ public class BaseCharacter : MonoBehaviour
 
     public CharacterController characterController;
     // [SerializeField] protected Transform putGunPos;
-    [SerializeField] protected float DestroyOjbectTimer = 0.0f;
+    [SerializeField] protected float DestroyObjectTimer = 0.0f;
     // public LevelController levelController;  
     [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected AudioClip HitAudio;
@@ -35,9 +35,9 @@ public class BaseCharacter : MonoBehaviour
 
     [Header("LockTraget")]
     [SerializeField] protected  float DetectRange = 10f;
-    protected Transform target_object;
+    [SerializeField] protected Transform target_object;
     
-    protected Transform target_object_last;
+     [SerializeField] protected Transform target_object_last;
     
     protected bool detected_Target = false;
 
@@ -120,6 +120,8 @@ public class BaseCharacter : MonoBehaviour
     protected void FindClosestEnemy(out Transform target_object , out bool isRotate)
     {
         // Transform target_object = null;
+        
+        Debug.Log("=== FindClosestEnemy");
         target_object = null;
         isRotate = true;
 
@@ -145,25 +147,24 @@ public class BaseCharacter : MonoBehaviour
             //     detected_Target = false;
             // }
         }
+        
+        Debug.Log("=== FindClosestEnemy" + closest + " || " + target_object);
         if ( closest == null){  // || detected_Target == false
             detected_Target = false;
             
-            if (target_object_last != null){
-                Debug.Log("==== A ");
-                ec = target_object.gameObject.GetComponent<EnemyCharacterController>();
+            if (target_object_last != null ){
+                ec = target_object_last.gameObject.GetComponent<EnemyCharacterController>();
                 ec.Lockimage_Active(false);
             }else{
-                Debug.Log("==== B ");
                 target_object_last = null;
             }
             isRotate = true;
         }else{
-            Debug.Log("==== C ");
 
             if (target_object_last != null){
-                Debug.Log("==== D ");
                 ec = target_object_last.gameObject.GetComponent<EnemyCharacterController>();
                 ec.Lockimage_Active(false);
+                isRotate = true;
             }
             // ec= target_object_last.GetComponent<EnemyCharacterController>();
             // Debug.Log("== have target ");
@@ -197,7 +198,7 @@ public class BaseCharacter : MonoBehaviour
         // if (Current_health == 0)
         // {
         //     Debug.Log(" enemy is die need to destory !!!");
-        //     DestroyOjbect(DestroyOjbectTimer);
+        //     DestroyObject(DestroyObjectTimer);
         // }
     }
 
@@ -292,7 +293,7 @@ public class BaseCharacter : MonoBehaviour
         weapon.transform.localEulerAngles = Vector3.zero;               // reset rotation
     }
 
-    protected void DestroyOjbect (float timer = 0.0f) {
+    protected void DestroyObject (float timer = 0.0f) {
         Destroy(this.gameObject);  
     }
 

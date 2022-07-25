@@ -50,6 +50,17 @@ public class PlayerCharacterController : BaseCharacter
         set { canSwitchWeapon = value; }
     }
 
+    
+    // public Transform Get_target_object_clean
+    // {
+    //     get => target_object;
+    //     set { 
+    //         target_object = value;
+    //         target_object_last = value;
+    //         Debug.Log("--- get target:" + target_object + " // "+ target_object_last);
+    //     }
+    // }
+
     private State _state = State.Normal;
     // private State state;
     private State state
@@ -217,6 +228,8 @@ public class PlayerCharacterController : BaseCharacter
         // joystickPlayerScript.get_CanRotate = false;
         // target_object = FindClosestEnemy(target_object);
         // joystickPlayerScript.get_CanRotate = joystickRotateOject();
+        
+        Debug.Log("--- get target:" + target_object + " // "+ target_object_last);
         bool CanRotate = true;
         FindClosestEnemy(out target_object , out CanRotate );
         joystickPlayerScript.get_CanRotate = CanRotate;
@@ -301,7 +314,7 @@ public class PlayerCharacterController : BaseCharacter
         {
             ApplyPlayerDie?.Invoke();
             Debug.Log(" Player is die need to destory !!!");
-            DestroyOjbect(DestroyOjbectTimer);
+            DestroyObject(DestroyObjectTimer);
         }
     }
 
@@ -349,8 +362,13 @@ public class PlayerCharacterController : BaseCharacter
         //     // animator.SetBool( "IdleGun" , true);
         // }else{
             animator.SetBool( "IsMoving" , false);
-        // }
-        
+        // }   
+    }
+
+    public void target_object_clean(){
+        joystickPlayerScript.get_CanRotate = true;
+        target_object = null;
+        target_object_last = null;
     }
 
    IEnumerator CheckTarget_lock ()

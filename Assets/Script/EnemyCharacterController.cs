@@ -77,7 +77,7 @@ public class EnemyCharacterController : BaseCharacter
     }
 
     private void EnemyStateChangedEvent(EnemyState state){
-        Debug.Log(" Enemy state: " + state);
+        // Debug.Log(" Enemy state: " + state);
         switch (state)
         {
             case EnemyState.Moving:
@@ -86,7 +86,7 @@ public class EnemyCharacterController : BaseCharacter
             case EnemyState.Rotate:
                 break;
             case EnemyState.GetTarget:
-                Debug.Log("--- GetTarget:");
+                // Debug.Log("--- GetTarget:");
                 // movePath.StopCoroutines();
 
                 movePath.KillAllAction();
@@ -177,8 +177,15 @@ public class EnemyCharacterController : BaseCharacter
         if (Current_health <= 0)
         {
             CreateCoin();
+            
+            PlayerCharacterController pc = target_object.gameObject.GetComponent<PlayerCharacterController>();
+            // pc.Get_target_object_clean = null;
+            pc.target_object_clean();
+            // pc.LockTarget_click();
+
             Debug.Log(" enemy is die need to destory !!!");
-            DestroyOjbect(DestroyOjbectTimer);
+            DestroyObject(DestroyObjectTimer);
+            // this.gameObject.SetActive(false);
         }
     }
 

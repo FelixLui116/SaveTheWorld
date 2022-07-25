@@ -83,14 +83,14 @@ public class BaseGun : MonoBehaviour
         if(CanFire){
             if(CurrentAmmo > 0){
                 
-                Debug.Log("=== shootingBullet!!! ");
+                // Debug.Log("=== shootingBullet!!! ");
                 StartCoroutine(WaitForFire());
                 // CurrentAmmo--; 
                 // CurrentAmmo -= Shooting_point.Length;
 
                 if(audioSource != null){
                     audioSource.clip = fireAudio;
-                    Debug.Log("===audioSource play !!! ");
+                    // Debug.Log("===audioSource play !!! ");
                     audioSource.Play();
                 }
                 
