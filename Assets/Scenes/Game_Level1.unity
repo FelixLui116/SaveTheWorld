@@ -1766,6 +1766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Sword_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1565935239740110, guid: 4d5e45013e2bb8042b0207cf4a203289, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 4508267963687044, guid: 4d5e45013e2bb8042b0207cf4a203289, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1908,6 +1912,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6af98424eec7ef459a66398b4332b72, type: 3}
+--- !u!1 &179262590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1565935239740110, guid: 4d5e45013e2bb8042b0207cf4a203289,
+    type: 3}
+  m_PrefabInstance: {fileID: 158220013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &179262593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179262590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861862d31367e3a419991553fc25f08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmmoColor: 0
+  trailColor: 0
+  Shooting_point: []
+  Bullet: {fileID: 0}
+  FireFlash: {fileID: 0}
+  Holder: 
+  weaponTpye: 2
+  isKeepShooting: 0
+  WeaponDamage: 0
+  FireRate: 0.5
+  BulletSpeed: 0
+  BulletRange: 0
+  BulletDestoryTime: 0
+  FireDelay: 0
+  ReloadWeapon_time: 1
+  TotalAmmo: 0
+  CurrentAmmo: 1
+  BulletLimit: 1
+  Ammo: 100
+  Eff_PowerDraw: {fileID: 0}
+  start_delay: 0
+  eff_duration: 0
+  popupPrefab: {fileID: 1272861574893498752, guid: 858a6496d9efe4ce3bdfa8d48bdba857,
+    type: 3}
+  Crosshair: {fileID: 0}
+  WeaponImg: {fileID: 0}
+  WeaponImg_Disable: {fileID: 0}
+  reloadAudio: {fileID: 0}
+  fireAudio: {fileID: 0}
+  skill_text: 
+  canPassThrough: 0
+  gunSkill_on: 0
+--- !u!64 &179262594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179262590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 925369924deda464aad5f6f3226e02c2, type: 3}
+--- !u!136 &179262597
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179262590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.24
+  m_Height: 1.2221622
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.51306736, z: 0.03829307}
 --- !u!4 &197282626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4310970724085748, guid: faef3979cb833bd418b09d6b70c540d0,

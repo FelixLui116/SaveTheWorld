@@ -104,7 +104,7 @@ public class BaseCharacter : MonoBehaviour
             if(baseGun != null ){ 
                 if (baseGun.CanFire_get)
                 {
-                    baseGun.shooting_func();
+                    baseGun.attack_func();
                 }
             }
         }

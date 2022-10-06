@@ -18,7 +18,7 @@ public class TestOnly : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))      // Test Function
         {
-            pistolShoot.shooting_func();
+            pistolShoot.attack_func();
         }
     }
 

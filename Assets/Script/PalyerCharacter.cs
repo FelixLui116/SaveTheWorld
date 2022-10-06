@@ -17,7 +17,7 @@ public class PlayerCharacter : BaseCharacter
         {
             // print("space key was pressed");
             if(baseGun != null ){
-                // baseGun.shooting_func();
+                // baseGun.attack_func();
             }
         }
     

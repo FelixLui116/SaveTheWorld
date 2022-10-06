@@ -97,7 +97,7 @@ public class EnemyCharacterController : BaseCharacter
                 break;
             case EnemyState.Shooting:
 
-                baseGun.shooting_func();
+                baseGun.attack_func();
                 detected_Target = false;
 
                 
@@ -135,7 +135,7 @@ public class EnemyCharacterController : BaseCharacter
 
         if (Input.GetKeyDown("space"))      // Test Function
         {
-            baseGun.shooting_func();
+            baseGun.attack_func();
             // FloatingTextController.CreateFloatingText( "Hello" , transform);
         }
     }

@@ -21,7 +21,7 @@ public class BaseGun : MonoBehaviour
     public GameObject FireFlash;
     public String Holder = "";      // put player / enemy   player Comtroller  using tag or string
 
-    public enum WeaponTpye { Pistol, ShotGun }   
+    public enum WeaponTpye { Pistol, ShotGun, Melee}   
     public WeaponTpye weaponTpye;
 
     // public Text ShootingType; 
@@ -79,7 +79,7 @@ public class BaseGun : MonoBehaviour
 
     private GunInfoPanel popupInfoPanel;
     
-    public void shooting_func(){
+    public void attack_func(){
         if(CanFire){
             if(CurrentAmmo > 0){
                 
@@ -99,11 +99,17 @@ public class BaseGun : MonoBehaviour
                     multShoot = true;
                 }
                     // Debug.Log("==== multShoot:" + multShoot);
-                for (int i = 0; i < Shooting_point.Length; i++){
-                    CurrentAmmo --;
-                    // Debug.Log("==== CurrentAmmo:" + CurrentAmmo);
-                    shootingBullet(BulletSpeed , BulletRange, BulletDestoryTime ,CurrentAmmo, multShoot);
+                if (weaponTpye == WeaponTpye.Melee){ //WeaponTpye.Melee
+                    Attack_Melee();
+                    // Debug.Log("!!! weaponTpye:" + weaponTpye);
+                }else{
+                    for (int i = 0; i < Shooting_point.Length; i++){
+                        CurrentAmmo --;
+                        // Debug.Log("==== CurrentAmmo:" + CurrentAmmo);
+                        shootingBullet(BulletSpeed , BulletRange, BulletDestoryTime ,CurrentAmmo, multShoot);
+                    }
                 }
+                
 
 
                 if (CurrentAmmo == 0)   // No Ammo Auto reload
@@ -139,7 +145,7 @@ public class BaseGun : MonoBehaviour
 
         if (isKeepShooting)
         {
-            shooting_func();
+            attack_func();
         }
     }
 
@@ -205,7 +211,7 @@ public class BaseGun : MonoBehaviour
             }
 
             if (isKeepShooting){
-                // shooting_func();
+                // attack_func();
             }
            
         
@@ -377,6 +383,10 @@ public class BaseGun : MonoBehaviour
         // instance.transform.SetParent(dialogLayer.transform, false);
         // instance.transform.position = screenPosition;
         // instance.SetText(text);
+    }
+
+    public virtual void Attack_Melee(){
+
     }
 
     // public void ActiveGunSkill(Button Btn){
