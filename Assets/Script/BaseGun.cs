@@ -369,7 +369,7 @@ public class BaseGun : MonoBehaviour
 
         popupInfoPanel = gunInfoPanel;
 
-        gunInfoPanel.updateInfoText( weaponTpye.ToString() , WeaponDamage.ToString() , skill_text );
+        gunInfoPanel.updateInfoText( weaponTpye.ToString() , WeaponDamage.ToString(), ReloadWeapon_time.ToString() , skill_text );
         
 
         // GameObject popupClone = Instantiate(popupPrefab);

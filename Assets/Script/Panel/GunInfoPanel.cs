@@ -8,6 +8,7 @@ public class GunInfoPanel : BasePanel
     // Start is called before the first frame update
     [SerializeField] private Text typeName;
     [SerializeField] private Text damage;
+    [SerializeField] private Text reloadShoot;
     private float DestroyTime = 0.2f; // delay
     [SerializeField] private Transform AbiliyParent;
     [SerializeField] private GameObject elementClone;
@@ -25,10 +26,11 @@ public class GunInfoPanel : BasePanel
         
     }
 
-    public void updateInfoText(string typeName_ = "" , string damage_ = "" , string skill_text = ""){
+    public void updateInfoText(string typeName_ = "" , string damage_ = "", string reloadShoot_ = "", string skill_text = ""){
         typeName.text = typeName_;
         damage.text = damage_;
 
+        reloadShoot.text = reloadShoot_ +"s";
             // Instantiate( elementClone , AbiliyParent);
         // if (skill_text != ""){
             
