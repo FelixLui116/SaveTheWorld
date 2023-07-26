@@ -35,4 +35,9 @@ public class Skill_1 : MonoBehaviour
         // yield return new WaitForSeconds(destroyTime);
         Destroy(this.gameObject , destroyTime);
     }
+    // build a object can shot to target
+    public void CreatePoolSkill(GameObject taegetObject, Transform targetTF , Vector3 addPosV3 ,GameObject parent ){
+
+    }
+
 }

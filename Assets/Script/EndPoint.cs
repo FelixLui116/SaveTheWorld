@@ -13,6 +13,11 @@ public class EndPoint : MonoBehaviour
 
     [SerializeField] private GameObject [] effect;
 
+    // Awake
+    private void Awake() {
+        
+    }
+
     void Start()
     {   
         // change color
