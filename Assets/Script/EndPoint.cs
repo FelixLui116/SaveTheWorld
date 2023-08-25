@@ -9,7 +9,7 @@ public class EndPoint : MonoBehaviour
     public TeleportType teleport_type;
     public Transform ToPosition;
     public string ToScene = "MainScenes";
-    public static GlobalManager GlobalManager_Instance;
+    public static GlobalManager GlobalManager;
 
     [SerializeField] private GameObject [] effect;
 
@@ -84,11 +84,11 @@ public class EndPoint : MonoBehaviour
                 break;
             case TeleportType.toScene:
                 Debug.Log(" TeleportType.toScene");
-                if (ToScene == null || GlobalManager_Instance == null){
-                    Debug.LogError(" No ToScene ||  GlobalManager_Instance");
+                if (ToScene == null || GlobalManager.Instance == null){
+                    Debug.LogError($"ToScene: {ToScene} || GlobalManager_Instance: {GlobalManager.Instance}");
                     return;
                 }
-                GlobalManager_Instance.loadSceneAsync(ToScene);
+                GlobalManager.Instance.loadSceneAsync(ToScene);
                 break;
             default:
                 break;
